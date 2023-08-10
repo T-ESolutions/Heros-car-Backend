@@ -10,12 +10,14 @@ class Screen extends Model
     use HasFactory;
 
     protected $fillable = [
+        'type',
+        'active',
+        'is_offer',
         'title_ar',
         'title_en',
         'body_ar',
         'body_en',
         'image',
-        'active',
     ];
 
     protected $appends = ['title', 'body'];

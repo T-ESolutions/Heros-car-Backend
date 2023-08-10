@@ -14,6 +14,7 @@ class Modell extends Model
         'title_en',
         'brand_id',
         'active',
+        'image',
     ];
 
     protected $appends = ['title'];

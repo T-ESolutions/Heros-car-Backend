@@ -7,19 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContactUs extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'phone',
         'email',
         'message',
-        'writer_type',
-        'writer_id',
+        'is_read',
     ];
-
-    use HasFactory;
-
-    public function writer()
-    {
-        return $this->morphTo();
-    }
 }

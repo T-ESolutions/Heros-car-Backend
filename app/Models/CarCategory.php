@@ -11,19 +11,11 @@ class CarCategory extends Model
 
     protected $fillable = [
         'title',
-        'active',
+        'start_price',
+        'min_price',
+        'km_price',
+        'wait_price',
     ];
-
-    protected $appends = ['title'];
-
-    public function getTitleAttribute()
-    {
-        if (\app()->getLocale() == "ar") {
-            return $this->title_ar;
-        } else {
-            return $this->title_en;
-        }
-    }
 
     public function scopeActive($query)
     {

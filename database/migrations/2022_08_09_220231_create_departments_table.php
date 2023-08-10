@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('parent_id')->unsigned()->nullable();
-            $table->string('title_ar')->nullable();
-            $table->string('title_en')->nullable();
-            $table->string('body_ar')->nullable();
-            $table->string('body_en')->nullable();
-            $table->string('image')->nullable();
+            $table->string('title_ar');
+            $table->string('title_en');
+            $table->string('body_ar');
+            $table->string('body_en');
+            $table->string('image')->comment('image');
             $table->tinyInteger('active')->default(1);
-            $table->tinyInteger('locations_num')->comment("2 or 3")->default(2);
+            $table->tinyInteger('locations_num')->comment("How many ? 2 or 3")->default(2);
             $table->timestamps();
         });
     }

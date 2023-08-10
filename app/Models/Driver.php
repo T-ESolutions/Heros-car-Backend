@@ -19,19 +19,19 @@ class Driver extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
+        'parent_id',
         'name',
         'email',
         'phone',
         'password',
-        'rate',
         'image',
-        'social_id',
-        'social_type',
+        'driver_licence_image',
+        'id_number',
+        'gender',
+        'fcm_token',
+        'rate',
         'active',
         'suspend',
-        'fcm_token',
-        'email_verified_at',
-        'fcm_token',
     ];
 
     /**

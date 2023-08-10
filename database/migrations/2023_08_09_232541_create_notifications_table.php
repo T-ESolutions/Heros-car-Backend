@@ -21,6 +21,7 @@ class CreateNotificationsTable extends Migration
             $table->text('body_en');
             $table->bigInteger('trip_id')->nullable();
             $table->bigInteger('trip_request_id')->nullable();
+            $table->string('image')->comment('image')->nullable();
             $table->morphs('from');
             $table->morphs('to');
             $table->tinyInteger('is_seen')->default(0);

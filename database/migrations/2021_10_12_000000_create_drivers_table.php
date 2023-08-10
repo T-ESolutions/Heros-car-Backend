@@ -16,12 +16,12 @@ class CreateDriversTable extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('parent_id')->unsigned()->nullable();
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('email', 255)->unique()->nullable();
-            $table->string('phone')->unique()->nullable();
+            $table->string('phone')->unique();
             $table->string('password')->nullable();
-            $table->string('image')->nullable();
-            $table->string('licence_image')->nullable();
+            $table->string('image')->comment('image');
+            $table->string('driver_licence_image')->comment('image');
             $table->string('id_number')->unique()->nullable();
             $table->enum('gender', ['male', 'female'])->default('male');
             $table->text('fcm_token')->nullable();
