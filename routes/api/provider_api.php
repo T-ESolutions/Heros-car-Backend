@@ -1,0 +1,56 @@
+<?php
+
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\Provider\AuthController;
+use App\Http\Controllers\Api\V1\Provider\OrdersController;
+use App\Http\Controllers\Api\V1\Provider\ReviewController;
+
+
+Route::group([
+    'prefix' => "V1/provider",
+    'namespace' => 'V1',
+    'middleware' => 'assign.guard:providers'
+], function () {
+    Route::group(['prefix' => "auth"], function () {
+        //auth
+        Route::post('/login', [AuthController::class, 'login']);
+        Route::post('/sign-up', [AuthController::class, 'signUp']);
+        Route::post('/forget-password', [AuthController::class, 'forgetPassword']);
+        Route::post('/verify', [AuthController::class, 'verify']);
+        Route::post('/resend-code', [AuthController::class, 'resendCode']);
+        Route::post('/social-login', [AuthController::class, 'socialLogin']);
+    });
+//    'auth:api', 'check_active'
+    Route::group(['middleware' => ['check_provider_active']], function () {
+        Route::group(['prefix' => "auth"], function () {
+            Route::get('/logout', [AuthController::class, 'logout']);
+            Route::post('/change-password', [AuthController::class, 'changePassword']);
+
+            Route::post('/delete-account', [AuthController::class, 'deleteAccount']);
+            Route::get('/profile', [AuthController::class, 'profile']);
+            Route::post('/profile/update', [AuthController::class, 'updateProfile']);
+
+        });
+        Route::group(['prefix' => "orders"], function () {
+            Route::get('/', [OrdersController::class, 'myOrders']);
+            Route::get('/details', [OrdersController::class, 'orderDetails']);
+            Route::get('/home', [OrdersController::class, 'home']);
+            Route::post('/accept', [OrdersController::class, 'acceptOrder']);
+            Route::post('/reject', [OrdersController::class, 'rejectOrder']);
+            Route::post('/update-status', [OrdersController::class, 'updateStatus']);
+            Route::post('/take-car-live-photos', [OrdersController::class, 'takeCarLivePhotos']);
+            Route::post('/add-extra-services', [OrdersController::class, 'addExtraServices']);
+
+            Route::get('/order-questions', [OrdersController::class, 'orderQuestions']);
+            Route::post('/accept-reject-order-question', [OrdersController::class, 'acceptRejectOrderQuestion']);
+        });
+
+        //Reviews
+        Route::group(['prefix' => "reviews"], function () {
+            Route::post('/create', [ReviewController::class, 'makeUserReviews']);
+        });
+    });
+
+
+});
