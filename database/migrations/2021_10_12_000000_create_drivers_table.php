@@ -25,7 +25,7 @@ class CreateDriversTable extends Migration
             $table->string('id_number')->unique()->nullable();
             $table->enum('gender', ['male', 'female'])->default('male');
             $table->text('fcm_token')->nullable();
-            $table->double('rate')->nullable();
+            $table->double('rate')->default(0);
             $table->tinyInteger('active')->default(0)->comment('0->unactive and 1->Active');
             $table->tinyInteger('suspend')->default(0)->comment('0->unsuspended and 1->suspended');
             $table->timestamp('email_verified_at')->nullable();
