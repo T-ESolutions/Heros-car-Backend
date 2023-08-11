@@ -18,7 +18,7 @@ class Trip extends Model
         'trip_time_from',
         'trip_time_to',
         'chairs',
-        'air',
+        'air_cond',
         'bags',
         'from_lat',
         'from_lng',

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->time('trip_time_from');
             $table->time('trip_time_to');
             $table->integer('chairs');
-            $table->tinyInteger('air')->default(0);
+            $table->tinyInteger('air_cond')->default(0);
             $table->tinyInteger('bags')->default(0);
             $table->string('from_lat');
             $table->string('from_lng');

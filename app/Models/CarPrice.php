@@ -10,13 +10,10 @@ class CarPrice extends Model
     use HasFactory;
 
     protected $fillable=[
+        'car_category_id',
         'department_id',
         'brand_id',
         'modell_id',
         'factory_year',
-        'start_price',
-        'min_price',
-        'km_price',
-        'wait_price',
     ];
 }
