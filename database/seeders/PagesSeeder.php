@@ -24,16 +24,7 @@ class PagesSeeder extends Seeder
      */
     public function run()
     {
-//        Admin
-        if (!Admin::find(1)) {
-            Admin::updateOrCreate([
-                'id' => 1,
-                'name' => 'admin',
-                'email' => 'admin@admin.com',
-                'password' => '123456',
-                'phone' => '123456',
-            ]);
-        }
+
 
 //users table
         if (!User::find(1)) {
@@ -48,18 +39,6 @@ class PagesSeeder extends Seeder
             ]);
         }
 
-        //providers table
-        if (!Provider::find(1)) {
-            Provider::updateOrCreate([
-                'id' => 1,
-                'name' => 'provider',
-                'email' => 'provider@gmail.com',
-                'password' => '123456',
-                'country_code' => '+20',
-                'phone' => '1111651415',
-                'user_phone' => '+201111651415',
-            ]);
-        }
         $data = [
             [
                 'title_ar' => 'الشروط والاحكام',
@@ -91,89 +70,9 @@ class PagesSeeder extends Seeder
             Page::updateOrCreate($get);
         }
 
-        $car_category_data = [
-            [
-                'title_ar' => 'سيارات شعبية',
-                'title_en' => 'local cars',
 
-            ],
-            [
-                'title_ar' => 'سيارات متوسطه',
-                'title_en' => 'Average cars',
 
-            ],
-            [
-                'title_ar' => 'سيارات فارهه',
-                'title_en' => 'Luxury cars',
-            ],
-            [
-                'title_ar' => 'دراجه نارية',
-                'title_en' => 'Motorcycle',
-            ],
 
-        ];
-        foreach ($car_category_data as $get) {
-            CarCategory::updateOrCreate($get);
-        }
-
-        $brands_data = [
-            [
-                'title_ar' => 'BMW',
-                'title_en' => 'BMW',
-
-            ],
-            [
-                'title_ar' => 'هيونداي',
-                'title_en' => 'hundai',
-
-            ],
-            [
-                'title_ar' => 'فيات',
-                'title_en' => 'fiat',
-            ],
-            [
-                'title_ar' => 'لانسر',
-                'title_en' => 'lansaer',
-            ],
-
-        ];
-        foreach ($brands_data as $get) {
-            $brand = Brand::updateOrCreate($get);
-            if ($brand) {
-                $modells = [
-                    [
-                        'title_ar' => '1651',
-                        'title_en' => '1651',
-                        'brand_id' => $brand->id,
-                    ],
-                    [
-                        'title_ar' => '2581',
-                        'title_en' => '2581',
-                        'brand_id' => $brand->id,
-                    ],
-                ];
-                foreach ($modells as $row) {
-                    $modell = Modell::updateOrCreate($row);
-
-                    if ($modell) {
-                        $years = [
-                            [
-                                'year' => '2020',
-
-                                'modell_id' => $modell->id,
-                            ],
-                            [
-                                'year' => '2022',
-                                'modell_id' => $modell->id,
-                            ],
-                        ];
-                        foreach ($years as $year_row) {
-                            ModellYear::updateOrCreate($year_row);
-                        }
-                    }
-                }
-            }
-        }
 //        cancel_reasons
         $cancel_reasons_data = [
             [

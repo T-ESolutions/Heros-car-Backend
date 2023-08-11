@@ -66,16 +66,34 @@ class Driver extends Authenticatable implements JWTSubject
         if (!empty($image)) {
             return asset('uploads/drivers') . '/' . $image;
         }
-        return asset('uploads/default.jpg');
+        return asset('defaults/user_default.png');
     }
 
     public function setImageAttribute($image)
     {
         if (is_file($image)) {
-            $img_name = upload($image, 'users');
+            $img_name = upload($image, 'drivers');
             $this->attributes['image'] = $img_name;
         } else {
             $this->attributes['image'] = $image;
+        }
+    }
+
+    public function getDriverLicenceImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/driver_licences') . '/' . $image;
+        }
+        return asset('defaults/default_driver_license.png');
+    }
+
+    public function setDriverLicenceImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $img_name = upload($image, 'driver_licences');
+            $this->attributes['driver_licence_image'] = $img_name;
+        } else {
+            $this->attributes['driver_licence_image'] = $image;
         }
     }
 
