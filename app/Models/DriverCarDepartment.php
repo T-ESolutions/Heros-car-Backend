@@ -14,5 +14,6 @@ class DriverCarDepartment extends Model
         'department_parent_id',
         'department_id',
         'driver_car_id',
+        'car_category_id',
     ];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('department_parent_id')->nullable();
             $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->foreignId('driver_car_id')->references('id')->on('driver_cars')->onDelete('cascade');
+            $table->foreignId('car_category_id')->nullable()->references('id')->on('car_categories')->onDelete('restrict');
             $table->timestamps();
         });
     }

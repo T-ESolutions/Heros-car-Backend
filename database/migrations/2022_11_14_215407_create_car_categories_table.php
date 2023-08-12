@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('car_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title'); // السيارات الفارهه .... الخ
+            $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->double('start_price')->default(0);
             $table->double('min_price')->default(0);
             $table->double('km_price')->default(0);

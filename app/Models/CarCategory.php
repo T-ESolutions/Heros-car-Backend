@@ -10,16 +10,12 @@ class CarCategory extends Model
     use HasFactory;
 
     protected $fillable = [
+        'department_id',
         'title',
         'start_price',
         'min_price',
         'km_price',
         'wait_price',
     ];
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
 
 }
