@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\BankData;
-use App\Models\Order;
-use App\Models\Provider;
+
+use App\Models\Driver;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +39,7 @@ class ProviderController extends Controller
             return redirect()->back()->withErrors($validator);
         }
 
-        $row = Provider::create([
+        $row = Driver::create([
             'code' => $request->code,
             'type' => $request->type,
             'amount' => $request->amount,
@@ -49,7 +48,7 @@ class ProviderController extends Controller
         ]);
         if(sizeof($request->user_id) > 0){
             foreach ($request->user_id as $user_id){
-                Provider::create([
+                Driver::create([
                     'user_id' => $user_id ,
                     'coupon_id' => $row->id ,
                     'used' => 0,
@@ -62,7 +61,7 @@ class ProviderController extends Controller
 
     public function edit($id)
     {
-        $row = Provider::where('id',$id)->first();
+        $row = Driver::where('id',$id)->first();
         if (!$row){
             session()->flash('error', 'الحقل غير موجود');
             return redirect()->back();
@@ -86,7 +85,7 @@ class ProviderController extends Controller
 //                unlinkFile($city->getOriginal('image'), 'cities');
 //            }
 //        }
-        $row = Provider::whereId($request->row_id)->first();
+        $row = Driver::whereId($request->row_id)->first();
         $row->update(['active' => $request->active , 'suspend' => $request->suspend]);
         $row->save();
 
@@ -103,7 +102,7 @@ class ProviderController extends Controller
             return response()->json(['message' => 'Failed']);
         }
 
-        $row = Provider::where('id',$request->row_id)->first();
+        $row = Driver::where('id',$request->row_id)->first();
 //        if (!empty($city->getOriginal('image'))){
 //            unlinkFile($city->getOriginal('image'), 'cities');
 //        }
@@ -126,7 +125,7 @@ class ProviderController extends Controller
     }
     public function destroy($id)
     {
-        $row = Provider::where('id',$id)->first();
+        $row = Driver::where('id',$id)->first();
 //        if (!empty($city->getOriginal('image'))){
 //            unlinkFile($city->getOriginal('image'), 'cities');
 //        }
@@ -136,7 +135,7 @@ class ProviderController extends Controller
     public function getData()
     {
         $auth = Auth::guard('admin')->user();
-        $model = Provider::query();
+        $model = Driver::query();
 
         return DataTables::eloquent($model)
             ->addIndexColumn()
@@ -188,7 +187,7 @@ class ProviderController extends Controller
 
     public function userOrders($user_id)
     {
-        $user_name = Provider::whereId($user_id)->select('name')->first()->name;
+        $user_name = Driver::whereId($user_id)->select('name')->first()->name;
         return view('admin.pages.providers.orders',compact('user_id','user_name'));
     }
 

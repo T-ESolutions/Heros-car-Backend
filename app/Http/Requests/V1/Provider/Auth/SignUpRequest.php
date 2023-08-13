@@ -24,14 +24,15 @@ class SignUpRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable',
+
             'name' => 'required|string|max:255',
-//            'country_code' => 'required',
-            'phone' => 'required|unique:providers,phone',
-            'email' => 'required|email|unique:providers,email',
-            'password' => 'required|min:6|confirmed',
+            'phone' => 'required|unique:drivers,phone',
+            'password' => 'required|min:6',
+            'id_number' => 'required|unique:drivers,id_number',
+            'gender' => 'required|in:male,female',
+            'image' => 'required|image|mimes:png,jpg,jpeg,webp,svg',
+            'driver_licence_image' => 'required|image|mimes:png,jpg,jpeg,webp,svg',
             'fcm_token' => 'required',
-            'drive_licence' => 'required|unique:providers,drive_licence',
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Auth;
+namespace App\Http\Controllers\Api\V1\auth;
 
 use App\Http\Resources\V1\User\UsersResources;
 use Illuminate\Support\Facades\Validator;

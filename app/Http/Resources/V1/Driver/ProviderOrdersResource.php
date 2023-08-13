@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\V1\Provider;
+namespace App\Http\Resources\V1\Driver;
 
 
 use App\Http\Resources\V1\User\OrderAdressesResource;

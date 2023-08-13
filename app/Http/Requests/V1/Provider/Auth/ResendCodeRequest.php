@@ -24,8 +24,7 @@ class ResendCodeRequest extends FormRequest
     public function rules()
     {
         return [
-//            'country_code' => 'required', //+20
-            'phone' => 'required|exists:providers,phone',
+            'phone' => 'required|exists:drivers,phone',
         ];
     }
 }

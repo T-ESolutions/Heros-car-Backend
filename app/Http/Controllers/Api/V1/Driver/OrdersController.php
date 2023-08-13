@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Provider;
+namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Http\Controllers\Interfaces\V1\Provider\ProviderOrdersRepositoryInterface;
 use App\Http\Requests\V1\Provider\AcceptRejectOrderQuestionRequest;
@@ -8,7 +8,7 @@ use App\Http\Requests\V1\Provider\AddExtraServicesRequest;
 use App\Http\Requests\V1\Provider\OrderDetailsRequest;
 use App\Http\Requests\V1\Provider\TakeCarLivePhotosRequest;
 use App\Http\Requests\V1\Provider\UpdateOrderStatusRequest;
-use App\Http\Resources\V1\Provider\ProviderOrdersResource;
+use App\Http\Resources\V1\Driver\ProviderOrdersResource;
 use App\Http\Requests\V1\Provider\AcceptOrderRequest;
 use App\Http\Requests\V1\User\MyOrdersRequest;
 use App\Http\Resources\V1\User\OrderDetailsResource;

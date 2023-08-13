@@ -2,13 +2,13 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\Provider\AuthController;
-use App\Http\Controllers\Api\V1\Provider\OrdersController;
-use App\Http\Controllers\Api\V1\Provider\ReviewController;
+use App\Http\Controllers\Api\V1\Driver\AuthController;
+use App\Http\Controllers\Api\V1\Driver\OrdersController;
+use App\Http\Controllers\Api\V1\Driver\ReviewController;
 
 
 Route::group([
-    'prefix' => "V1/provider",
+    'prefix' => "V1/driver",
     'namespace' => 'V1',
     'middleware' => 'assign.guard:providers'
 ], function () {
@@ -16,13 +16,13 @@ Route::group([
         //auth
         Route::post('/login', [AuthController::class, 'login']);
         Route::post('/sign-up', [AuthController::class, 'signUp']);
-        Route::post('/forget-password', [AuthController::class, 'forgetPassword']);
         Route::post('/verify', [AuthController::class, 'verify']);
         Route::post('/resend-code', [AuthController::class, 'resendCode']);
+        Route::post('/forget-password', [AuthController::class, 'forgetPassword']);
         Route::post('/social-login', [AuthController::class, 'socialLogin']);
     });
 //    'auth:api', 'check_active'
-    Route::group(['middleware' => ['check_provider_active']], function () {
+    Route::group(['middleware' => ['check_driver_active']], function () {
         Route::group(['prefix' => "auth"], function () {
             Route::get('/logout', [AuthController::class, 'logout']);
             Route::post('/change-password', [AuthController::class, 'changePassword']);

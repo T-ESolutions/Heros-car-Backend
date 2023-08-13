@@ -2,8 +2,7 @@
 
 namespace App\Http\Requests\V1\Provider;
 
-use App\Models\Provider;
-use App\Models\Status;
+use App\Models\Driver;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +34,7 @@ class MakeReviewRequest extends FormRequest
             'comment' => 'required|string',
             'rate' => 'required|numeric|max:5',
             'target_type' => ['required', 'string', Rule::in([
-                Provider::class,
+                Driver::class,
                 User::class,
             ])],
             'target_id' => ['required', Rule::exists((new $this->target_type)->getTable(), 'id')],

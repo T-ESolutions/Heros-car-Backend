@@ -25,7 +25,7 @@ class VerifyRequest extends FormRequest
     {
         return [
 //            'country_code' => 'required',
-            'phone' => 'required|exists:providers,phone',
+            'phone' => 'required|exists:drivers,phone',
             'code' => 'required|min:4',
         ];
     }

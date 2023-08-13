@@ -3,7 +3,7 @@
 namespace App\Http\Resources\V1\User;
 
 use App\Http\Resources\ServicesResources;
-use App\Http\Resources\V1\Provider\MyOrdersUserResources;
+use App\Http\Resources\V1\Driver\MyOrdersUserResources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 

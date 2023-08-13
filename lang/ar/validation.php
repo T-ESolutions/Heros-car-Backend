@@ -250,17 +250,7 @@ return [
         'provider_id'=>'السائق',
         'cancel_reason_id'=>'سبب الرفض',
         'country_code'=>'كود الدولة',
-
-
-
-
-
-
-
-
-
-
-
+        'id_number'=>'رقم البطاقة الشخصية',
 
     ],
 ];

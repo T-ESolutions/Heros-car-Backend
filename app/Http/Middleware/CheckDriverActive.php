@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use JWTAuth;
 use TymonJWTAuthExceptionsJWTException;
 
-class CheckProviderActive
+class CheckDriverActive
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class CheckProviderActive
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guard('providers')->check()) {
-            $user = auth()->user();
+            $user = auth('providers')->user();
             if ($user->accept == 0) {
                 return response()->json(msg( failed(), trans('lang.wait_admin_accept')));
             }

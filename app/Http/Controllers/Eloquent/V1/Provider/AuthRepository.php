@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Eloquent\V1\Provider;
 
 use App\Http\Controllers\Interfaces\V1\Provider\AuthRepositoryInterface;
-use App\Models\Provider;
+use App\Models\Driver;
 use App\Models\Verfication;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Auth;
 use JWTAuth;
 use TymonJWTAuthExceptionsJWTException;
@@ -20,7 +18,7 @@ class AuthRepository implements AuthRepositoryInterface
     public function logIn($request)
     {
         $credentials = [
-            'drive_licence' => $request['drive_licence'],
+            'phone' => $request['phone'],
             'password' => $request['password']
         ];
 
@@ -50,23 +48,22 @@ class AuthRepository implements AuthRepositoryInterface
     public function logout()
     {
         $forever = true;
-        JWTAuth::parseToken()->invalidate( $forever );
+        JWTAuth::parseToken()->invalidate($forever);
     }
 
     public function signUp($request)
     {
-        $data = array_merge($request, [
-            'user_phone' => $request['country_code'] . '' . $request['phone'],
-            'active' => 0,
-        ]);
-        $user = Provider::create($data);
-        return $this->sendCode($data['user_phone'], "activate");
+        $user = Driver::create($request);
+        return $this->sendCode($user->phone, "activate");
     }
 
     public function sendCode($phone, $type)
     {
-//        $code = rand(0000, 9999);
-        $code = 1111;
+        if (env('APP_ENV') == 'local') {
+            $code = 1111;
+        } else {
+            $code = rand(0000, 9999);
+        }
         $verified = Verfication::updateOrcreate
         (
             [
@@ -74,7 +71,7 @@ class AuthRepository implements AuthRepositoryInterface
                 'code' => $code,
                 'type' => $type,
                 'expired_at' => Carbon::now()->addHour()->toDateTimeString(),
-                'user_type' => 'provider',
+                'user_type' => 'driver',
             ]
         );
 //        Mail::to($email)->send(new SendCode($code));
@@ -83,36 +80,32 @@ class AuthRepository implements AuthRepositoryInterface
 
     public function resendCode($request)
     {
-        $request['country_code'] = '+20';
-        $user_phone = $request['country_code'] . '' . $request['phone'];
-        $user = Provider::where('user_phone', $user_phone)->first();
+        $user = Driver::where('phone', $request['phone'])->first();
         $type = $user->active == 0 ? "activate" : "reset";
-        return $this->sendCode($user_phone, $type);
+        return $this->sendCode($request['phone'], $type);
     }
 
     public function verify($request)
     {
-        $request['country_code'] = '+20';
-        $user_phone = $request['country_code'] . '' . $request['phone'];
-
-        $user = Provider::where('user_phone', $user_phone)->first();
-
+        $user = Driver::where('phone', $request['phone'])->first();
         if ($user->suspend == 1) {
             return "suspended";
         }
         if ($user->active == 0) {
-//        $type = $user->active == 0 ? "activate" : "reset";
-            $verfication = Verfication::where('phone', $user_phone)
+            $verfication = Verfication::where('phone', $request['phone'])
                 ->where('code', $request['code'])
-                ->where('user_type', 'provider')
+                ->where('user_type', 'driver')
                 ->first();
             if ($verfication) {
                 if (!$verfication->expired_at > Carbon::now()->toDateTimeString()) {
                     return response()->json(msg(failed(), trans('lang.codeExpired')));
                 }
                 $user->active = 1;
+                $user->email_verified_at = Carbon::now();
                 $user->save();
                 $user->jwt = JWTAuth::fromUser($user);
+                //remove verify row ...
+                    $verfication->delete();
                 return $user;
             } else {
                 return false;
@@ -153,20 +146,23 @@ class AuthRepository implements AuthRepositoryInterface
     public function updateProfile($request)
     {
         $user = auth()->user();
-        if(isset($request['name'])){
+        if (isset($request['name'])) {
             $user->name = $request['name'];
         }
-        if(isset($request['email'])){
+        if (isset($request['email'])) {
             $user->email = $request['email'];
         }
-        if(isset($request['image'])){
+        if (isset($request['image'])) {
             $user->image = $request['image'];
         }
-        if(isset($request['country_code'])){
-            $user->country_code = $request['country_code'];
-        }
-        if(isset($request['phone'])){
+        if (isset($request['phone'])) {
             $user->phone = $request['phone'];
+        }
+        if (isset($request['gender'])) {
+            $user->gender = $request['gender'];
+        }
+        if (isset($request['fcm_token'])) {
+            $user->fcm_token = $request['fcm_token'];
         }
         $user->save();
         $user->jwt = JWTAuth::fromUser($user);
@@ -176,11 +172,10 @@ class AuthRepository implements AuthRepositoryInterface
     public function changePassword($request)
     {
         $user = auth()->user();
-        if ($request['old_password']) {
+        if (isset($request['old_password'])) {
             $old_password = Hash::check($request['old_password'], $user->password);
             if ($old_password != true) {
                 return false;
-
             }
         }
         $user->password = $request['password'];

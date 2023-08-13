@@ -4,21 +4,20 @@ namespace App\Http\Controllers\Eloquent\V1\Provider;
 
 
 use App\Http\Controllers\Interfaces\V1\Provider\ReviewRepositoryInterface;
-use App\Models\OrderReview;
-use App\Models\Provider;
+use App\Models\Driver;
 use Illuminate\Support\Facades\Auth;
 
 class ReviewRepository implements ReviewRepositoryInterface
 {
     public function makeReview($request)
     {
-        $request['writer_type'] = Provider::class;
+        $request['writer_type'] = Driver::class;
         $request['writer_id'] = Auth::id();
 //        $reviews = OrderReview::create($request->all());
         $orderId = $request['order_id'];
 
         $checkReview = OrderReview::Where('order_id',$orderId)
-            ->where('writer_type',Provider::class)
+            ->where('writer_type',Driver::class)
             ->where('writer_id',Auth::id())
             ->first();
         if($checkReview){

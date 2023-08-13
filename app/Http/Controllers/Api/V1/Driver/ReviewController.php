@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Provider;
+namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Http\Controllers\Interfaces\V1\Provider\ReviewRepositoryInterface;
 use App\Http\Resources\V1\User\ProviderReviewSummaryResource;
@@ -8,7 +8,7 @@ use App\Http\Resources\V1\User\ProviderReviewResource;
 use App\Http\Requests\V1\User\ProviderReviewsRequest;
 use App\Http\Requests\V1\Provider\MakeReviewRequest;
 use App\Http\Controllers\Controller;
-use App\Models\Provider;
+
 
 
 class ReviewController extends Controller

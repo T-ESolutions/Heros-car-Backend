@@ -27,10 +27,10 @@ class UpdateProfileRequest extends FormRequest
         return [
             'image' => 'nullable|image|mimes:jpeg,png,jpg',
             'name' => 'nullable|max:255',
-            'country_code' => [Rule::requiredIf($this->phone != null)],
-            'phone' => 'nullable|unique:providers,phone,'.auth()->user()->id,
-            'email' => 'nullable|email|unique:providers,email,'.auth()->user()->id,
+            'phone' => 'nullable|unique:drivers,phone,'.auth('providers')->user()->id,
+            'email' => 'nullable|email|unique:drivers,email,'.auth('providers')->user()->id,
             'fcm_token' => 'nullable|max:255',
+            'gender' => 'required|in:male,female',
         ];
     }
 }

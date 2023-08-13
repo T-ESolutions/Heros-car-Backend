@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'wait_admin_accept' => 'Wait for the administration to approve your account first',
     'currency' => 'EGP',
     'unauthinticate' => 'you should login first',
     'coupon_send_s' => 'coupon used successfully',

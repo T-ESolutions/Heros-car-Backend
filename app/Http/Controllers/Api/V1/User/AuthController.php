@@ -11,7 +11,6 @@ use App\Http\Requests\V1\User\Auth\ResendCodeRequest;
 use App\Http\Requests\V1\User\Auth\SignUpRequest;
 use App\Http\Requests\V1\User\Auth\VerifyRequest;
 use App\Http\Requests\V1\User\Auth\LogInRequest;
-use App\Http\Resources\V1\Provider\ProvidersResources;
 use App\Http\Resources\V1\User\UsersResources;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

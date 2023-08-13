@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\V1\Provider;
+namespace App\Http\Resources\V1\Driver;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProvidersResources extends JsonResource
+class DriverResources extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -28,10 +28,9 @@ class ProvidersResources extends JsonResource
             'id' => (int)$this->id,
             'name' => (string)$this->name ? $this->name : "",
             'email' => (string)$this->email ? $this->email : "",
-            'country_code' => (string)$this->country_code ? $this->country_code : "",
             'phone' => (string)$this->phone ? $this->phone : "",
-            'drive_licence' => (string)$this->drive_licence ? $this->drive_licence : "",
-            'user_phone' => (string)$this->user_phone ? $this->user_phone : "",
+            'driver_licence_image' => $this->driver_licence_image ,
+            'id_number' => $this->id_number ,
             'image' => (string)$this->image,
             'social_id' => $this->social_id ? $this->social_id : "",
             'fcm_token' => $this->fcm_token ? $this->fcm_token : "",

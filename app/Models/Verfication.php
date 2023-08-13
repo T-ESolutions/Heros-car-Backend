@@ -16,5 +16,6 @@ class Verfication extends Model
         'code',
         'type',
         'expired_at',
+        'user_type',
     ];
 }

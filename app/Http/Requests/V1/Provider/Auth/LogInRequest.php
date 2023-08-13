@@ -23,12 +23,8 @@ class LogInRequest extends FormRequest
      */
     public function rules()
     {
-//        request()->user_phone = request()->country_code . '' . request()->phone;
         return [
-//            'country_code' => 'required', //+20
-//            'phone' => 'required',
-//            'user_phone' => 'required|exists:users,user_phone',
-            'drive_licence' => 'required|exists:providers,drive_licence,accept,1',
+            'phone' => 'required|exists:drivers,phone',
             'password' => 'required|min:6',
             'fcm_token' => 'required',
         ];

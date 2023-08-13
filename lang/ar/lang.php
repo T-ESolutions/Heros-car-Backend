@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'wait_admin_accept' => 'انتظر الادارة للموافقة على حسابك اولا',
     'currency' => 'جنية مصري',
     'location_summery' => 'ملخص الموقع',
     'no_price_for_this_car_model' => 'لا يوجد سعر لنوع السيارة المختار',
