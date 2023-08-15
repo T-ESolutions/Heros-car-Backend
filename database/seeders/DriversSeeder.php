@@ -29,6 +29,7 @@ class DriversSeeder extends Seeder
                 'active'=>1,
                 'accept'=>1,
                 'suspend'=>0,
+                'gender'=>'male',
                 'email_verified_at'=>Carbon::now(),
             ],
             [
@@ -42,6 +43,7 @@ class DriversSeeder extends Seeder
                 'active'=>1,
                 'accept'=>1,
                 'suspend'=>0,
+                'gender'=>'male',
                 'email_verified_at'=>Carbon::now(),
             ],
             [
@@ -55,12 +57,41 @@ class DriversSeeder extends Seeder
                 'active'=>1,
                 'accept'=>1,
                 'suspend'=>0,
+                'gender'=>'male',
+                'email_verified_at'=>Carbon::now(),
+            ],
+            [
+                'name'=>"Demo4 Driver",
+                'email'=>"driver4@gmail.com",
+                'phone'=>"01099999994",
+                'password'=>"123456",
+                'image'=>'driver_image.png',
+                'driver_licence_image'=>'driver_licence_image.png',
+                'id_number'=>'29508221302414',
+                'active'=>1,
+                'accept'=>1,
+                'suspend'=>0,
+                'gender'=>'female',
+                'email_verified_at'=>Carbon::now(),
+            ],
+            [
+                'name'=>"Demo5 Driver",
+                'email'=>"driver5@gmail.com",
+                'phone'=>"01099999995",
+                'password'=>"123456",
+                'image'=>'driver_image.png',
+                'driver_licence_image'=>'driver_licence_image.png',
+                'id_number'=>'29508221302415',
+                'active'=>1,
+                'accept'=>1,
+                'suspend'=>0,
+                'gender'=>'female',
                 'email_verified_at'=>Carbon::now(),
             ],
 
         ];
         foreach ($data as $get) {
-            Driver::updateOrCreate($get);
+            Driver::create($get);
         }
     }
 }
