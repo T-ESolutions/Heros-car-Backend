@@ -24,13 +24,13 @@ class SignUpRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable',
+            'image' => 'nullable|image',
             'name' => 'required|string|max:255',
-            'country_code' => 'required',
             'phone' => 'required|unique:users',
-            'email' => 'required|email|unique:users',
+            'email' => 'nullable|email|unique:users',
             'password' => 'required|min:6|confirmed',
             'fcm_token' => 'required',
+            'gender' => 'required|in:male,female',
         ];
     }
 }

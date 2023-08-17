@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\User\HelperController;
 use App\Http\Controllers\Api\V1\User\OrderController;
 use App\Http\Controllers\Api\V1\User\ReviewController;
 use App\Http\Controllers\Api\V1\User\ServicesController;
@@ -46,34 +47,14 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
             Route::post('/change-password', [AuthController::class, 'changePassword']);
             Route::get('/profile', [AuthController::class, 'profile']);
             Route::post('/update-profile', [AuthController::class, 'updateProfile']);
-            Route::post('/check_location', [AuthController::class, 'check_location']);
             Route::post('/delete-account', [AuthController::class, 'deleteAccount']);
         });
 
-        Route::group(['prefix' => "user"], function () {
-            //more
-            Route::post('/add-suggestion', [UserController::class, 'addSuggestion']);
-            //orders
-            Route::group(['prefix' => "orders"], function () {
-                Route::post('/send-order-request', [OrderController::class, 'sendOrderRequest']);
-                Route::get('/', [OrderController::class, 'myOrders']);
-                Route::get('/details', [OrderController::class, 'orderDetails']);
-                Route::post('/cancel-order', [OrderController::class, 'cancelOrder']);
-                Route::post('/accept-reject-offer-order', [OrderController::class, 'acceptRejectOfferOrder']);
-                Route::group(['prefix' => "extra-services"], function () {
-                    Route::get('/', [ServicesController::class, 'getOrderExtraServices']);
-                    Route::get('/data', [ServicesController::class, 'getOrderExtraServicesData']);
-                    Route::post('/user-approval', [ServicesController::class, 'updateOrderExtraServicesStatus']);
-                });
-            });
-            //Reviews
-            Route::group(['prefix' => "reviews"], function () {
-                Route::get('/', [ReviewController::class, 'providerReviews']);
-                Route::post('/create', [ReviewController::class, 'makeProviderReviews']);
-            });
-            Route::group(['prefix' => "statuses"], function () {
-                Route::get('/users', [ServicesController::class, 'getUserStatus']);
-            });
+        Route::group(['prefix' => "helper"], function () {
+            Route::get('/page', [HelperController::class, 'pages']);
+            Route::get('/departments', [HelperController::class, 'departments']);
+            Route::get('/user-trip', [HelperController::class, 'userTrip']);
+            Route::get('/social-media', [HelperController::class, 'socialMedia']);
         });
 
     });

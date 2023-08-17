@@ -18,9 +18,9 @@ class AuthRepository implements AuthRepositoryInterface
 
     public function logIn($request)
     {
-        $user_phone = $request['country_code'] . '' . $request['phone'];
+        $phone = $request['phone'];
         $credentials = [
-            'user_phone' => $user_phone,
+            'phone' => $phone,
             'password' => $request['password']
         ];
         if (!$jwt_token = JWTAuth::attempt($credentials, ['exp' => Carbon::now()->addDays(7)->timestamp])) {
@@ -45,17 +45,17 @@ class AuthRepository implements AuthRepositoryInterface
     public function logout()
     {
         $forever = true;
-        JWTAuth::parseToken()->invalidate( $forever );
+        JWTAuth::parseToken()->invalidate($forever);
     }
 
     public function signUp($request)
     {
         $data = array_merge($request, [
-            'user_phone' => $request['country_code'] . '' . $request['phone'],
+            'phone' => $request['phone'],
             'active' => 0,
         ]);
         $user = User::create($data);
-        return $this->sendCode($data['user_phone'], "activate");
+        return $this->sendCode($data['phone'], "activate");
     }
 
     public function sendCode($phone, $type)
@@ -77,17 +77,17 @@ class AuthRepository implements AuthRepositoryInterface
 
     public function resendCode($request)
     {
-        $user_phone = $request['country_code'] . '' . $request['phone'];
-        $user = User::where('user_phone', $user_phone)->first();
+        $user_phone = $request['phone'];
+        $user = User::where('phone', $user_phone)->first();
         $type = $user->active == 0 ? "activate" : "reset";
         return $this->sendCode($user_phone, $type);
     }
 
     public function verify($request)
     {
-        $user_phone = $request['country_code'] . '' . $request['phone'];
+        $user_phone = $request['phone'];
 
-        $user = User::where('user_phone', $user_phone)->first();
+        $user = User::where('phone', $user_phone)->first();
         if ($user->suspend == 1) {
             return "suspended";
         }
@@ -130,6 +130,7 @@ class AuthRepository implements AuthRepositoryInterface
                 'social_id' => $request['social_id'],
                 'fcm_token' => $request['fcm_token'],
                 'email' => isset($request['email']) ? $request['email'] : null,
+                'phone' => $request['phone'],
                 'email_verified_at' => Carbon::now(),
                 'active' => 1,
                 'social_type' => $request['social_type']

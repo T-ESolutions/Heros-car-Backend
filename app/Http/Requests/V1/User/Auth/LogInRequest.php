@@ -25,9 +25,8 @@ class LogInRequest extends FormRequest
     {
 //        request()->user_phone = request()->country_code . '' . request()->phone;
         return [
-            'country_code' => 'required', //+20
+//            'country_code' => 'required', //+20
             'phone' => 'required',
-//            'user_phone' => 'required|exists:users,user_phone',
             'password' => 'required|min:6',
             'fcm_token' => 'required',
         ];

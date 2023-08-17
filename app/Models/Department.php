@@ -9,7 +9,7 @@ class Department extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'parent_id',
         'title_ar',
         'title_en',
@@ -19,4 +19,62 @@ class Department extends Model
         'active',
         'locations_num',
     ];
+
+    protected $appends = ['title', 'body'];
+
+    public function getTitleAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->title_ar;
+        } else {
+            return $this->title_en;
+        }
+    }
+
+    public function getBodyAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->body_ar;
+        } else {
+            return $this->body_en;
+        }
+    }
+
+    public function getImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/department') . '/' . $image;
+        }
+        return asset('default.png');
+    }
+
+    public function setImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $img_name = upload($image, 'department');
+            $this->attributes['image'] = $img_name;
+        } else {
+            $this->attributes['image'] = $image;
+        }
+    }
+
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+
+
+    public function scopeParent($query)
+    {
+        return $query->where('parent_id', null);
+    }
+
+
+    public function children()
+    {
+        return $this->hasMany(Department::class, 'parent_id');
+    }
+
+
 }

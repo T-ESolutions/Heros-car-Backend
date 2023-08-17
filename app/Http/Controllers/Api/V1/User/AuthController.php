@@ -61,8 +61,6 @@ class AuthController extends Controller
     public function signUp(SignUpRequest $request)
     {
         $data = $request->validated();
-        $data['user_phone'] = request()->country_code . '' . request()->phone;
-
         $this->userAuthRepository->signUp($data);
         return response()->json(msg(success(), trans('lang.CodeSent')));
 
@@ -109,7 +107,6 @@ class AuthController extends Controller
     public function verify(VerifyRequest $request)
     {
         $data = $request->validated();
-
         $result = $this->userAuthRepository->verify($data);
         if ($result) {
             if (is_string($result) && $result = "suspended") {
@@ -147,6 +144,7 @@ class AuthController extends Controller
     public function deleteAccount()
     {
         //Todo
+
         return response()->json(msg(success(), trans('lang.success')));
     }
 }

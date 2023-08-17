@@ -28,6 +28,13 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Controllers\Interfaces\V1\User\AuthRepositoryInterface',
             'App\Http\Controllers\Eloquent\V1\User\AuthRepository'
         );
+
+
+        $this->app->bind(
+            'App\Http\Controllers\Interfaces\V1\User\HelperRepositoryInterface',
+            'App\Http\Controllers\Eloquent\V1\User\HelperRepository'
+        );
+
         $this->app->bind(
             'App\Http\Controllers\Interfaces\V1\User\HomeRepositoryInterface',
             'App\Http\Controllers\Eloquent\V1\User\HomeRepository'

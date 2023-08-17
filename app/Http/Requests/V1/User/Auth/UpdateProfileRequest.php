@@ -26,11 +26,10 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'image' => 'nullable|image|mimes:jpeg,png,jpg',
-            'name' => 'nullable|max:255',
-            'country_code' => [Rule::requiredIf($this->phone != null)],
-            'phone' => 'nullable|unique:users,phone,' . auth()->user()->id,
-            'email' => 'nullable|email|unique:users,email,' . auth()->user()->id,
-            'fcm_token' => 'nullable|max:255',
+            'name' => 'required|max:255',
+            'phone' => 'required|unique:users,phone,' . auth()->user()->id,
+            'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+            'fcm_token' => 'required|max:255',
         ];
     }
 }

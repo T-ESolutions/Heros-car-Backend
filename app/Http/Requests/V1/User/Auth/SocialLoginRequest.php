@@ -27,6 +27,7 @@ class SocialLoginRequest extends FormRequest
             'social_type' => 'required|in:facebook,google,apple',
             'social_id' => 'required',
             'email' => 'nullable',
+            'phone' => 'required',
             'fcm_token' => 'required',
         ];
     }

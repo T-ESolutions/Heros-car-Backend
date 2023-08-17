@@ -9,6 +9,8 @@
 namespace App\Http\Controllers\Eloquent\V1\User;
 
 
+use App\Http\Controllers\Interfaces\V1\User\UserRepositoryInterface;
+
 class UserRepository implements UserRepositoryInterface
 {
 
