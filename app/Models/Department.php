@@ -65,7 +65,7 @@ class Department extends Model
     }
 
 
-    public function scopeParent($query)
+    public function scopeWithoutParent($query)
     {
         return $query->where('parent_id', null);
     }

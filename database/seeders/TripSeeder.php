@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DriverCar;
 use App\Models\Trip;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -23,6 +24,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>1,
                 'department_id'=>1, //Economic Trip
                 'driver_car_id'=>1,
+                'brand_id' => DriverCar::whereId(1)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(1)->first()->modell_id,
+                'color_id' => DriverCar::whereId(1)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(5),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(4)->format('H:i'),
@@ -51,6 +55,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>1,
                 'department_id'=>1, //Economic Trip
                 'driver_car_id'=>1,
+                'brand_id' => DriverCar::whereId(1)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(1)->first()->modell_id,
+                'color_id' => DriverCar::whereId(1)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(10),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(6)->format('H:i'),
@@ -81,6 +88,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>2,
                 'department_id'=>1, //Economic Trip
                 'driver_car_id'=>2,
+                'brand_id' => DriverCar::whereId(2)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(2)->first()->modell_id,
+                'color_id' => DriverCar::whereId(2)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(5),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(4)->format('H:i'),
@@ -109,6 +119,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>2,
                 'department_id'=>1, //Economic Trip
                 'driver_car_id'=>2,
+                'brand_id' => DriverCar::whereId(2)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(2)->first()->modell_id,
+                'color_id' => DriverCar::whereId(2)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(10),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(6)->format('H:i'),
@@ -138,6 +151,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>3,
                 'department_id'=>1, //Economic Trip
                 'driver_car_id'=>3,
+                'brand_id' => DriverCar::whereId(3)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(3)->first()->modell_id,
+                'color_id' => DriverCar::whereId(3)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(5),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(4)->format('H:i'),
@@ -166,6 +182,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>3,
                 'department_id'=>1, //Economic Trip
                 'driver_car_id'=>3,
+                'brand_id' => DriverCar::whereId(3)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(3)->first()->modell_id,
+                'color_id' => DriverCar::whereId(3)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(10),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(6)->format('H:i'),
@@ -195,6 +214,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>5,
                 'department_id'=>3, // Bink Car
                 'driver_car_id'=>5,
+                'brand_id' => DriverCar::whereId(4)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(4)->first()->modell_id,
+                'color_id' => DriverCar::whereId(4)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(5),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(4)->format('H:i'),
@@ -223,6 +245,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>4,
                 'department_id'=>3, // Bink Car
                 'driver_car_id'=>4,
+                'brand_id' => DriverCar::whereId(4)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(4)->first()->modell_id,
+                'color_id' => DriverCar::whereId(4)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(10),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(6)->format('H:i'),
@@ -252,6 +277,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>5,
                 'department_id'=>3, // Bink Car
                 'driver_car_id'=>5,
+                'brand_id' => DriverCar::whereId(5)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(5)->first()->modell_id,
+                'color_id' => DriverCar::whereId(5)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(5),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(4)->format('H:i'),
@@ -280,6 +308,9 @@ class TripSeeder extends Seeder
                 'driver_id'=>5,
                 'department_id'=>3, // Bink Car
                 'driver_car_id'=>5,
+                'brand_id' => DriverCar::whereId(5)->first()->brand_id,
+                'modell_id' => DriverCar::whereId(5)->first()->modell_id,
+                'color_id' => DriverCar::whereId(5)->first()->color_id,
                 'trip_date'=>Carbon::now()->addDays(10),
                 'trip_time_from'=>Carbon::now()->format('H:i'),
                 'trip_time_to'=>Carbon::now()->addHours(6)->format('H:i'),

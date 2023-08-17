@@ -88,7 +88,7 @@ class SettingsSeeder extends Seeder
                 'value' => 'لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه … بروشور او فلاير على سبيل المثال … او نماذج مواقع انترنت',
             ],
             [
-                'key' => 'user_trip_terms_ar',
+                'key' => 'user_trip_terms_en',
                 'value' => 'Lorem Ipsum is a virtual model that is placed in the designs to be presented to the client to imagine the way to put texts in the designs, whether they are printed designs ... a brochure or flyer for example ... or models for websites',
             ],
         ];

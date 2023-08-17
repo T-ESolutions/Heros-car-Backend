@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\App\SettingsController;
+use App\Http\Controllers\Api\V1\User\HelperController;
 
 
 /*
@@ -44,5 +45,13 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
 
         Route::get('/settings', [SettingsController::class, 'settings']);
         Route::get('/settings/{key}', [SettingsController::class, 'customSettings']);
+    });
+
+    Route::group(['prefix' => "helper"], function () {
+        Route::get('/page', [HelperController::class, 'pages']);
+        Route::get('/departments', [HelperController::class, 'departments']);
+        Route::get('/user-trip-terms', [HelperController::class, 'userTripTerms']);
+        Route::get('/social-media', [HelperController::class, 'socialMedia']);
+        Route::post('/contact-us', [HelperController::class, 'contactUs']);
     });
 });

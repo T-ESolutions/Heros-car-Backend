@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Interfaces\V1\User\HomeRepositoryInterface;
+use App\Http\Resources\V1\User\DepartmentResources;
+use App\Http\Resources\V1\User\HomepageDepartmentResources;
 use App\Http\Resources\V1\User\ServiceCarCategoryResources;
 use App\Http\Requests\V1\User\CalculateBrandCostRequest;
 use App\Http\Requests\V1\User\ServiceQuestionsRequest;
@@ -21,31 +23,15 @@ class HomeController extends Controller
         $this->homeRepo = $homeRepo;
     }
 
-    public function services(Request $request)
+    public function homePage()
     {
-        $data = $this->homeRepo->services($request);
-        $data = (ServicesResources::collection($data))->response()->getData(true);
-        return response()->json(msgdata(success(), trans('lang.success'), $data));
-    }
+        $departments = HomepageDepartmentResources::collection($this->homeRepo->activeMainDepartments());
 
-    public function serviceQuestions(ServiceQuestionsRequest $request)
-    {
-        $data = $this->homeRepo->serviceQuestions($request);
-        $data = QuestionsResources::collection($data);
-        return response()->json(msgdata(success(), trans('lang.success'), $data));
-    }
+        $suggestedTrips = $this->homeRepo->suggestedTrips($departments);
 
-    public function calculateBrandCost(CalculateBrandCostRequest $request)
-    {
-        $data = $this->homeRepo->calculateBrandCost($request);
-        if ($data) {
-            $data = new ServiceCarCategoryResources($data);
-            return response()->json(msgdata(success(), trans('lang.success'), $data));
-
-        }else{
-            return response()->json(msg(failed(), trans('lang.no_price_for_this_car_model')));
-
-        }
+        return response()->json(msgdata(success(), trans('lang.success'),
+            array_merge(['departments' => $departments], $suggestedTrips)
+        ));
 
     }
 

@@ -34,11 +34,8 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
 
     Route::group(['prefix' => "user"], function () {
         //home
-        Route::group(['prefix' => "home"], function () {
-            Route::get('/services', [HomeController::class, 'services']);
-            Route::get('/service-questions', [HomeController::class, 'serviceQuestions']);
-            Route::post('/calculate-brand-cost', [HomeController::class, 'calculateBrandCost']);
-        });
+        Route::get('/home-page', [HomeController::class, 'homePage']);
+
     });
 
     Route::group(['middleware' => ['auth:api', 'check_active']], function () {
@@ -50,12 +47,7 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
             Route::post('/delete-account', [AuthController::class, 'deleteAccount']);
         });
 
-        Route::group(['prefix' => "helper"], function () {
-            Route::get('/page', [HelperController::class, 'pages']);
-            Route::get('/departments', [HelperController::class, 'departments']);
-            Route::get('/user-trip', [HelperController::class, 'userTrip']);
-            Route::get('/social-media', [HelperController::class, 'socialMedia']);
-        });
-
     });
+
+
 });

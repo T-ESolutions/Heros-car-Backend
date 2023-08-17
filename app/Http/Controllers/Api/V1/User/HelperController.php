@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Interfaces\V1\User\HelperRepositoryInterface;
-use App\Http\Resources\V1\User\DepartmentResources;
+use App\Http\Requests\V1\Helper\ContactUsRequest;
+use App\Http\Requests\V1\Helper\PageRequest;
+use App\Http\Resources\V1\DepartmentResources;
 use App\Http\Resources\V1\User\PagesResources;
 use App\Http\Resources\V1\User\SettingResources;
 use Illuminate\Support\Facades\Validator;
@@ -25,9 +27,10 @@ class HelperController extends Controller
         $this->helperRepository = $helperRepository;
     }
 
-    public function pages(Request $request)
+    public function pages(PageRequest $request)
     {
 
+        $request->validated();
 
         $data = $this->helperRepository->pages($request);
 
@@ -57,10 +60,9 @@ class HelperController extends Controller
 
     }
 
-    public function userTrip()
+    public function userTripTerms()
     {
-
-        $data = $this->helperRepository->userTrip();
+        $data = $this->helperRepository->userTripTerms();
         if ($data) {
             $data = (new SettingResources($data));
             return response()->json(msgdata(success(), trans('lang.success'), $data));
@@ -69,5 +71,13 @@ class HelperController extends Controller
         }
     }
 
+    public function contactUs(ContactUsRequest $request)
+    {
+        $request->validated();
 
+        $this->helperRepository->contactUs($request);
+
+        return response()->json(msg(success(), trans('lang.added_s')));
+
+    }
 }

@@ -73,7 +73,7 @@ class DepartmentsSeeder extends Seeder
                 'body_en' => 'Going, come back and wait . . . ',
                 'image' => 'logo.png',
                 'active' => 1,
-                'locations_num' => 2,
+                'locations_num' => 3,
 
             ],
         ];

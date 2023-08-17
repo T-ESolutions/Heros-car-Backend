@@ -19,6 +19,11 @@ return new class extends Migration
             $table->foreignId('driver_id')->references('id')->on('drivers')->onDelete('cascade');
             $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->foreignId('driver_car_id')->references('id')->on('driver_cars')->onDelete('cascade');
+
+            $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreignId('modell_id')->references('id')->on('modells')->onDelete('cascade');
+            $table->foreignId('color_id')->references('id')->on('colors')->onDelete('cascade');
+
             $table->date('trip_date');
             $table->time('trip_time_from');
             $table->time('trip_time_to');

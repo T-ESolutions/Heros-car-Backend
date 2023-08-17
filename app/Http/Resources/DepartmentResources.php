@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\V1\User;
+namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,7 +19,9 @@ class DepartmentResources extends JsonResource
             'title' => $this->title,
             'body' => $this->body,
             'image' => $this->image,
+            'active' => $this->active,
             'locations_num' => $this->locations_num,
+            'children' => DepartmentResources::collection($this->children),
 
         ];
     }

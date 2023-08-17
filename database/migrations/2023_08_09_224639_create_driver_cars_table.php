@@ -18,9 +18,6 @@ return new class extends Migration
             $table->tinyInteger('approved')->default(0);
             $table->tinyInteger('available')->default(1);
             $table->foreignId('driver_id')->references('id')->on('drivers')->onDelete('cascade');
-            $table->foreignId('color_id')->references('id')->on('colors')->onDelete('cascade');
-            $table->string('color_ar');
-            $table->string('color_en');
             $table->string('car_image')->comment('image');
             $table->string('car_licence_image')->comment('image');
             $table->string('document_image')->comment('image')->nullable();
@@ -37,6 +34,9 @@ return new class extends Migration
             $table->text('address_en')->nullable();
             $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreignId('modell_id')->references('id')->on('modells')->onDelete('cascade');
+            $table->foreignId('color_id')->references('id')->on('colors')->onDelete('cascade');
+            $table->string('color_ar');
+            $table->string('color_en');
             $table->timestamps();
         });
     }

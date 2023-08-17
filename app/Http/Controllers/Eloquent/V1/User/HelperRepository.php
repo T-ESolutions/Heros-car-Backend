@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Eloquent\V1\User;
 
 
 use App\Http\Controllers\Interfaces\V1\User\HelperRepositoryInterface;
+use App\Models\ContactUs;
 use App\Models\Department;
 use App\Models\Page;
 use App\Models\Setting;
@@ -18,20 +19,19 @@ class HelperRepository implements HelperRepositoryInterface
 {
     public function pages($request)
     {
-        $page = Page::where('type', $request->page)->first();
-        return $page;
+        return Page::where('type', $request->page)
+            ->where('target_type', $request->target_type)
+            ->first();
     }
 
     public function departments()
     {
-        $data = Department::parent()->active()->get();
-        return $data;
+        return Department::withoutParent()->get();
     }
 
-    public function userTrip()
+    public function userTripTerms()
     {
-        $data = Setting::where('key', 'user_trip_terms_' . app()->getLocale())->first();
-        return $data;
+        return Setting::where('key', 'user_trip_terms_' . app()->getLocale())->first();
     }
 
     public function socialMedia()
@@ -44,8 +44,13 @@ class HelperRepository implements HelperRepositoryInterface
             'snapchat',
             'youtube',
         ];
-        $data = Setting::whereIn('key', $values)->get();
-        return $data;
+        return Setting::whereIn('key', $values)->get();
+    }
+
+    public function contactUs($request)
+    {
+        return ContactUs::create($request->all());
+
     }
 
 }

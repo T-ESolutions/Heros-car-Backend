@@ -9,39 +9,46 @@
 namespace App\Http\Controllers\Eloquent\V1\User;
 
 use App\Http\Controllers\Interfaces\V1\User\HomeRepositoryInterface;
-use App\Http\Resources\V1\User\QuestionsResources;
-use App\Models\Question;
-use App\Models\Service;
-use App\Models\ServiceCarCategory;
+use App\Http\Resources\V1\User\HomepageTripResources;
+use App\Models\Department;
+use App\Models\DriverCar;
+use App\Models\DriverCarDepartment;
+use App\Models\Trip;
 
 class HomeRepository implements HomeRepositoryInterface
 {
 
-    public function services($request)
-    {
-        $data = Service::active()
-            ->paginate(pagination_number());
+    public function activeMainDepartments(){
+        return Department::WithoutParent()->active()->get();
+    }
+
+    public function suggestedTrips($activeMainDepartments){
+        //ToDo need to get suggested trips based on customer location
+        $data['suggested_trips'] = [];
+        $item = [];
+        foreach ($activeMainDepartments as $activeMainDepartment){
+            $item['id'] = $activeMainDepartment->id;
+            $item['title'] = $activeMainDepartment->title;
+            $item['trips'] = HomepageTripResources::collection($this->getTrips($activeMainDepartment->id));
+            array_push($data['suggested_trips'],$item);
+        }
         return $data;
     }
 
-    public function serviceQuestions($request)
-    {
-        $data = Question::active()
-            ->where('service_id', $request->service_id)
-            ->get();
-        return $data;
+    public function getTrips($activeMainDepartmentId){
+        //ToDo need to get suggested trips based on customer location
+        if($activeMainDepartmentId == 2){ //rent car department
+            $driverCars = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
+                ->pluck('driver_car_id');
+            return DriverCar::whereIn('id',$driverCars)->get();
+        }else{ //other departments
+            return Trip::whereDepartmentId($activeMainDepartmentId)
+                ->whereNull('started_at')
+                ->whereNull('finished_at')
+                ->whereNull('cancelled_at')
+                ->whereNull('cancel_reason')
+                ->get();
+        }
+
     }
-
-    public function calculateBrandCost($request)
-    {
-        $data = ServiceCarCategory::where('service_id',$request->service_id)
-            ->where('brand_id', $request->brand_id)
-            ->where('modell_id', $request->modell_id)
-            ->where('year_id', $request->year_id)
-            ->first();
-
-        return $data;
-    }
-
-
 }

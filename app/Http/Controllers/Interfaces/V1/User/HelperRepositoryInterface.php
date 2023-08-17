@@ -13,6 +13,7 @@ interface HelperRepositoryInterface
 {
     public function pages($request);
     public function departments();
-    public function userTrip();
+    public function userTripTerms();
     public function socialMedia();
+    public function contactUs($request);
 }

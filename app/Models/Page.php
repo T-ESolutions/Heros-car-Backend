@@ -14,6 +14,7 @@ class Page extends Model
         'body_en',
         'image',
         'type',
+        'target_type',
     ];
 
     protected $appends = ['title', 'body'];
@@ -52,10 +53,5 @@ class Page extends Model
         } else {
             $this->attributes['image'] = $image;
         }
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
     }
 }
