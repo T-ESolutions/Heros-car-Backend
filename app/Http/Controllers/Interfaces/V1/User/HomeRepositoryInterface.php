@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Interfaces\V1\User;
 interface HomeRepositoryInterface
 {
     public function activeMainDepartments();
-    public function suggestedTrips($activeMainDepartments);
+    public function suggestedTrips($activeMainDepartments,$request);
+    public function getTripsByDepartment($request);
 
 }

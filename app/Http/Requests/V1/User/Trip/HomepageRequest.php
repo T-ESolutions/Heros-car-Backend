@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Requests\V1\User\Order;
+namespace App\Http\Requests\V1\User\Trip;
 
-use App\Models\CancelReason;
+use App\Models\Driver;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
-use JWTAuth;
-use TymonJWTAuthExceptionsJWTException;
 
-class AcceptRejectExtraServiceRequest extends FormRequest
+class HomepageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,15 +23,14 @@ class AcceptRejectExtraServiceRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function rules()
     {
 
         return [
-            'order_extra_service_id' => ['required', 'exists:order_extra_services,id'],
-            'user_approval' => ['required', 'in:0,1'],
-            'reject_reason' => ['required_if:user_approval,0'],
+            'lat' => 'required',
+            'lng' => 'required',
         ];
     }
 }

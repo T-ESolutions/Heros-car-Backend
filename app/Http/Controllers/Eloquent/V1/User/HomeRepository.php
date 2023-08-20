@@ -23,20 +23,20 @@ class HomeRepository implements HomeRepositoryInterface
         return Department::WithoutParent()->active()->get();
     }
 
-    public function suggestedTrips($activeMainDepartments){
+    public function suggestedTrips($activeMainDepartments,$request){
         //ToDo need to get suggested trips based on customer location
         $data['suggested_trips'] = [];
         $item = [];
         foreach ($activeMainDepartments as $activeMainDepartment){
             $item['id'] = $activeMainDepartment->id;
             $item['title'] = $activeMainDepartment->title;
-            $item['trips'] = HomepageTripResources::collection($this->getTrips($activeMainDepartment->id));
+            $item['trips'] = HomepageTripResources::collection($this->getTripsForHomepage($activeMainDepartment->id));
             array_push($data['suggested_trips'],$item);
         }
         return $data;
     }
 
-    public function getTrips($activeMainDepartmentId){
+    public function getTripsForHomepage($activeMainDepartmentId){
         //ToDo need to get suggested trips based on customer location
         if($activeMainDepartmentId == 2){ //rent car department
             $driverCarDepartments = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
@@ -66,6 +66,39 @@ class HomeRepository implements HomeRepositoryInterface
                 ->whereNull('cancel_reason')
                 ->take(20)
                 ->get();
+        }
+
+    }
+
+    public function getTripsByDepartment($request){
+        $departmentId = $request->department_id;
+        //ToDo need to get suggested trips based on customer location
+        if($departmentId == 2){ //rent car department
+            $driverCarDepartments = DriverCarDepartment::whereDepartmentId($departmentId)
+                ->pluck('driver_car_id');
+            $driverCars =  DriverCar::whereIn('id',$driverCarDepartments)
+                ->paginate(20);
+            foreach ($driverCars as $driverCar){
+                $carCategoryId = DriverCarDepartment::whereDepartmentId($departmentId)
+                    ->whereDriverCarId($driverCar->id)->first()->car_category_id;
+                $pricePerPerson = CarCategory::whereId($carCategoryId)->first()->wait_price;
+
+                $driverCar->department_id       = $departmentId;
+                $driverCar->driver_car_id       = $driverCar->id;
+                $driverCar->from_lat            = $driverCar->lat;
+                $driverCar->from_lng            = $driverCar->lng;
+                $driverCar->from_address_ar     = $driverCar->address_ar;
+                $driverCar->from_address_en     = $driverCar->address_en;
+                $driverCar->price_per_person    = $pricePerPerson;
+            }
+            return $driverCars;
+        }else{ //other departments
+            return Trip::whereDepartmentId($departmentId)
+                ->whereNull('started_at')
+                ->whereNull('finished_at')
+                ->whereNull('cancelled_at')
+                ->whereNull('cancel_reason')
+                ->paginate(20);
         }
 
     }

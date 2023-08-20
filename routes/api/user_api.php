@@ -32,12 +32,6 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
         Route::post('/social-login', [AuthController::class, 'socialLogin']);
     });
 
-    Route::group(['prefix' => "user"], function () {
-        //home
-        Route::get('/home-page', [HomeController::class, 'homePage']);
-
-    });
-
     Route::group(['middleware' => ['auth:api', 'check_active']], function () {
         Route::group(['prefix' => "auth"], function () {
             Route::get('/logout', [AuthController::class, 'logout']);
@@ -49,5 +43,11 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
 
     });
 
+    Route::group(['prefix' => "user"], function () {
+        //home
+        Route::get('/home-page', [HomeController::class, 'homePage']);
+        Route::get('/get-trips-by-department', [HomeController::class, 'getTripsByDepartment']);
+
+    });
 
 });

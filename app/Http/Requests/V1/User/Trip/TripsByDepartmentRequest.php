@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Requests\V1\User;
+namespace App\Http\Requests\V1\User\Trip;
 
+use App\Models\Driver;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
-class ServiceQuestionsRequest extends FormRequest
+class TripsByDepartmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +27,11 @@ class ServiceQuestionsRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'service_id'=>'required|exists:services,id'
+            'lat' => 'required',
+            'lng' => 'required',
+            'department_id' => 'required|in:1,2,3',
         ];
     }
 }
