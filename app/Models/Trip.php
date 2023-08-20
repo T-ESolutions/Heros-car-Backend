@@ -17,6 +17,7 @@ class Trip extends Model
         'brand_id',
         'modell_id',
         'color_id',
+        'price_per_person',
         'trip_date',
         'trip_time_from',
         'trip_time_to',

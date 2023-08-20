@@ -20,25 +20,25 @@ class CarCategorySeeder extends Seeder
 
         $data = [
             [
-                'title' => 'سيارات عادية',
-                'start_price' => 5,
-                'min_price' => 10,
-                'km_price' => 1.5,
-                'wait_price' => 1,
+                'title'         =>   'سيارات عادية',
+                'start_price'   =>   5,
+                'min_price'     =>   10,
+                'km_price'      =>   1.5,
+                'wait_price'    =>   10,
             ],
             [
-                'title' => 'سيارات متوسطة',
-                'start_price' => 7.5,
-                'min_price' => 15,
-                'km_price' => 2.5,
-                'wait_price' => 2,
+                'title'         =>   'سيارات متوسطة',
+                'start_price'   =>   7.5,
+                'min_price'     =>   15,
+                'km_price'      =>   2.5,
+                'wait_price'    =>   15,
             ],
             [
-                'title' => 'سيارات فارهة',
-                'start_price' => 9.5,
-                'min_price' => 20,
-                'km_price' => 3.5,
-                'wait_price' => 3,
+                'title'         =>   'سيارات فارهة',
+                'start_price'   =>   9.5,
+                'min_price'     =>   20,
+                'km_price'      =>   3.5,
+                'wait_price'    =>   20,
             ]
         ];
 

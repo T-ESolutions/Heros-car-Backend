@@ -22,6 +22,7 @@ class HomepageTripResources extends JsonResource
             'brand_name'        => $this->brand_name,
             'modell_name'       => $this->modell_name,
             'color_name'        => $this->color_name,
+            'price_per_person'  => $this->price_per_person,
             'trip_date'         => $this->trip_date,
             'trip_time_from'    => $this->trip_time_from,
             'trip_time_to'      => $this->trip_time_to,

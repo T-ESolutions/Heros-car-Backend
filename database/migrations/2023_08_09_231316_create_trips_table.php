@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreignId('modell_id')->references('id')->on('modells')->onDelete('cascade');
             $table->foreignId('color_id')->references('id')->on('colors')->onDelete('cascade');
 
+            $table->double('price_per_person');
             $table->date('trip_date');
             $table->time('trip_time_from');
             $table->time('trip_time_to');

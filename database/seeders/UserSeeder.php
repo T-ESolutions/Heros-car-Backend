@@ -17,14 +17,14 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'name'=>"Demo User",
-                'email'=>"user@gmail.com",
-                'phone'=>"01099999999",
-                'password'=>"123456",
-                'image'=>null,
-                'active'=>1,
-                'suspend'=>0,
-                'email_verified_at'=>Carbon::now(),
+                'name'              =>  "Demo User",
+                'email'             =>  "user@gmail.com",
+                'phone'             =>  "01099999999",
+                'password'          =>  "123456",
+                'image'             =>  null,
+                'active'            =>  1,
+                'suspend'           =>  0,
+                'email_verified_at' =>  Carbon::now(),
             ],
 
         ];

@@ -18,13 +18,13 @@ class AdminsSeeder extends Seeder
         //        Admin
         if (!Admin::find(1)) {
             Admin::updateOrCreate([
-                'id' => 1,
-                'name' => 'admin',
-                'email' => 'admin@admin.com',
-                'password' => '123456',
-                'phone' => '123456',
-                'type' => 'admin',
-                'email_verified_at' => Carbon::now(),
+                'id'                    => 1,
+                'name'                  => 'admin',
+                'email'                 => 'admin@admin.com',
+                'password'              => '123456',
+                'phone'                 => '123456',
+                'type'                  => 'admin',
+                'email_verified_at'     => Carbon::now(),
             ]);
         }
     }

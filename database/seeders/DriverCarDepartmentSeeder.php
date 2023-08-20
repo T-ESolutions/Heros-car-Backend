@@ -28,11 +28,11 @@ class DriverCarDepartmentSeeder extends Seeder
         foreach ($departments->where('id', '!=', 3) as $department) {
             foreach ($driverCars->where('id', '<', 4) as $driverCar) {
                 DriverCarDepartment::create([
-                    'driver_id' => $driverCar->driver_id,
-                    'department_parent_id' => $department->parent_id,
-                    'department_id' => $department->id,
-                    'driver_car_id' => $driverCar->id,
-                    'car_category_id' => CarCategory::where('department_id', $department->id)->inRandomOrder()->first()->id
+                    'driver_id'             =>  $driverCar->driver_id,
+                    'department_parent_id'  =>  $department->parent_id,
+                    'department_id'         =>  $department->id,
+                    'driver_car_id'         =>  $driverCar->id,
+                    'car_category_id'       =>  CarCategory::where('department_id', $department->id)->inRandomOrder()->first()->id
                 ]);
             }
         }
@@ -41,11 +41,11 @@ class DriverCarDepartmentSeeder extends Seeder
         foreach ($departments->where('id', '!=', 1) as $department) {
             foreach ($driverCars->where('id', '>', 3) as $driverCar) {
                 DriverCarDepartment::create([
-                    'driver_id' => $driverCar->driver_id,
-                    'department_parent_id' => $department->parent_id,
-                    'department_id' => $department->id,
-                    'driver_car_id' => $driverCar->id,
-                    'car_category_id' => CarCategory::where('department_id', $department->id)->inRandomOrder()->first()->id
+                    'driver_id'             =>  $driverCar->driver_id,
+                    'department_parent_id'  =>  $department->parent_id,
+                    'department_id'         =>  $department->id,
+                    'driver_car_id'         =>  $driverCar->id,
+                    'car_category_id'       =>  CarCategory::where('department_id', $department->id)->inRandomOrder()->first()->id
                 ]);
             }
         }

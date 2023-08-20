@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Eloquent\V1\User;
 
 use App\Http\Controllers\Interfaces\V1\User\HomeRepositoryInterface;
 use App\Http\Resources\V1\User\HomepageTripResources;
+use App\Models\CarCategory;
 use App\Models\Department;
 use App\Models\DriverCar;
 use App\Models\DriverCarDepartment;
@@ -38,15 +39,32 @@ class HomeRepository implements HomeRepositoryInterface
     public function getTrips($activeMainDepartmentId){
         //ToDo need to get suggested trips based on customer location
         if($activeMainDepartmentId == 2){ //rent car department
-            $driverCars = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
+            $driverCarDepartments = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
                 ->pluck('driver_car_id');
-            return DriverCar::whereIn('id',$driverCars)->get();
+            $driverCars =  DriverCar::whereIn('id',$driverCarDepartments)
+                ->take(20)
+                ->get();
+            foreach ($driverCars as $driverCar){
+                $carCategoryId = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
+                    ->whereDriverCarId($driverCar->id)->first()->car_category_id;
+                $pricePerPerson = CarCategory::whereId($carCategoryId)->first()->wait_price;
+
+                $driverCar->department_id       = $activeMainDepartmentId;
+                $driverCar->driver_car_id       = $driverCar->id;
+                $driverCar->from_lat            = $driverCar->lat;
+                $driverCar->from_lng            = $driverCar->lng;
+                $driverCar->from_address_ar     = $driverCar->address_ar;
+                $driverCar->from_address_en     = $driverCar->address_en;
+                $driverCar->price_per_person    = $pricePerPerson;
+            }
+            return $driverCars;
         }else{ //other departments
             return Trip::whereDepartmentId($activeMainDepartmentId)
                 ->whereNull('started_at')
                 ->whereNull('finished_at')
                 ->whereNull('cancelled_at')
                 ->whereNull('cancel_reason')
+                ->take(20)
                 ->get();
         }
 

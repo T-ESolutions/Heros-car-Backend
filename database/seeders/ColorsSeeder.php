@@ -16,20 +16,20 @@ class ColorsSeeder extends Seeder
     {
         $brands_data = [
             [
-                'title_ar' => 'احمر',
-                'title_en' => 'red',
+                'title_ar'  =>   'احمر',
+                'title_en'  =>   'red',
             ],
             [
-                'title_ar' => 'ابيض',
-                'title_en' => 'white',
+                'title_ar'  =>   'ابيض',
+                'title_en'  =>   'white',
             ],
             [
-                'title_ar' => 'اسود',
-                'title_en' => 'black',
+                'title_ar'  =>   'اسود',
+                'title_en'  =>   'black',
             ],
             [
-                'title_ar' => 'رمادي',
-                'title_en' => 'gray',
+                'title_ar'  =>   'رمادي',
+                'title_en'  =>   'gray',
             ],
         ];
         foreach ($brands_data as $get) {
