@@ -37,4 +37,22 @@ class Modell extends Model
     {
         return $this->belongsTo(Brand::class, 'brand_id');
     }
+
+    public function getImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/modells') . '/' . $image;
+        }
+        return asset('defaults/default_modell.png');
+    }
+
+    public function setImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $img_name = upload($image, 'modells');
+            $this->attributes['image'] = $img_name;
+        } else {
+            $this->attributes['image'] = $image;
+        }
+    }
 }

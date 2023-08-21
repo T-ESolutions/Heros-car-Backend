@@ -32,15 +32,10 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
     Route::group(['prefix' => "app"], function () {
         //main screens
         Route::get('/screens', [SettingsController::class, 'screens']);
-        Route::get('/brands', [SettingsController::class, 'brands']);
-        Route::get('/services', [SettingsController::class, 'services']);
-        Route::get('/brand/modells', [SettingsController::class, 'modells']);
-        Route::get('/modell/years', [SettingsController::class, 'years']);
 
         Route::get('/pages', [SettingsController::class, 'pages']);
         Route::get('/page/details', [SettingsController::class, 'pageDetails']);
 
-        Route::get('/cancel-reasons', [SettingsController::class, 'cancelReasons']);
         Route::get('/links', [SettingsController::class, 'links']);
 
         Route::get('/settings', [SettingsController::class, 'settings']);
@@ -53,5 +48,7 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
         Route::get('/user-trip-terms', [HelperController::class, 'userTripTerms']);
         Route::get('/social-media', [HelperController::class, 'socialMedia']);
         Route::post('/contact-us', [HelperController::class, 'contactUs']);
+        Route::get('/brands', [HelperController::class, 'brands']);
+        Route::get('/modells', [HelperController::class, 'modells']);
     });
 });

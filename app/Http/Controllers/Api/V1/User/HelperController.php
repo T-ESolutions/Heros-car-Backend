@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Interfaces\V1\User\HelperRepositoryInterface;
 use App\Http\Requests\V1\Helper\ContactUsRequest;
+use App\Http\Requests\V1\Helper\ModellsRequest;
 use App\Http\Requests\V1\Helper\PageRequest;
 use App\Http\Resources\V1\DepartmentResources;
 use App\Http\Resources\V1\User\PagesResources;
@@ -79,5 +80,17 @@ class HelperController extends Controller
 
         return response()->json(msg(success(), trans('lang.added_s')));
 
+    }
+    public function brands()
+    {
+        $data = $this->helperRepository->brands();
+        return response()->json(msgdata(success(), trans('lang.success'),$data));
+    }
+
+    public function modells(ModellsRequest $request)
+    {
+        $request = $request->validated();
+        $data = $this->helperRepository->modells($request);
+        return response()->json(msgdata(success(), trans('lang.success'),$data));
     }
 }

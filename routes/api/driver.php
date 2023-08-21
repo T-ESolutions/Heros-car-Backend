@@ -32,6 +32,11 @@ Route::group([
             Route::post('/profile/update', [AuthController::class, 'updateProfile']);
 
         });
+
+        Route::group(['prefix' => "car"], function () {
+            Route::post('/store', [CarsController::class, 'store']);
+
+        }
         Route::group(['prefix' => "orders"], function () {
             Route::get('/', [OrdersController::class, 'myOrders']);
             Route::get('/details', [OrdersController::class, 'orderDetails']);
