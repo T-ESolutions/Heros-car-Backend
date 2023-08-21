@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'added_s_wait_admin_to_approve' => 'تم الاضافة بنجاح , انتظر الادارة للموافقة على سيارتك',
+    'driver_have_car_before' => 'السائق لدية سيارة من قبل',
     'wait_admin_accept' => 'انتظر الادارة للموافقة على حسابك اولا',
     'currency' => 'جنية مصري',
     'location_summery' => 'ملخص الموقع',

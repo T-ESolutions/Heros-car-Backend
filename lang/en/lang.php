@@ -12,6 +12,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'driver_have_car_before' => 'driver have car before',
+    'added_s_wait_admin_to_approve' => 'data added successfully , wait admin to approve your car',
+
     'wait_admin_accept' => 'Wait for the administration to approve your account first',
     'currency' => 'EGP',
     'unauthinticate' => 'you should login first',

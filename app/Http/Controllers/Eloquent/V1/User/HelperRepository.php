@@ -11,9 +11,11 @@ namespace App\Http\Controllers\Eloquent\V1\User;
 
 use App\Http\Controllers\Interfaces\V1\User\HelperRepositoryInterface;
 use App\Http\Resources\V1\User\BrandsResources;
+use App\Http\Resources\V1\User\ColorResources;
 use App\Http\Resources\V1\User\ModellsResources;
 use App\Http\Resources\V1\User\SettingResources;
 use App\Models\Brand;
+use App\Models\Color;
 use App\Models\ContactUs;
 use App\Models\Department;
 use App\Models\Modell;
@@ -59,12 +61,18 @@ class HelperRepository implements HelperRepositoryInterface
 
     }
 
+    public function colors()
+    {
+        $data =  Color::orderBy('id', 'desc')->paginate(20);
+        $data = ColorResources::collection($data)->response()->getData(true);
+        return $data ;
+    }
+
     public function brands()
     {
         $data =  Brand::active()->orderBy('id', 'desc')->paginate(20);
         $data = BrandsResources::collection($data)->response()->getData(true);
         return $data ;
-
     }
 
     public function modells($request)
@@ -72,7 +80,6 @@ class HelperRepository implements HelperRepositoryInterface
         $screens = Modell::active()->where('brand_id', $request['brand_id'])->get();
         $screens = (ModellsResources::collection($screens));
         return $screens ;
-
     }
 
 }

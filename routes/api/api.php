@@ -48,6 +48,7 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
         Route::get('/user-trip-terms', [HelperController::class, 'userTripTerms']);
         Route::get('/social-media', [HelperController::class, 'socialMedia']);
         Route::post('/contact-us', [HelperController::class, 'contactUs']);
+        Route::get('/colors', [HelperController::class, 'colors']);
         Route::get('/brands', [HelperController::class, 'brands']);
         Route::get('/modells', [HelperController::class, 'modells']);
     });

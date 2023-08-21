@@ -16,6 +16,7 @@ interface HelperRepositoryInterface
     public function userTripTerms();
     public function socialMedia();
     public function contactUs($request);
+    public function colors();
     public function brands();
     public function modells($request);
 }

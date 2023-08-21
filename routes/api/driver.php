@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Driver\AuthController;
 use App\Http\Controllers\Api\V1\Driver\OrdersController;
 use App\Http\Controllers\Api\V1\Driver\ReviewController;
+use App\Http\Controllers\Api\V1\Driver\CarsController;
 
 
 Route::group([
@@ -35,8 +36,11 @@ Route::group([
 
         Route::group(['prefix' => "car"], function () {
             Route::post('/store', [CarsController::class, 'store']);
+            Route::get('/my', [CarsController::class, 'myCars']);
+            Route::get('/details', [CarsController::class, 'details']);
 
-        }
+
+        });
         Route::group(['prefix' => "orders"], function () {
             Route::get('/', [OrdersController::class, 'myOrders']);
             Route::get('/details', [OrdersController::class, 'orderDetails']);

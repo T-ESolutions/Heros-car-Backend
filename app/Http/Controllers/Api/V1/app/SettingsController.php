@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1\app;
 use App\Http\Resources\V1\User\PageDetailsResources;
 use App\Http\Resources\V1\User\ScreenResources;
 use App\Http\Resources\V1\User\PagesResources;
-use App\Http\Resources\LinksResources;
+use App\Http\Resources\V1\LinksResources;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Screen;
@@ -59,7 +59,6 @@ class SettingsController extends Controller
         $screens = (ScreenResources::collection($screens));
         return response()->json(msgdata(success(), trans('lang.success'), $screens));
     }
-
 
 
 }

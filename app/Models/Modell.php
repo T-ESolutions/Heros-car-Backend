@@ -43,7 +43,7 @@ class Modell extends Model
         if (!empty($image)) {
             return asset('uploads/modells') . '/' . $image;
         }
-        return asset('defaults/default_modell.png');
+        return asset('defaults/default_car.png');
     }
 
     public function setImageAttribute($image)

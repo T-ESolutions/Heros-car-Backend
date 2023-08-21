@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\V1\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LinksResources extends JsonResource
+class ColorResources extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,7 @@ class LinksResources extends JsonResource
     {
         return [
             'id' => $this->id,
-            'link' => $this->link,
-            'image' => $this->image,
-            'name' => $this->name,
+            'title' => $this->title,
         ];
     }
 }

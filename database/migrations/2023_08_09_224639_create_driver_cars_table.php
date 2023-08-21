@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('car_plate_num');
             $table->string('car_plate_txt');
             $table->string('factory_year');
-            $table->string('car_body_id')->unique()->comment('number of 4asaeh')->nullable();
+            $table->string('car_body_id')->unique()->comment('number of 4asaeh');
             $table->integer('chairs');
             $table->tinyInteger('air_cond')->default(0);
             $table->tinyInteger('bags')->default(0);

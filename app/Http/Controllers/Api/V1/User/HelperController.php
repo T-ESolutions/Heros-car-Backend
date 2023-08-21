@@ -9,11 +9,7 @@ use App\Http\Requests\V1\Helper\PageRequest;
 use App\Http\Resources\V1\DepartmentResources;
 use App\Http\Resources\V1\User\PagesResources;
 use App\Http\Resources\V1\User\SettingResources;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\ContactUs;
-use App\Models\User;
 use TymonJWTAuthExceptionsJWTException;
 use JWTAuth;
 use Auth;
@@ -41,8 +37,6 @@ class HelperController extends Controller
         } else {
             return response()->json(msg(not_found(), trans('lang.not_found')));
         }
-
-
     }
 
     public function departments()
@@ -81,6 +75,12 @@ class HelperController extends Controller
         return response()->json(msg(success(), trans('lang.added_s')));
 
     }
+    public function colors()
+    {
+        $data = $this->helperRepository->colors();
+        return response()->json(msgdata(success(), trans('lang.success'),$data));
+    }
+
     public function brands()
     {
         $data = $this->helperRepository->brands();
