@@ -77,7 +77,7 @@ class CarRepository implements CarRepositoryInterface
     public function details($request)
     {
         $data = DriverCar::where('id', $request['id'])->first();
-        $data = new DriverCarDetailsResources($data);
+        $data = new DriverCarResources($data);
         return $data;
     }
 

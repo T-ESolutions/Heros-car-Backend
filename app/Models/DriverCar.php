@@ -77,11 +77,15 @@ class DriverCar extends Model
         return $this->belongsTo(Driver::class, 'driver_id');
     }
 
-    public function departments()
+    public function departments_relation()
     {
         return $this->hasMany(DriverCarDepartment::class, 'driver_car_id');
     }
 
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class, 'driver_car_departments', 'driver_car_id', 'department_id');
+    }
 
     public function getCarImageAttribute($image)
     {
