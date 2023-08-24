@@ -78,7 +78,7 @@ class HomeRepository implements HomeRepositoryInterface
             $driverCarDepartments = DriverCarDepartment::whereDepartmentId($departmentId)
                 ->pluck('driver_car_id');
             $driverCars =  DriverCar::whereIn('id',$driverCarDepartments)
-                ->paginate(3);
+                ->paginate(10);
             foreach ($driverCars as $driverCar){
                 $carCategoryId = DriverCarDepartment::whereDepartmentId($departmentId)
                     ->whereDriverCarId($driverCar->id)->first()->car_category_id;
@@ -101,7 +101,7 @@ class HomeRepository implements HomeRepositoryInterface
                 ->whereNull('finished_at')
                 ->whereNull('cancelled_at')
                 ->whereNull('cancel_reason')
-                ->paginate(3);
+                ->paginate(10);
         }
 
     }
