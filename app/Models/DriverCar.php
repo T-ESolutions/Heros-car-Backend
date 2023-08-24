@@ -97,6 +97,7 @@ class DriverCar extends Model
 
     public function setCarImageAttribute($image)
     {
+        dd(is_file($image));
         if (is_file($image)) {
             $img_name = upload($image, 'car_images');
             $this->attributes['car_image'] = $img_name;

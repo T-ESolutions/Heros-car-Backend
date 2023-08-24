@@ -31,6 +31,7 @@ class DriverResources extends JsonResource
             'phone' => (string)$this->phone ? $this->phone : "",
             'driver_licence_image' => $this->driver_licence_image ,
             'id_number' => $this->id_number ,
+            'gender' => $this->gender ,
             'image' => (string)$this->image,
             'social_id' => $this->social_id ? $this->social_id : "",
             'fcm_token' => $this->fcm_token ? $this->fcm_token : "",

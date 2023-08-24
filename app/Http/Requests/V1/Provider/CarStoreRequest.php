@@ -3,6 +3,7 @@
 namespace App\Http\Requests\V1\Provider;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CarStoreRequest extends FormRequest
@@ -25,6 +26,7 @@ class CarStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'id' => ['nullable','exists:driver_cars,id',Rule::requiredIf($this->routeIs('car.update'))],
             'car_image' => 'required|image|mimes:png,jpg,jpeg,webp,svg,jfif',
             'car_licence_image' => 'required|image|mimes:png,svg,jfif,jpeg,jpg',
             'brand_id' => 'required|exists:brands,id',
@@ -34,7 +36,7 @@ class CarStoreRequest extends FormRequest
             'color_id' => 'required|exists:colors,id',
             'car_plate_num' => 'required|numeric',
             'car_plate_txt' => 'required|string',
-            'car_body_id' => 'required|string|unique:driver_cars,car_body_id',
+            'car_body_id' => 'required|string|unique:driver_cars,car_body_id,'.$this->id,
             'chairs' => 'required|numeric|min:1',
             'air_cond' => 'required|in:0,1',
             'bags' => 'required|in:0,1',
@@ -45,9 +47,9 @@ class CarStoreRequest extends FormRequest
 
             'use_my_data' => 'required|in:0,1',
             'name' => 'nullable|string|max:255|required_if:use_my_data,0',
-            'phone' => 'nullable|unique:drivers,phone|required_if:use_my_data,0',
-            'password' => 'nullable|min:6|required_if:use_my_data,0',
-            'id_number' => 'nullable|unique:drivers,id_number|required_if:use_my_data,0',
+            'phone' => 'nullable|required_if:use_my_data,0|unique:drivers,phone,'.$this->driver_id,
+            'password' => ['nullable','min:6',Rule::requiredIf($this->use_my_data == 0 && $this->routeIs('car.store'))],
+            'id_number' => 'nullable|required_if:use_my_data,0|unique:drivers,id_number,'.$this->driver_id,
             'gender' => 'nullable|in:male,female|required_if:use_my_data,0',
             'image' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg,jfif|required_if:use_my_data,0',
             'driver_licence_image' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg,jfif|required_if:use_my_data,0',

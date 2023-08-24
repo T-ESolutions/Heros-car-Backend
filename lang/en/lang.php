@@ -14,6 +14,8 @@ return [
     */
     'driver_have_car_before' => 'driver have car before',
     'added_s_wait_admin_to_approve' => 'data added successfully , wait admin to approve your car',
+    'updated_s_wait_admin_to_approve' => 'data updated successfully , wait admin to approve your car',
+    'you_dont_have_permission_to_edit_car_data' => 'You do not have the authority to modify the car data, the authority is only for the owner of the car rental office',
 
     'wait_admin_accept' => 'Wait for the administration to approve your account first',
     'currency' => 'EGP',

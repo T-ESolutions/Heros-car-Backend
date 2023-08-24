@@ -35,9 +35,11 @@ Route::group([
         });
 
         Route::group(['prefix' => "car"], function () {
-            Route::post('/store', [CarsController::class, 'store']);
+            Route::post('/store', [CarsController::class, 'store'])->name('car.store');
+            Route::post('/update', [CarsController::class, 'update'])->name('car.update');
             Route::get('/my', [CarsController::class, 'myCars']);
             Route::get('/details', [CarsController::class, 'details']);
+            Route::get('/data', [CarsController::class, 'data']);
 
 
         });
