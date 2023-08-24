@@ -40,8 +40,8 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Controllers\Eloquent\V1\User\HomeRepository'
         );
         $this->app->bind(
-            'App\Http\Controllers\Interfaces\V1\User\OrdersRepositoryInterface',
-            'App\Http\Controllers\Eloquent\V1\User\OrdersRepository'
+            'App\Http\Controllers\Interfaces\V1\User\TripRepositoryInterface',
+            'App\Http\Controllers\Eloquent\V1\User\TripRepository'
         );
         $this->app->bind(
             'App\Http\Controllers\Interfaces\V1\User\UserRepositoryInterface',

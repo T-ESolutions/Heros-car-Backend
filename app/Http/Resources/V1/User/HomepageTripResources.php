@@ -14,6 +14,7 @@ class HomepageTripResources extends JsonResource
      */
     public function toArray($request)
     {
+
         return [
             'id'                => $this->id,
             'driver_id'         => $this->driver_id,
@@ -27,6 +28,8 @@ class HomepageTripResources extends JsonResource
             'trip_time_from'    => $this->trip_time_from,
             'trip_time_to'      => $this->trip_time_to,
             'chairs'            => (int)$this->chairs,
+            'available_chairs'  => (int)$this->available_chairs,
+            'booked_chairs'     => (int)$this->booked_chairs,
             'air_cond'          => (int)$this->air_cond,
             'bags'              => (int)$this->bags,
             'from_lat'          => (string)$this->from_lat,

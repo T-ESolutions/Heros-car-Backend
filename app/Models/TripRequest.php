@@ -18,6 +18,7 @@ class TripRequest extends Model
         'trip_time',
         'price',
         'chairs',
+        'num_of_hours',
         'wait_hours',
         'accept_at',
         'reject_at',
@@ -40,4 +41,15 @@ class TripRequest extends Model
         'end_address_ar',
         'end_address_en',
     ];
+
+    protected $appends=['total_price'];
+
+    public function getTotalPriceAttribute(){
+        $department = Department::whereId($this->department_id)->first();
+        if($this->department_id == 2 || $department->parent_id == 2){
+            return $this->price;
+        }
+        return $this->price * $this->chairs;
+
+    }
 }

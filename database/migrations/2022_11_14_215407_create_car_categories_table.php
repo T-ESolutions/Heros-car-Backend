@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->double('start_price')->default(0);
             $table->double('min_price')->default(0);
-            $table->double('km_price')->default(0);
+            $table->double('km_price')->comment('km_pric OR hr_price')->default(0);
             $table->double('wait_price')->default(0);
             $table->timestamps();
         });

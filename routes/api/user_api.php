@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\User\HelperController;
-use App\Http\Controllers\Api\V1\User\OrderController;
+use App\Http\Controllers\Api\V1\User\TripController;
 use App\Http\Controllers\Api\V1\User\ReviewController;
 use App\Http\Controllers\Api\V1\User\ServicesController;
 use Illuminate\Support\Facades\Route;
@@ -47,7 +47,7 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
         //home
         Route::get('/home-page', [HomeController::class, 'homePage']);
         Route::get('/get-trips-by-department', [HomeController::class, 'getTripsByDepartment']);
-
+        Route::post('/create-trip-request', [TripController::class, 'createTripRequest']);
     });
 
 });

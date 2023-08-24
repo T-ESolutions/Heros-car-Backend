@@ -42,7 +42,18 @@ class Trip extends Model
         'cancel_reason',
     ];
 
-    protected $appends = ['brand_name','modell_name','color_name'];
+    protected $appends = ['brand_name','modell_name','color_name','booked_chairs','available_chairs'];
+
+    public function getBookedChairsAttribute(){
+        return TripRequest::where('trip_id',$this->id)
+            ->whereNotNull('accept_at')
+            ->whereNull('reject_at')
+            ->whereNull('user_cancel_at')
+            ->count('chairs');
+    }
+    public function getAvailableChairsAttribute(){
+        return $this->chairs - $this->booked_chairs;
+    }
 
     public function getBrandNameAttribute(){
         if(request()->header('lang') == 'en')
