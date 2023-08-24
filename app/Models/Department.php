@@ -76,5 +76,10 @@ class Department extends Model
         return $this->hasMany(Department::class, 'parent_id');
     }
 
+    public function driver_cars()
+    {
+        return $this->belongsToMany(Department::class, 'driver_car_departments', 'department_id', 'driver_car_id');
+    }
+
 
 }

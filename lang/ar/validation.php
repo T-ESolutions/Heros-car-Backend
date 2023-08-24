@@ -252,5 +252,19 @@ return [
         'country_code'=>'كود الدولة',
         'id_number'=>'رقم البطاقة الشخصية',
 
+        'car_image'=>'صورة السيارة',
+        'car_licence_image'=>'صورة رخصة السيارة',
+        'brand_id'=>'الماركة',
+        'modell_id'=>'الموديل',
+        'document_image'=>'صورة التوكيل',
+        'factory_year'=>'سنة الصنع',
+        'color_id'=>'لون السيارة',
+        'car_plate_num'=>'ارقام اللوحة',
+        'car_plate_txt'=>'حروف اللوحة',
+        'chairs'=>'عدد الافراد',
+        'air_cond'=>'السيارة مكيفة',
+        'bags'=>'الحقائب',
+        'driver_licence_image'=>'صورة رخصة القيادة',
+
     ],
 ];

@@ -13,6 +13,10 @@ return [
     |
     */
 
+    'you_dont_have_permission_to_edit_car_data' => 'لا تمتلك الصلاحية لتعديل بيانات السياره , الصلاحية فقط لمالك مكتب تأجير السيارات',
+    'added_s_wait_admin_to_approve' => 'تم الاضافة بنجاح , انتظر الادارة للموافقة على سيارتك',
+    'updated_s_wait_admin_to_approve' => 'تم التعديل بنجاح , انتظر الادارة للموافقة على سيارتك',
+    'driver_have_car_before' => 'السائق لدية سيارة من قبل',
     'wait_admin_accept' => 'انتظر الادارة للموافقة على حسابك اولا',
     'currency' => 'جنية مصري',
     'location_summery' => 'ملخص الموقع',

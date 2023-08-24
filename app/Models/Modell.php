@@ -17,6 +17,8 @@ class Modell extends Model
         'image',
     ];
 
+    protected $hidden = ['created_at','updated_at','active'];
+
     protected $appends = ['title'];
 
     public function getTitleAttribute()
@@ -43,7 +45,7 @@ class Modell extends Model
         if (!empty($image)) {
             return asset('uploads/modells') . '/' . $image;
         }
-        return asset('defaults/default_modell.png');
+        return asset('defaults/default_car.png');
     }
 
     public function setImageAttribute($image)

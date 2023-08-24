@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\V1\Driver;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LinksResources extends JsonResource
+class DriverCarDepartmentsResources extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,10 @@ class LinksResources extends JsonResource
     {
         return [
             'id' => $this->id,
-            'link' => $this->link,
+            'title' => $this->title,
+            'body' => $this->body,
             'image' => $this->image,
-            'name' => $this->name,
+
         ];
     }
 }

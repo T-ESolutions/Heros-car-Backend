@@ -16,6 +16,8 @@ class Brand extends Model
         'active',
     ];
 
+    protected $hidden = ['created_at','updated_at','active'];
+
     protected $appends = ['title'];
 
     public function getTitleAttribute()

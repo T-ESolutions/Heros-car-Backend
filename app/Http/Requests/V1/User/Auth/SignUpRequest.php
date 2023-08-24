@@ -24,7 +24,7 @@ class SignUpRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|mimes:png,svg,jpeg,jpg',
             'name' => 'required|string|max:255',
             'phone' => 'required|unique:users',
             'email' => 'nullable|email|unique:users',
