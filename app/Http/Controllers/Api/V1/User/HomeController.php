@@ -36,13 +36,11 @@ class HomeController extends Controller
 
     public function getTripsByDepartment(TripsByDepartmentRequest $request)
     {
-        $request->validated();
+//        $request->validated();
 
-        $trips = $this->homeRepo->getTripsByDepartment($request);
+        $trips = HomepageTripResources::collection($this->homeRepo->getTripsByDepartment($request));
 
-        return response()->json(msgdata(success(), trans('lang.success'),
-            HomepageTripResources::collection($trips)
-        ));
+        return response()->json(msgdata(success(), trans('lang.success'), $trips));
 
     }
 
