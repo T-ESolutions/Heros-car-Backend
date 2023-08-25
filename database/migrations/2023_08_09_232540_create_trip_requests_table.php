@@ -29,7 +29,7 @@ return new class extends Migration
             $table->dateTime('accept_at')->nullable();
             $table->dateTime('reject_at')->nullable();
             $table->dateTime('user_cancel_at')->nullable();
-            $table->dateTime('user_cancel_reason')->nullable();
+            $table->string('user_cancel_reason')->nullable();
             $table->integer('user_rate')->nullable();
             $table->integer('user_rate_txt')->nullable();
             $table->integer('driver_rate')->nullable();

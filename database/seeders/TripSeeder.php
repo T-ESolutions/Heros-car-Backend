@@ -20,6 +20,7 @@ class TripSeeder extends Seeder
         $data = [
             //first driver (male)
             [
+
                 'trip_number'       =>  rand(100000000,999999999),
                 'driver_id'         =>  1,
                 'department_id'     =>  1, //Economic Trip

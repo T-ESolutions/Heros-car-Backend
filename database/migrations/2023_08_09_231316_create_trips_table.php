@@ -46,7 +46,7 @@ return new class extends Migration
             $table->dateTime('started_at')->nullable();
             $table->dateTime('finished_at')->nullable();
             $table->dateTime('cancelled_at')->nullable();
-            $table->dateTime('cancel_reason')->nullable();
+            $table->string('cancel_reason')->nullable();
             $table->timestamps();
         });
     }
