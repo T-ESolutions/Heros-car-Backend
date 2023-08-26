@@ -113,4 +113,25 @@ class Trip extends Model
     {
         return $this->belongsTo(Department::class, 'department_id');
     }
+
+
+    public static function filterbylatlng($mylat,$mylng,$radius,$model)
+    {
+        $haversine = "(6371 * acos(cos(radians($mylat))
+                           * cos(radians($model.latitude))
+                           * cos(radians($model.longitude)
+                           - radians($mylng))
+                           + sin(radians($mylat))
+                           * sin(radians($model.latitude))))";
+        $datainradiusrange = DB::table($model)->select('*')
+            ->selectRaw("{$haversine} AS distance")
+            ->whereRaw("{$haversine} < ?", [$radius])
+            ->where('status', 'accepted')
+            ->where('available',1)
+            ->where('busy',0)
+            ->select('id', 'lat', 'lng','fcm_token','notification')
+            ->get();
+
+        return $datainradiusrange;
+    }
 }
