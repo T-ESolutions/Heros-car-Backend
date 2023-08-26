@@ -36,6 +36,8 @@ class Trip extends Model
         'end_lng',
         'end_address_ar',
         'end_address_en',
+        'started_at',
+        'finished_at',
         'cancelled_at',
         'cancel_reason',
     ];
