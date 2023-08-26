@@ -49,6 +49,7 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
         Route::get('/get-trips-by-department', [HomeController::class, 'getTripsByDepartment']);
         Route::post('/create-trip-request', [TripController::class, 'createTripRequest']);
         Route::get('/cancel-trip', [TripController::class, 'cancelTripRequest']);
+        Route::get('/get-history-trips', [TripController::class, 'getTripRequestHistory']);
 
     });
 
