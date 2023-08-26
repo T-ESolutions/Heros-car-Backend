@@ -23,7 +23,7 @@ class TripRequestHistoryResources extends JsonResource
             'trip_number' => $this->trip->trip_number,
             'trip_date' => Carbon::parse($this->trip->trip_date)->translatedFormat("dd\mm\yyyy"),
             'trip_time_from' => Carbon::parse($this->trip->trip_time_from)->translatedFormat("h:i a"),
-            'price_per_person' => $this->trip->price_per_person,
+            'price' => $this->price,
 
 
         ];
