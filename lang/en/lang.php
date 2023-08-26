@@ -56,5 +56,7 @@ return [
 
     'order_rejected_before' => 'order rejected before',
     'order_rejected_s' => 'order rejected successfully',
+    'cannot_cancel_request' => 'Sorry cannot cancel request',
+
 
 ];

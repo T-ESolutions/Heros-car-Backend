@@ -15,4 +15,5 @@ interface HomeRepositoryInterface
     public function suggestedTrips($activeMainDepartments,$request);
     public function getTripsByDepartment($request);
 
+
 }

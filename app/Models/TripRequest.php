@@ -52,4 +52,8 @@ class TripRequest extends Model
         return $this->price * $this->chairs;
 
     }
+
+    public function trip(){
+        return $this->belongsTo(Trip::class,'trip_id');
+    }
 }

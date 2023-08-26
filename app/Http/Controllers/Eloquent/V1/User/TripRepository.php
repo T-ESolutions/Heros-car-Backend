@@ -94,15 +94,20 @@ class TripRepository implements TripRepositoryInterface
 
     public function cancelTripRequest($request)
     {
+
         $data = TripRequest::where('id', $request->trip_request_id)
             ->where('user_id', Auth::id())
-            ->update([
-                "user_cancel_at"=>Carbon::now(),
-                "user_cancel_reason"=>$request->cancel_reason
+            ->first();
+        if ($data && $data->trip->started_at == null) {
+            $data->update([
+                "user_cancel_at" => Carbon::now(),
+                "user_cancel_reason" => $request->cancel_reason
             ]);
+            return $data;
+        } else {
+            return null;
+        }
 
-
-        return $data;
 
     }
 
