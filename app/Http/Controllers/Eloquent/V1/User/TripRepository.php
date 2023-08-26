@@ -124,6 +124,7 @@ class TripRepository implements TripRepositoryInterface
 
     }
 
+
     public function rateTrip($request)
     {
         $data = TripRequest::whereId($request->trip_request_id)
@@ -141,5 +142,14 @@ class TripRepository implements TripRepositoryInterface
 
     }
 
+    public function driverRate($request)
+    {
+
+        $data = TripRequest::where('driver_id', $request->driver_id)
+            ->with('user')
+            ->get();
+        return $data;
+
+    }
 
 }

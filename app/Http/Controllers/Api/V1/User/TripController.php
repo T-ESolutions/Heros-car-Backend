@@ -6,7 +6,9 @@ use App\Http\Controllers\Interfaces\V1\User\TripRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\Trip\CancelTripRequest;
 use App\Http\Requests\V1\User\Trip\CreateTripRequest;
+use App\Http\Requests\V1\User\Trip\DriverRateRequest;
 use App\Http\Requests\V1\User\Trip\RateTripRequest;
+use App\Http\Resources\V1\User\DriverRateResources;
 
 class TripController extends Controller
 {
@@ -53,6 +55,15 @@ class TripController extends Controller
         $request->validated();
         $data = $this->tripRepo->rateTrip($request);
         return response()->json(msg(success(), trans('lang.success')));
+
+    }
+
+    public function driverRate(DriverRateRequest $request)
+    {
+        $request->validated();
+        $data = $this->tripRepo->driverRate($request);
+        $data = DriverRateResources::collection($data);
+        return response()->json(msgdata(success(), trans('lang.success'), $data));
 
     }
 
