@@ -6,6 +6,7 @@ use App\Http\Controllers\Interfaces\V1\User\TripRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\Trip\CancelTripRequest;
 use App\Http\Requests\V1\User\Trip\CreateTripRequest;
+use App\Http\Requests\V1\User\Trip\RateTripRequest;
 
 class TripController extends Controller
 {
@@ -43,11 +44,16 @@ class TripController extends Controller
     {
 
         $data = $this->tripRepo->getTripRequestHistory();
-
-
         return response()->json(msgdata(success(), trans('lang.success'), $data));
 
     }
 
+    public function rateTrip(RateTripRequest $request)
+    {
+        $request->validated();
+        $data = $this->tripRepo->rateTrip($request);
+        return response()->json(msg(success(), trans('lang.success')));
+
+    }
 
 }

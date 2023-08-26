@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\CancelReason;
 use App\Models\CarCategory;
 use App\Models\Department;
+use App\Models\Driver;
 use App\Models\DriverCarDepartment;
 use App\Models\ModellYear;
 use App\Models\Order;
@@ -55,39 +56,39 @@ class TripRepository implements TripRepositoryInterface
         $chairs = isset($request->chairs) && $request->chairs > 0 ? $request->chairs : 1;
 
         return TripRequest::create([
-            'user_id'               => Auth::id(),
-            'driver_id'             => $request->driver_id,
-            'department_id'         => $request->department_id,
-            'driver_car_id'         => $request->driver_car_id,
-            'trip_id'               => $trip_id,
-            'trip_date'             => $request->trip_date,
-            'trip_time'             => $request->trip_time,
-            'price'                 => $price,
-            'chairs'                => $chairs,
-            'num_of_hours'          => $numOfHours,
-            'wait_hours'            => $waitHours,
-            'started_at'            => null,
-            'finished_at'           => null,
-            'accept_at'             => null,
-            'reject_at'             => null,
-            'user_cancel_at'        => null,
-            'user_cancel_reason'    => null,
-            'user_rate'             => null,
-            'user_rate_txt'         => null,
-            'driver_rate'           => null,
-            'driver_rate_txt'       => null,
-            'from_lat'              => $request->from_lat,
-            'from_lng'              => $request->from_lng,
-            'from_address_ar'       => $request->from_address_ar,
-            'from_address_en'       => $request->from_address_en,
-            'to_lat'                => $request->to_lat,
-            'to_lng'                => $request->to_lng,
-            'to_address_ar'         => $request->to_address_ar,
-            'to_address_en'         => $request->to_address_en,
-            'end_lat'               => $request->end_lat,
-            'end_lng'               => $request->end_lng,
-            'end_address_ar'        => $request->end_address_ar,
-            'end_address_en'        => $request->end_address_en,
+            'user_id' => Auth::id(),
+            'driver_id' => $request->driver_id,
+            'department_id' => $request->department_id,
+            'driver_car_id' => $request->driver_car_id,
+            'trip_id' => $trip_id,
+            'trip_date' => $request->trip_date,
+            'trip_time' => $request->trip_time,
+            'price' => $price,
+            'chairs' => $chairs,
+            'num_of_hours' => $numOfHours,
+            'wait_hours' => $waitHours,
+            'started_at' => null,
+            'finished_at' => null,
+            'accept_at' => null,
+            'reject_at' => null,
+            'user_cancel_at' => null,
+            'user_cancel_reason' => null,
+            'user_rate' => null,
+            'user_rate_txt' => null,
+            'driver_rate' => null,
+            'driver_rate_txt' => null,
+            'from_lat' => $request->from_lat,
+            'from_lng' => $request->from_lng,
+            'from_address_ar' => $request->from_address_ar,
+            'from_address_en' => $request->from_address_en,
+            'to_lat' => $request->to_lat,
+            'to_lng' => $request->to_lng,
+            'to_address_ar' => $request->to_address_ar,
+            'to_address_en' => $request->to_address_en,
+            'end_lat' => $request->end_lat,
+            'end_lng' => $request->end_lng,
+            'end_address_ar' => $request->end_address_ar,
+            'end_address_en' => $request->end_address_en,
         ]);
 
 
@@ -102,8 +103,8 @@ class TripRepository implements TripRepositoryInterface
             ->first();
         if ($data && $data->trip->started_at == null) {
             $data->update([
-                "user_cancel_at"        => Carbon::now(),
-                "user_cancel_reason"    => $request->cancel_reason
+                "user_cancel_at" => Carbon::now(),
+                "user_cancel_reason" => $request->cancel_reason
             ]);
             return $data;
         } else {
@@ -118,6 +119,23 @@ class TripRepository implements TripRepositoryInterface
         $data = TripRequest::where('user_id', Auth::id())
             ->with('trip')
             ->get();
+
+        return $data;
+
+    }
+
+    public function rateTrip($request)
+    {
+        $data = TripRequest::whereId($request->trip_request_id)
+            ->first();
+        $data->user_rate = $request->user_rate;
+        $data->user_rate_txt = $request->user_rate_txt;
+        $data->save();
+
+        $driver_rate = TripRequest::where('driver_id', $data->driver_id)->avg('user_rate');
+        $driver = Driver::whereId($data->driver_id)->update([
+            'rate' => $driver_rate
+        ]);
 
         return $data;
 
