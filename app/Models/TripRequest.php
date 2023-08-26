@@ -75,4 +75,9 @@ class TripRequest extends Model
     {
         return $this->belongsTo(Trip::class, 'trip_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
