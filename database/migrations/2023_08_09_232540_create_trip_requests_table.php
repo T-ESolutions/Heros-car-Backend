@@ -33,9 +33,9 @@ return new class extends Migration
             $table->dateTime('user_cancel_at')->nullable();
             $table->string('user_cancel_reason')->nullable();
             $table->integer('user_rate')->nullable();
-            $table->integer('user_rate_txt')->nullable();
+            $table->text('user_rate_txt')->nullable();
             $table->integer('driver_rate')->nullable();
-            $table->integer('driver_rate_txt')->nullable();
+            $table->text('driver_rate_txt')->nullable();
             $table->string('from_lat');
             $table->string('from_lng');
             $table->text('from_address_ar');
