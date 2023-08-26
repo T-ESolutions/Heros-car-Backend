@@ -21,6 +21,8 @@ class TripRequest extends Model
         'chairs',
         'num_of_hours',
         'wait_hours',
+        'started_at',
+        'finished_at',
         'accept_at',
         'reject_at',
         'user_cancel_at',

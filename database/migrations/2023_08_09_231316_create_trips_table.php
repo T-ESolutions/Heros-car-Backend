@@ -43,8 +43,6 @@ return new class extends Migration
             $table->string('end_lng')->nullable();
             $table->text('end_address_ar')->nullable();
             $table->text('end_address_en')->nullable();
-            $table->dateTime('started_at')->nullable();
-            $table->dateTime('finished_at')->nullable();
             $table->dateTime('cancelled_at')->nullable();
             $table->string('cancel_reason')->nullable();
             $table->timestamps();

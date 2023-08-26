@@ -26,6 +26,8 @@ return new class extends Migration
             $table->integer('chairs');
             $table->integer('num_of_hours')->default(0);
             $table->integer('wait_hours')->default(0);
+            $table->dateTime('started_at')->nullable();
+            $table->dateTime('finished_at')->nullable();
             $table->dateTime('accept_at')->nullable();
             $table->dateTime('reject_at')->nullable();
             $table->dateTime('user_cancel_at')->nullable();
