@@ -111,5 +111,15 @@ class TripRepository implements TripRepositoryInterface
 
     }
 
+    public function getTripRequestHistory()
+    {
+        $data = TripRequest::where('user_id', Auth::id())
+            ->with('trip')
+            ->get();
+
+        return $data;
+
+    }
+
 
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TripRequest extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'driver_id',
@@ -42,18 +43,34 @@ class TripRequest extends Model
         'end_address_en',
     ];
 
-    protected $appends=['total_price'];
+    protected $appends = ['total_price', 'to_address', 'from_address'];
 
-    public function getTotalPriceAttribute(){
+    public function getToAddressAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->to_address_en;
+        return $this->to_address_ar;
+    }
+
+    public function getFromAddressAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->from_address_en;
+        return $this->from_address_ar;
+    }
+
+    public function getTotalPriceAttribute()
+    {
         $department = Department::whereId($this->department_id)->first();
-        if($this->department_id == 2 || $department->parent_id == 2){
+        if ($this->department_id == 2 || $department->parent_id == 2) {
             return $this->price;
         }
         return $this->price * $this->chairs;
 
     }
 
-    public function trip(){
-        return $this->belongsTo(Trip::class,'trip_id');
+    public function trip()
+    {
+        return $this->belongsTo(Trip::class, 'trip_id');
     }
 }

@@ -42,42 +42,75 @@ class Trip extends Model
         'cancel_reason',
     ];
 
-    protected $appends = ['brand_name','modell_name','color_name','booked_chairs','available_chairs'];
+    protected $appends = ['brand_name', 'modell_name', 'color_name', 'booked_chairs', 'available_chairs', 'from_address', 'to_address'];
 
-    public function getBookedChairsAttribute(){
-        return TripRequest::where('trip_id',$this->id)
+    public function getBookedChairsAttribute()
+    {
+        return TripRequest::where('trip_id', $this->id)
             ->whereNotNull('accept_at')
             ->whereNull('reject_at')
             ->whereNull('user_cancel_at')
             ->count('chairs');
     }
-    public function getAvailableChairsAttribute(){
+
+
+    public function getToAddressAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->to_address_en;
+        return $this->to_address_ar;
+    }
+
+    public function getFromAddressAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->from_address_en;
+        return $this->from_address_ar;
+    }
+
+    public function getAvailableChairsAttribute()
+    {
         return $this->chairs - $this->booked_chairs;
     }
 
-    public function getBrandNameAttribute(){
-        if(request()->header('lang') == 'en')
+    public function getBrandNameAttribute()
+    {
+        if (request()->header('lang') == 'en')
             return $this->brand()->first()->title_en;
         return $this->brand()->first()->title_ar;
     }
-    public function getModellNameAttribute(){
-        if(request()->header('lang') == 'en')
+
+    public function getModellNameAttribute()
+    {
+        if (request()->header('lang') == 'en')
             return $this->modell()->first()->title_en;
         return $this->modell()->first()->title_ar;
     }
-    public function getColorNameAttribute(){
-        if(request()->header('lang') == 'en')
+
+    public function getColorNameAttribute()
+    {
+        if (request()->header('lang') == 'en')
             return $this->color()->first()->title_en;
         return $this->color()->first()->title_ar;
     }
 
-    public function brand(){
-        return $this->belongsTo(Brand::class,'brand_id');
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
     }
-    public function modell(){
-        return $this->belongsTo(Modell::class,'modell_id');
+
+    public function modell()
+    {
+        return $this->belongsTo(Modell::class, 'modell_id');
     }
-    public function color(){
-        return $this->belongsTo(Color::class,'color_id');
+
+    public function color()
+    {
+        return $this->belongsTo(Color::class, 'color_id');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
     }
 }

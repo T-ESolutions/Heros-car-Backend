@@ -39,5 +39,15 @@ class TripController extends Controller
 
     }
 
+    public function getTripRequestHistory()
+    {
+
+        $data = $this->tripRepo->getTripRequestHistory();
+
+
+        return response()->json(msgdata(success(), trans('lang.success'), $data));
+
+    }
+
 
 }
