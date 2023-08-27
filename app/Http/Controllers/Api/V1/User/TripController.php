@@ -30,6 +30,17 @@ class TripController extends Controller
         return response()->json(msgdata(success(), trans('lang.success'), $data));
     }
 
+    public function searchTrip(CreateTripRequest $request)
+    {
+        $request->validated();
+
+        $data = $this->tripRepo->searchTrip($request);
+        if (!$data)
+            return response()->json(msg(failed(), trans('lang.invalid_date')));
+
+        return response()->json(msgdata(success(), trans('lang.success'), $data));
+    }
+
     public function cancelTripRequest(CancelTripRequest $request)
     {
         $request->validated();
@@ -53,7 +64,7 @@ class TripController extends Controller
     public function rateTrip(RateTripRequest $request)
     {
         $request->validated();
-        $data = $this->tripRepo->rateTrip($request);
+        $this->tripRepo->rateTrip($request);
         return response()->json(msg(success(), trans('lang.success')));
 
     }
@@ -61,8 +72,7 @@ class TripController extends Controller
     public function driverRate(DriverRateRequest $request)
     {
         $request->validated();
-        $data = $this->tripRepo->driverRate($request);
-        $data = DriverRateResources::collection($data);
+        $data = DriverRateResources::collection($this->tripRepo->driverRate($request));
         return response()->json(msgdata(success(), trans('lang.success'), $data));
 
     }

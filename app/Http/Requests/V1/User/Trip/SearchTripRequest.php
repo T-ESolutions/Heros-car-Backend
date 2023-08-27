@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class CreateTripRequest extends FormRequest
+class SearchTripRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,9 +31,8 @@ class CreateTripRequest extends FormRequest
         return [
             'department_id'     => 'required|exists:departments,id',
             'driver_car_id'     => 'required|exists:driver_cars,id',
-            'trip_id'           => 'required|numeric',
-            'chairs'            => 'required|numeric|min:1',
-            'bags'              => 'required|numeric',
+            'chairs'            => 'sometimes|numeric|min:1',
+            'bags'              => 'sometimes|numeric|min:1',
 
             'trip_date'         => 'required|date_format:Y-m-d',
             'trip_time'         => 'required|date_format:H:i',

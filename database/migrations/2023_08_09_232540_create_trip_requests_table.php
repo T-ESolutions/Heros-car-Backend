@@ -24,6 +24,7 @@ return new class extends Migration
             $table->time('trip_time');
             $table->double('price')->nullable();
             $table->integer('chairs');
+            $table->integer('bags');
             $table->integer('num_of_hours')->default(0);
             $table->integer('wait_hours')->default(0);
             $table->dateTime('started_at')->nullable();
