@@ -45,7 +45,7 @@ class TripRequest extends Model
         'end_address_en',
     ];
 
-    protected $appends = ['total_price', 'to_address', 'from_address'];
+    protected $appends = ['total_price', 'to_address', 'from_address','end_address'];
 
     public function getToAddressAttribute()
     {
@@ -59,6 +59,13 @@ class TripRequest extends Model
         if (request()->header('lang') == 'en')
             return $this->from_address_en;
         return $this->from_address_ar;
+    }
+
+    public function getEndAddressAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->end_address_en;
+        return $this->end_address_ar;
     }
 
     public function getTotalPriceAttribute()

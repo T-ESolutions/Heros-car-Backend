@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Trip extends Model
 {
@@ -52,7 +53,6 @@ class Trip extends Model
             ->whereNull('user_cancel_at')
             ->count('chairs');
     }
-
 
     public function getToAddressAttribute()
     {
@@ -112,6 +112,26 @@ class Trip extends Model
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class, 'driver_id');
+    }
+
+    public function driverCar()
+    {
+        return $this->belongsTo(DriverCar::class, 'driver_car_id');
+    }
+
+    public function tripRequests()
+    {
+        return $this->hasMany(TripRequest::class, 'trip_id');
+    }
+    public function userTripRequest()
+    {
+        return $this->hasOne(TripRequest::class, 'trip_id')
+            ->where('user_id',Auth::id());
     }
 
 

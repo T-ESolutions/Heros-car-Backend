@@ -30,10 +30,10 @@ use Illuminate\Support\Facades\Auth;
 
 class TripRepository implements TripRepositoryInterface
 {
-    public function createTripRequest($request)
-    {
+    public function createTripRequest($request){
 
         $department = Department::whereId($request->department_id)->first();
+
         if ($request->department_id == 2 || $department->parent_id == 2) {
             $trip_id = null;
             $carCategoryId = DriverCarDepartment::whereDepartmentId($request->department_id)
@@ -136,6 +136,14 @@ class TripRepository implements TripRepositoryInterface
                 ->whereNull('cancel_reason')
                 ->paginate(10);
         }
+    }
+
+    public function checkUserOfTrip($request){
+        return TripRequest::whereTripId($request->trip_id)->whereUserId(Auth::id())->first();
+    }
+
+    public function tripDetails($request){
+        return Trip::whereId($request->trip_id)->first();
     }
 
     public function cancelTripRequest($request)
