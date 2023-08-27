@@ -42,7 +42,7 @@ class HomeRepository implements HomeRepositoryInterface
             $driverCarDepartments = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
                 ->pluck('driver_car_id');
             $driverCars =  DriverCar::whereIn('id',$driverCarDepartments)
-                ->take(20)
+                ->take(10)
                 ->get();
             foreach ($driverCars as $driverCar){
                 $carCategoryId = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
@@ -59,12 +59,13 @@ class HomeRepository implements HomeRepositoryInterface
             }
             return $driverCars;
         }else{ //other departments
-            return Trip::whereDepartmentId($activeMainDepartmentId)
+            return Trip::orderBy('trip_date','desc')
+                ->whereDepartmentId($activeMainDepartmentId)
                 ->whereNull('started_at')
                 ->whereNull('finished_at')
                 ->whereNull('cancelled_at')
                 ->whereNull('cancel_reason')
-                ->take(20)
+                ->take(10)
                 ->get();
         }
 
@@ -73,11 +74,15 @@ class HomeRepository implements HomeRepositoryInterface
     public function getTripsByDepartment($request){
         $departmentId = $request->department_id;
 
+        $department = Department::whereId($departmentId)->first();
+
         //ToDo need to get suggested trips based on customer location lat lng
-        if($departmentId == 2){ //rent car department
+        if($departmentId == 2 || $department->parent_id == 2){ //rent car department
             $driverCarDepartments = DriverCarDepartment::whereDepartmentId($departmentId)
                 ->pluck('driver_car_id');
-            $driverCars =  DriverCar::whereIn('id',$driverCarDepartments)
+            $driverCars =  DriverCar::whereApproved(1)
+                ->whereAvailable(1)
+                ->whereIn('id',$driverCarDepartments)
                 ->paginate(10);
             foreach ($driverCars as $driverCar){
                 $carCategoryId = DriverCarDepartment::whereDepartmentId($departmentId)
@@ -97,7 +102,8 @@ class HomeRepository implements HomeRepositoryInterface
             return $driverCars;
 
         }else{ //other departments
-            return Trip::whereDepartmentId($departmentId)
+            return Trip::orderBy('trip_date','desc')
+                ->whereDepartmentId($departmentId)
                 ->whereNull('started_at')
                 ->whereNull('finished_at')
                 ->whereNull('cancelled_at')

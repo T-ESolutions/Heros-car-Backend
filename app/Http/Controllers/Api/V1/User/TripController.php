@@ -2,21 +2,28 @@
 
 namespace App\Http\Controllers\Api\V1\User;
 
+use App\Http\Controllers\Interfaces\V1\User\HomeRepositoryInterface;
 use App\Http\Controllers\Interfaces\V1\User\TripRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\Trip\CancelTripRequest;
 use App\Http\Requests\V1\User\Trip\CreateTripRequest;
 use App\Http\Requests\V1\User\Trip\DriverRateRequest;
 use App\Http\Requests\V1\User\Trip\RateTripRequest;
+use App\Http\Requests\V1\User\Trip\SearchTripRequest;
 use App\Http\Resources\V1\User\DriverRateResources;
+use App\Http\Resources\V1\User\HomepageTripResources;
 
 class TripController extends Controller
 {
     protected $tripRepo;
+    protected $homeRepo;
 
-    public function __construct(TripRepositoryInterface $tripRepo)
-    {
+    public function __construct(
+        TripRepositoryInterface $tripRepo,
+        HomeRepositoryInterface $homeRepo
+    ){
         $this->tripRepo = $tripRepo;
+        $this->homeRepo = $homeRepo;
     }
 
     public function createTripRequest(CreateTripRequest $request)
@@ -30,13 +37,13 @@ class TripController extends Controller
         return response()->json(msgdata(success(), trans('lang.success'), $data));
     }
 
-    public function searchTrip(CreateTripRequest $request)
+    public function searchTrip(SearchTripRequest $request)
     {
         $request->validated();
 
-        $data = $this->tripRepo->searchTrip($request);
-        if (!$data)
-            return response()->json(msg(failed(), trans('lang.invalid_date')));
+        $data = HomepageTripResources::collection($this->tripRepo->searchTrip($request))->response()->getData(true);
+        if(!$data)
+            $data = HomepageTripResources::collection($this->homeRepo->getTripsByDepartment($request))->response()->getData(true);
 
         return response()->json(msgdata(success(), trans('lang.success'), $data));
     }

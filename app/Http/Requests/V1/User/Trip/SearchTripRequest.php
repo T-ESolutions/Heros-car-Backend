@@ -30,7 +30,6 @@ class SearchTripRequest extends FormRequest
 
         return [
             'department_id'     => 'required|exists:departments,id',
-            'driver_car_id'     => 'required|exists:driver_cars,id',
             'chairs'            => 'sometimes|numeric|min:1',
             'bags'              => 'sometimes|numeric|min:1',
 
@@ -40,16 +39,16 @@ class SearchTripRequest extends FormRequest
             'wait_hours'        => 'sometimes|numeric|min:1',
             'from_lat'          => 'required',
             'from_lng'          => 'required',
-            'from_address_ar'   => 'required',
-            'from_address_en'   => 'required',
+//            'from_address_ar'   => 'required',
+//            'from_address_en'   => 'required',
             'to_lat'            => 'required',
             'to_lng'            => 'required',
-            'to_address_ar'     => 'required',
-            'to_address_en'     => 'required',
+//            'to_address_ar'     => 'required',
+//            'to_address_en'     => 'required',
             'end_lat'           => 'sometimes',
             'end_lng'           => 'sometimes',
-            'end_address_ar'    => 'sometimes',
-            'end_address_en'    => 'sometimes',
+//            'end_address_ar'    => 'sometimes',
+//            'end_address_en'    => 'sometimes',
         ];
     }
 }
