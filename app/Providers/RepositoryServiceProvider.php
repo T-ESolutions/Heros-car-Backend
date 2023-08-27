@@ -55,10 +55,6 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Controllers\Interfaces\V1\Provider\ReviewRepositoryInterface',
             'App\Http\Controllers\Eloquent\V1\Provider\ReviewRepository'
         );
-        $this->app->bind(
-            'App\Http\Controllers\Interfaces\V1\User\ServicesRepositoryInterface',
-            'App\Http\Controllers\Eloquent\V1\User\ServicesRepository'
-        );
 
         //provider
         $this->app->bind(

@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\V1\User\HelperController;
 use App\Http\Controllers\Api\V1\User\TripController;
-use App\Http\Controllers\Api\V1\User\ReviewController;
-use App\Http\Controllers\Api\V1\User\ServicesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\User\AuthController;
 use App\Http\Controllers\Api\V1\User\HomeController;
-use App\Http\Controllers\Api\V1\User\UserController;
 
 
 /*

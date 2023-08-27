@@ -75,6 +75,7 @@ class CarRepository implements CarRepositoryInterface
             }
             $request['driver_id'] = auth()->user()->id;
         } else {
+
             $driver_data['name'] = $request['name'];
             $driver_data['phone'] = $request['phone'];
             if (isset($request['password'])) {
@@ -84,12 +85,17 @@ class CarRepository implements CarRepositoryInterface
             $driver_data['gender'] = $request['gender'];
             $driver_data['image'] = $request['image'];
             $driver_data['driver_licence_image'] = $request['driver_licence_image'];
-            $driver = Driver::where('id', $driver_car->driver_id)->update($driver_data);
+            if($driver_car->driver_id == auth()->user()->id){
+                $driver = Driver::create($driver_data);
+                $request['driver_id'] = $driver->id;
+            }else{
+                $driver = Driver::where('id', $driver_car->driver_id)->update($driver_data);
+            }
         }
         $color = Color::where('id', $request['color_id'])->first();
         $request['color_ar'] = $color->title_ar;
         $request['color_en'] = $color->title_en;
-        $departments = $request['departments'] ;
+        $departments = $request['departments'];
         unset($request['use_my_data']);
         unset($request['name']);
         unset($request['phone']);
@@ -99,6 +105,8 @@ class CarRepository implements CarRepositoryInterface
         unset($request['image']);
         unset($request['departments']);
         unset($request['driver_licence_image']);
+        //to return car request to admin to check request first ...
+        $request['approved'] = 0;
         DriverCar::whereId($request['id'])->update($request);
 
         DriverCarDepartment::where('driver_car_id', $driver_car->id)->delete();
@@ -112,8 +120,6 @@ class CarRepository implements CarRepositoryInterface
             $departments_data['driver_car_id'] = $driver_car->id;
             DriverCarDepartment::create($departments_data);
         }
-
-
         return true;
     }
 
