@@ -10,8 +10,10 @@ use App\Http\Requests\V1\User\Trip\CreateTripRequest;
 use App\Http\Requests\V1\User\Trip\DriverRateRequest;
 use App\Http\Requests\V1\User\Trip\RateTripRequest;
 use App\Http\Requests\V1\User\Trip\SearchTripRequest;
+use App\Http\Requests\V1\User\Trip\TripDetailsRequest;
 use App\Http\Resources\V1\User\DriverRateResources;
 use App\Http\Resources\V1\User\HomepageTripResources;
+use App\Http\Resources\V1\User\TripDetailsResources;
 
 class TripController extends Controller
 {
@@ -44,6 +46,18 @@ class TripController extends Controller
         $data = HomepageTripResources::collection($this->tripRepo->searchTrip($request))->response()->getData(true);
         if(!$data)
             $data = HomepageTripResources::collection($this->homeRepo->getTripsByDepartment($request))->response()->getData(true);
+
+        return response()->json(msgdata(success(), trans('lang.success'), $data));
+    }
+
+    public function tripDetails(TripDetailsRequest $request)
+    {
+        $request->validated();
+
+        if(!$this->tripRepo->checkUserOfTrip($request))
+            return response()->json(msg(not_authoize(), trans('lang.not_authorize')));
+
+        $data = new TripDetailsResources($this->tripRepo->tripDetails($request));
 
         return response()->json(msgdata(success(), trans('lang.success'), $data));
     }

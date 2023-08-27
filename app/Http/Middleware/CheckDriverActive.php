@@ -30,10 +30,10 @@ class CheckDriverActive
             if ($user->suspend == 1) {
                 return response()->json(msg( failed(), trans('lang.suspended')));
             }
+            return $next($request);
         }else{
             return response()->json(msg( not_authoize(), trans('lang.not_authorize')));
         }
 
-        return $next($request);
     }
 }
