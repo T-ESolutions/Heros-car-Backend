@@ -85,11 +85,25 @@ class CarRepository implements CarRepositoryInterface
             $driver_data['gender'] = $request['gender'];
             $driver_data['image'] = $request['image'];
             $driver_data['driver_licence_image'] = $request['driver_licence_image'];
-            if($driver_car->driver_id == auth()->user()->id){
+            if ($driver_car->driver_id == auth()->user()->id) {
                 $driver = Driver::create($driver_data);
                 $request['driver_id'] = $driver->id;
-            }else{
-                $driver = Driver::where('id', $driver_car->driver_id)->update($driver_data);
+            } else {
+                if (isset($request['image'])) {
+                    if (is_file($request['image'])) {
+                        $img_name = upload($request['image'], 'drivers');
+                        $driver_data['image'] = $img_name;
+                    }
+                }
+
+                if (isset($request['driver_licence_image'])) {
+                    if (is_file($request['driver_licence_image'])) {
+                        $img_name = upload($request['driver_licence_image'], 'driver_licences');
+                        $driver_data['driver_licence_image'] = $img_name;
+                    }
+                }
+
+                Driver::where('id', $driver_car->driver_id)->update($driver_data);
             }
         }
         $color = Color::where('id', $request['color_id'])->first();
@@ -107,6 +121,27 @@ class CarRepository implements CarRepositoryInterface
         unset($request['driver_licence_image']);
         //to return car request to admin to check request first ...
         $request['approved'] = 0;
+        //upload images
+        if (isset($request['car_image'])) {
+            if (is_file($request['car_image'])) {
+                $img_name = upload($request['car_image'], 'car_images');
+                $request['car_image'] = $img_name;
+            }
+        }
+
+        if (isset($request['car_licence_image'])) {
+            if (is_file($request['car_licence_image'])) {
+                $car_licence_image_name = upload($request['car_licence_image'], 'car_licence_images');
+                $request['car_licence_image'] = $car_licence_image_name;
+            }
+        }
+
+        if (isset($request['document_image'])) {
+            if (is_file($request['document_image'])) {
+                $document_image_name = upload($request['document_image'], 'document_images');
+                $request['document_image'] = $document_image_name;
+            }
+        }
         DriverCar::whereId($request['id'])->update($request);
 
         DriverCarDepartment::where('driver_car_id', $driver_car->id)->delete();

@@ -27,10 +27,10 @@ class AuthRepository implements AuthRepositoryInterface
         } else {
             $user = JWTAuth::user();
 
-            if ($user->accept == 0) {
-
-                return "not_accepted";
-            }
+//            if ($user->accept == 0) {
+//
+//                return "not_accepted";
+//            }
             if ($user->suspend == 1) {
                 return "suspended";
             }
