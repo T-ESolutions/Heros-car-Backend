@@ -76,6 +76,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Controllers\Eloquent\V1\Provider\CarRepository'
         );
 
+        $this->app->bind(
+            'App\Http\Controllers\Interfaces\V1\Provider\HomeRepositoryInterface',
+            'App\Http\Controllers\Eloquent\V1\Provider\HomeRepository'
+        );
+
 
     }
 }

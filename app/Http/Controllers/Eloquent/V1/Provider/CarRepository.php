@@ -75,7 +75,6 @@ class CarRepository implements CarRepositoryInterface
             }
             $request['driver_id'] = auth()->user()->id;
         } else {
-
             $driver_data['name'] = $request['name'];
             $driver_data['phone'] = $request['phone'];
             if (isset($request['password'])) {

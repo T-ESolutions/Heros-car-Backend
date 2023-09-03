@@ -12,6 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'no_message_found' => 'no message found today',
+
     'driver_have_car_before' => 'driver have car before',
     'added_s_wait_admin_to_approve' => 'data added successfully , wait admin to approve your car',
     'updated_s_wait_admin_to_approve' => 'data updated successfully , wait admin to approve your car',

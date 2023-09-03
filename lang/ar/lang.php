@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'no_message_found' => 'لا يوجد رسائل اليوم',
     'you_dont_have_permission_to_edit_car_data' => 'لا تمتلك الصلاحية لتعديل بيانات السياره , الصلاحية فقط لمالك مكتب تأجير السيارات',
     'added_s_wait_admin_to_approve' => 'تم الاضافة بنجاح , انتظر الادارة للموافقة على سيارتك',
     'updated_s_wait_admin_to_approve' => 'تم التعديل بنجاح , انتظر الادارة للموافقة على سيارتك',

@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Driver\AuthController;
 use App\Http\Controllers\Api\V1\Driver\OrdersController;
 use App\Http\Controllers\Api\V1\Driver\ReviewController;
 use App\Http\Controllers\Api\V1\Driver\CarsController;
+use App\Http\Controllers\Api\V1\Driver\HomeController;
 
 
 Route::group([
@@ -24,14 +25,15 @@ Route::group([
     });
 //    'auth:api', 'check_active'
     Route::group(['middleware' => ['check_driver_active']], function () {
+
+        Route::get('/message/check', [HomeController::class, 'checkMessage']);
+
         Route::group(['prefix' => "auth"], function () {
             Route::get('/logout', [AuthController::class, 'logout']);
             Route::post('/change-password', [AuthController::class, 'changePassword']);
-
             Route::post('/delete-account', [AuthController::class, 'deleteAccount']);
             Route::get('/profile', [AuthController::class, 'profile']);
             Route::post('/profile/update', [AuthController::class, 'updateProfile']);
-
         });
 
         Route::group(['prefix' => "car"], function () {

@@ -44,6 +44,8 @@ class Driver extends Authenticatable implements JWTSubject
         'remember_token',
     ];
 
+    protected $appends = ['message'];
+
     /**
      * The attributes that should be cast.
      *
@@ -52,6 +54,15 @@ class Driver extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getMessageAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->message_ar;
+        } else {
+            return $this->message_en;
+        }
+    }
 
     public function setPasswordAttribute($password)
     {
