@@ -10,19 +10,9 @@ use App\Http\Requests\V1\Provider\TakeCarLivePhotosRequest;
 use App\Http\Requests\V1\Provider\UpdateOrderStatusRequest;
 use App\Http\Resources\V1\Driver\ProviderOrdersResource;
 use App\Http\Requests\V1\Provider\AcceptOrderRequest;
-use App\Http\Requests\V1\User\MyOrdersRequest;
-use App\Http\Resources\V1\User\OrderDetailsResource;
-use App\Http\Resources\V1\User\OrderQuestionResource;
-use App\Models\OrderExtraService;
-use App\Models\OrderImage;
-use App\Models\OrderProviderRequest;
-use App\Models\Service;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use App\Models\OrderStatus;
-use App\Models\Status;
-use App\Models\Order;
 use Carbon\Carbon;
 
 
@@ -33,6 +23,13 @@ class OrdersController extends Controller
     public function __construct(ProviderOrdersRepositoryInterface $orderRepo)
     {
         $this->orderRepo = $orderRepo;
+    }
+
+    public function economicCurrentRequests()
+    {
+
+        $result = $this->orderRepo->economicCurrentRequests();
+        return response()->json(msg(success(), trans('lang.success')));
     }
 
     public function myOrders(MyOrdersRequest $request)

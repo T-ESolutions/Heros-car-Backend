@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\Driver\OrdersController;
 use App\Http\Controllers\Api\V1\Driver\ReviewController;
 use App\Http\Controllers\Api\V1\Driver\CarsController;
 use App\Http\Controllers\Api\V1\Driver\HomeController;
+use App\Http\Controllers\Api\V1\Driver\TripsController;
 
 
 Route::group([
@@ -43,7 +44,22 @@ Route::group([
             Route::get('/details', [CarsController::class, 'details']);
             Route::get('/data', [CarsController::class, 'data']);
         });
+        Route::group(['prefix' => "trips"], function () {
+            Route::get('/', [TripsController::class, 'trips']);
+            Route::post('/create', [TripsController::class, 'create']);
+            Route::get('/start', [TripsController::class, 'start']);
+            Route::get('/cancel', [TripsController::class, 'cancel']);
+            Route::get('/finish', [TripsController::class, 'finish']);
+            Route::get('/details', [TripsController::class, 'details']);
+            Route::get('/cancel', [TripsController::class, 'cancel']);
+            Route::get('/requests/economic/current', [TripsController::class, 'requestsEconomic']);
+            Route::post('/requests/economic/current/reply', [TripsController::class, 'replyRequestsEconomic']);
+        });
+
         Route::group(['prefix' => "orders"], function () {
+            Route::get('/start/trip', [OrdersController::class, 'startTrip']);
+            Route::get('/economic/requests/current', [OrdersController::class, 'economicCurrentRequests']);
+
             Route::get('/', [OrdersController::class, 'myOrders']);
             Route::get('/details', [OrdersController::class, 'orderDetails']);
             Route::get('/home', [OrdersController::class, 'home']);

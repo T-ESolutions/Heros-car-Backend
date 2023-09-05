@@ -81,6 +81,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Controllers\Eloquent\V1\Provider\HomeRepository'
         );
 
+        $this->app->bind(
+            'App\Http\Controllers\Interfaces\V1\Provider\TripsRepositoryInterface',
+            'App\Http\Controllers\Eloquent\V1\Provider\TripsRepository'
+        );
+
 
     }
 }

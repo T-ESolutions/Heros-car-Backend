@@ -7,6 +7,7 @@ use App\Http\Controllers\Interfaces\V1\Provider\ProviderOrdersRepositoryInterfac
 use App\Models\OrderProviderRequest;
 use App\Models\OrderQuestion;
 use App\Models\OrderQuestionAnswer;
+use App\Models\TripRequest;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\OrderStatus;
@@ -16,6 +17,18 @@ use Carbon\Carbon;
 
 class ProviderOrdersRepository implements ProviderOrdersRepositoryInterface
 {
+
+    public function startTrip($request)
+    {
+        $order = Order::whereId($request->order_id)->first();
+        return $order;
+    }
+
+    public function economicCurrentRequests()
+    {
+        $order = TripRequest::driver()->current()->get();
+        return $order;
+    }
 
     public function myOrders($request)
     {

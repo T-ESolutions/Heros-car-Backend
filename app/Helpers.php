@@ -3,6 +3,13 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
+if (!function_exists('driver_id')) {
+    function driver_id()
+    {
+        return auth()->user()->id;
+    }
+}
+
 if (!function_exists('pagination_number')) {
     function pagination_number()
     {
@@ -234,6 +241,7 @@ function not_active()
 {
     return 405;
 }
+
 function suspend()
 {
     return 407;

@@ -45,7 +45,7 @@ class TripRequest extends Model
         'end_address_en',
     ];
 
-    protected $appends = ['total_price', 'to_address', 'from_address','end_address'];
+    protected $appends = ['total_price', 'to_address', 'from_address', 'end_address'];
 
     public function getToAddressAttribute()
     {
@@ -86,5 +86,16 @@ class TripRequest extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function scopeCurrent($q)
+    {
+        return $q->where('accept_at', null)->where('reject_at', null);
+    }
+
+    public function scopeDriver($q)
+    {
+
+        return $q->where('driver_id', driver_id());
     }
 }

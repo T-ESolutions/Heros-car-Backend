@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Interfaces\V1\Provider;
 
 interface ProviderOrdersRepositoryInterface{
 
+    public function economicCurrentRequests();
     public function myOrders($request);
     public function OrderDetails($request);
     public function homeOrders($request,$user);
