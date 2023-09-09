@@ -12,5 +12,7 @@ interface TripsRepositoryInterface{
     public function details($request);
     public function requestsEconomic();
     public function replyRequestsEconomic($request);
+    public function RateTrip($request);
+    public function getTripRequestHistory();
 
 }

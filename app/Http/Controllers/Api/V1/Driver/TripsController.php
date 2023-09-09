@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Api\V1\Driver;
 
 use App\Http\Controllers\Interfaces\V1\Provider\TripsRepositoryInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\V1\Provider\RateTripRequest;
 use App\Http\Requests\V1\Provider\ReplyRequestsEconomicRequest;
 use App\Http\Requests\V1\Provider\StartTripRequest;
 use App\Http\Requests\V1\Provider\TripCancelRequest;
 use App\Http\Requests\V1\Provider\TripDetailsRequest;
+use App\Http\Resources\V1\Driver\TripRequestHistoryResources;
+use Illuminate\Support\Facades\Auth;
 
 
 class TripsController extends Controller
@@ -79,6 +82,23 @@ class TripsController extends Controller
         } elseif ($response == "request_updated") {
             return response()->json(msg(success(), trans('lang.success')));
         }
+    }
+
+    public function RateTrip(RateTripRequest $request)
+    {
+        $request->validated();
+        $this->tripRepo->RateTrip($request);
+        return response()->json(msg(success(), trans('lang.success')));
+
+    }
+
+    public function getTripRequestHistory()
+    {
+
+        $data = $this->tripRepo->getTripRequestHistory();
+        $data = TripRequestHistoryResources::collection($data)->response()->getData(true);
+        return response()->json(msgdata(success(), trans('lang.success'), $data));
+
     }
 
 

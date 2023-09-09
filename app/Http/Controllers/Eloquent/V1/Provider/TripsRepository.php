@@ -6,12 +6,14 @@ use App\Http\Controllers\Interfaces\V1\Provider\TripsRepositoryInterface;
 use App\Http\Resources\V1\Driver\PassengersResources;
 use App\Http\Resources\V1\Driver\TripDetailsResources;
 use App\Http\Resources\V1\Driver\TripsResources;
+use App\Models\Driver;
 use App\Models\DriverCar;
 use App\Models\Trip;
 use App\Models\TripRequest;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use JWTAuth;
-use Auth;
 
 
 class TripsRepository implements TripsRepositoryInterface
@@ -90,6 +92,33 @@ class TripsRepository implements TripsRepositoryInterface
         }
         $target->save();
         return "request_updated";
+    }
+
+    public function RateTrip($request)
+    {
+        $data = TripRequest::whereId($request->trip_request_id)
+            ->first();
+        $data->driver_rate = $request->driver_rate;
+        $data->driver_rate_txt = $request->driver_rate_txt;
+        $data->save();
+
+        $user_rate = TripRequest::where('user_id', $data->user_id)->avg('driver_rate');
+        $driver = User::whereId($data->user_id)->update([
+            'rate' => $user_rate
+        ]);
+
+        return $data;
+    }
+
+    public function getTripRequestHistory()
+    {
+
+
+        $data = Trip::whereHas('tripRequests', function ($q) {
+            $q->whereNotNull('accept_at');
+        })->paginate(pagination_number());
+
+        return $data;
     }
 
 

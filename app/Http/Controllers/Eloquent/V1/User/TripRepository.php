@@ -67,7 +67,7 @@ class TripRepository implements TripRepositoryInterface
             'trip_id' => $trip_id,
             'trip_date' => $request->trip_date,
             'trip_time' => $request->trip_time,
-            'price' => $price,
+            'price' => $chairs * $price,
             'chairs' => $chairs,
             'bags' => $bags,
             'num_of_hours' => $numOfHours,

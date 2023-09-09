@@ -54,6 +54,8 @@ Route::group([
             Route::get('/cancel', [TripsController::class, 'cancel']);
             Route::get('/requests/economic/current', [TripsController::class, 'requestsEconomic']);
             Route::post('/requests/economic/current/reply', [TripsController::class, 'replyRequestsEconomic']);
+            Route::post('/rate-trip', [TripsController::class, 'RateTrip']);
+            Route::get('/get-history-trips', [TripsController::class, 'getTripRequestHistory']);
         });
 
         Route::group(['prefix' => "orders"], function () {
