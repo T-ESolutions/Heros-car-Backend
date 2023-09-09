@@ -43,7 +43,7 @@ class Trip extends Model
         'cancel_reason',
     ];
 
-    protected $appends = ['brand_name', 'modell_name', 'color_name', 'booked_chairs', 'available_chairs', 'from_address', 'to_address'];
+    protected $appends = ['brand_name', 'modell_name', 'color_name', 'booked_chairs', 'available_chairs', 'from_address', 'to_address','status'];
 
     public function getBookedChairsAttribute()
     {
@@ -78,6 +78,20 @@ class Trip extends Model
         if (request()->header('lang') == 'en')
             return $this->brand()->first()->title_en;
         return $this->brand()->first()->title_ar;
+    }
+
+    public function getStatusAttribute()
+    {
+        if ($this->started_at == null){
+            return trans('lang.trip_not_started_yet');
+        }elseif($this->cancelled_at){
+            return trans('lang.trip_cancelled');
+        }elseif($this->finished_at){
+            return trans('lang.trip_finished');
+        }elseif($this->started_at){
+            return trans('lang.trip_not_started_yet');
+        }
+
     }
 
     public function getModellNameAttribute()
@@ -124,18 +138,24 @@ class Trip extends Model
         return $this->belongsTo(DriverCar::class, 'driver_car_id');
     }
 
+    public function passengers()
+    {
+        return $this->hasMany(TripRequest::class, 'trip_id')->where('accept_at', '!=', null)->where('reject_at', null);
+    }
+
     public function tripRequests()
     {
         return $this->hasMany(TripRequest::class, 'trip_id');
     }
+
     public function userTripRequest()
     {
         return $this->hasOne(TripRequest::class, 'trip_id')
-            ->where('user_id',Auth::id());
+            ->where('user_id', Auth::id());
     }
 
 
-    public static function filterbylatlng($mylat,$mylng,$radius,$model)
+    public static function filterbylatlng($mylat, $mylng, $radius, $model)
     {
         $haversine = "(6371 * acos(cos(radians($mylat))
                            * cos(radians($model.latitude))
@@ -147,9 +167,9 @@ class Trip extends Model
             ->selectRaw("{$haversine} AS distance")
             ->whereRaw("{$haversine} < ?", [$radius])
             ->where('status', 'accepted')
-            ->where('available',1)
-            ->where('busy',0)
-            ->select('id', 'lat', 'lng','fcm_token','notification')
+            ->where('available', 1)
+            ->where('busy', 0)
+            ->select('id', 'lat', 'lng', 'fcm_token', 'notification')
             ->get();
 
         return $datainradiusrange;

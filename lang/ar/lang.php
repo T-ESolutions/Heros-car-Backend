@@ -13,6 +13,17 @@ return [
     |
     */
 
+    'trip_cancelled_s' => 'تم إلغاء الرحلة بنجاح',
+    'trip_started_s' => 'تم بدأ الرحلة بنجاح',
+    'trip_finished_s' => 'تم إنهاء الرحلة بنجاح',
+    'trip_is_complete_now' => 'تم اكتمال الرحلة لا يمكنك الموافقه على الطلب',
+
+    'trip_cancelled' => 'الرحلة تم الغائها',
+    'trip_finished' => 'الرحلة انتهت',
+    'trip_started' => 'الرحلة بدأت',
+    'trip_not_started_yet' => 'الرحلة لم تبدأ بعد',
+    'driver_not_have_car' => 'السائق لا يملك سياره',
+    'no_message_found' => 'لا يوجد رسائل اليوم',
     'you_dont_have_permission_to_edit_car_data' => 'لا تمتلك الصلاحية لتعديل بيانات السياره , الصلاحية فقط لمالك مكتب تأجير السيارات',
     'added_s_wait_admin_to_approve' => 'تم الاضافة بنجاح , انتظر الادارة للموافقة على سيارتك',
     'updated_s_wait_admin_to_approve' => 'تم التعديل بنجاح , انتظر الادارة للموافقة على سيارتك',

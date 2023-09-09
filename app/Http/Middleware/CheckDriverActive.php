@@ -21,9 +21,9 @@ class CheckDriverActive
     {
         if (Auth::guard('providers')->check()) {
             $user = auth('providers')->user();
-            if ($user->accept == 0) {
-                return response()->json(msg( failed(), trans('lang.wait_admin_accept')));
-            }
+//            if ($user->accept == 0) {
+//                return response()->json(msg( failed(), trans('lang.wait_admin_accept')));
+//            }
             if ($user->active == 0) {
                 return response()->json(msg( failed(), trans('lang.not_active')));
             }

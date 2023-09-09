@@ -55,10 +55,6 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Controllers\Interfaces\V1\Provider\ReviewRepositoryInterface',
             'App\Http\Controllers\Eloquent\V1\Provider\ReviewRepository'
         );
-        $this->app->bind(
-            'App\Http\Controllers\Interfaces\V1\User\ServicesRepositoryInterface',
-            'App\Http\Controllers\Eloquent\V1\User\ServicesRepository'
-        );
 
         //provider
         $this->app->bind(
@@ -78,6 +74,16 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Http\Controllers\Interfaces\V1\Provider\CarRepositoryInterface',
             'App\Http\Controllers\Eloquent\V1\Provider\CarRepository'
+        );
+
+        $this->app->bind(
+            'App\Http\Controllers\Interfaces\V1\Provider\HomeRepositoryInterface',
+            'App\Http\Controllers\Eloquent\V1\Provider\HomeRepository'
+        );
+
+        $this->app->bind(
+            'App\Http\Controllers\Interfaces\V1\Provider\TripsRepositoryInterface',
+            'App\Http\Controllers\Eloquent\V1\Provider\TripsRepository'
         );
 
 

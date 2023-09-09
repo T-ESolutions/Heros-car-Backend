@@ -12,6 +12,13 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'trip_cancelled' => 'trip cancelled',
+    'trip_finished' => 'trip finished',
+    'trip_started' => 'trip started',
+    'trip_not_started_yet' => 'trip not started yet',
+    'driver_not_have_car' => 'driver not have car',
+    'no_message_found' => 'no message found today',
+
     'driver_have_car_before' => 'driver have car before',
     'added_s_wait_admin_to_approve' => 'data added successfully , wait admin to approve your car',
     'updated_s_wait_admin_to_approve' => 'data updated successfully , wait admin to approve your car',

@@ -14,6 +14,7 @@ use App\Http\Requests\V1\User\Trip\TripDetailsRequest;
 use App\Http\Resources\V1\User\DriverRateResources;
 use App\Http\Resources\V1\User\HomepageTripResources;
 use App\Http\Resources\V1\User\TripDetailsResources;
+use App\Http\Resources\V1\User\TripRequestHistoryResources;
 
 class TripController extends Controller
 {
@@ -23,7 +24,8 @@ class TripController extends Controller
     public function __construct(
         TripRepositoryInterface $tripRepo,
         HomeRepositoryInterface $homeRepo
-    ){
+    )
+    {
         $this->tripRepo = $tripRepo;
         $this->homeRepo = $homeRepo;
     }
@@ -44,7 +46,7 @@ class TripController extends Controller
         $request->validated();
 
         $data = HomepageTripResources::collection($this->tripRepo->searchTrip($request))->response()->getData(true);
-        if(!$data)
+        if (!$data)
             $data = HomepageTripResources::collection($this->homeRepo->getTripsByDepartment($request))->response()->getData(true);
 
         return response()->json(msgdata(success(), trans('lang.success'), $data));
@@ -54,7 +56,7 @@ class TripController extends Controller
     {
         $request->validated();
 
-        if(!$this->tripRepo->checkUserOfTrip($request))
+        if (!$this->tripRepo->checkUserOfTrip($request))
             return response()->json(msg(not_authoize(), trans('lang.not_authorize')));
 
         $data = new TripDetailsResources($this->tripRepo->tripDetails($request));
@@ -78,6 +80,8 @@ class TripController extends Controller
     {
 
         $data = $this->tripRepo->getTripRequestHistory();
+        $data = TripRequestHistoryResources::collection($data)->response()->getData(true);
+
         return response()->json(msgdata(success(), trans('lang.success'), $data));
 
     }
@@ -93,7 +97,7 @@ class TripController extends Controller
     public function driverRate(DriverRateRequest $request)
     {
         $request->validated();
-        $data = DriverRateResources::collection($this->tripRepo->driverRate($request));
+        $data = DriverRateResources::collection($this->tripRepo->driverRate($request))->response()->getData(true);
         return response()->json(msgdata(success(), trans('lang.success'), $data));
 
     }
