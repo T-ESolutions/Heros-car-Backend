@@ -97,7 +97,7 @@ class TripController extends Controller
     public function driverRate(DriverRateRequest $request)
     {
         $request->validated();
-        $data = DriverRateResources::collection($this->tripRepo->driverRate($request));
+        $data = DriverRateResources::collection($this->tripRepo->driverRate($request))->response()->getData(true);
         return response()->json(msgdata(success(), trans('lang.success'), $data));
 
     }

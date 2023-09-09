@@ -59,7 +59,6 @@ class TripRepository implements TripRepositoryInterface
         $bags = isset($request->bags) && $request->bags > 0 ? $request->bags : 0;
 
 
-       
         return TripRequest::create([
             'user_id' => Auth::id(),
             'driver_id' => $request->driver_id,
@@ -203,8 +202,9 @@ class TripRepository implements TripRepositoryInterface
     {
 
         $data = TripRequest::where('driver_id', $request->driver_id)
-            ->with('user')
-            ->get();
+            ->whereNotNull('user_rate')
+            ->with('user') // eager loading
+            ->paginate(pagination_number());
         return $data;
 
     }

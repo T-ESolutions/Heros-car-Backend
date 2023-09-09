@@ -43,6 +43,7 @@ class TripRequest extends Model
         'end_lng',
         'end_address_ar',
         'end_address_en',
+        'bags'
     ];
 
     protected $appends = ['total_price', 'to_address', 'from_address', 'end_address'];
