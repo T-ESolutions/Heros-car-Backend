@@ -65,7 +65,7 @@ class TripRepository implements TripRepositoryInterface
             'trip_id'               => $trip_id,
             'trip_date'             => $request->trip_date,
             'trip_time'             => $request->trip_time,
-            'price'                 => $price,
+            'price'                 => $chairs * $price,
             'chairs'                => $chairs,
             'bags'                  => $bags,
             'num_of_hours'          => $numOfHours,
@@ -143,7 +143,9 @@ class TripRepository implements TripRepositoryInterface
     }
 
     public function tripDetails($request){
-        return Trip::whereId($request->trip_id)->first();
+        return Trip::whereId($request->trip_id)
+            ->with(['userTripRequest','department','driver','driverCar'])
+            ->first();
     }
 
     public function cancelTripRequest($request)
