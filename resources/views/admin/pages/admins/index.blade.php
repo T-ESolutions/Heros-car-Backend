@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('style')
     <link href="{{ asset('admin/dist/assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet"

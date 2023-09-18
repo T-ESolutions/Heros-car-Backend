@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('style')
 @endsection
@@ -293,13 +293,13 @@
                                                 <div class="row">
                                                     <div class="col-md-2">
                                                         <span style="font-size: large">
-                                                            التقييم :
+                                                            العمر :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
                                                     <span style="font-size: large"
                                                           class="badge badge-secondary">
-                                                        {{$row->rate}}
+                                                        {{$row->age}}
                                                     </span>
                                                     </div>
 
@@ -307,13 +307,17 @@
 
                                                     <div class="col-md-2">
                                                         <span style="font-size: large">
-                                                            كود الدولة :
+                                                            النوع :
                                                         </span>
                                                     </div>
                                                     <div class="col-md-3">
                                                     <span style="font-size: large"
                                                           class="badge badge-secondary">
-                                                        {{$row->country_code}}
+                                                        @if($row->gender == 'male')
+                                                            ذكر
+                                                        @else
+                                                            أنثي
+                                                        @endif
                                                     </span>
                                                     </div>
                                                 </div>
@@ -322,7 +326,43 @@
                                             </div>
                                             <!--end::Input group-->
 
+                                            <!--begin::Input group-->
+                                            <div class="mb-10 fv-row">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <span style="font-size: large">
+                                                            الطول :
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <span style="font-size: large"
+                                                          class="badge badge-secondary">
+                                                        {{$row->height}}
+                                                        &nbsp;
+                                                        سم
+                                                    </span>
+                                                    </div>
 
+                                                    <div class="col-md-2"></div>
+
+                                                    <div class="col-md-2">
+                                                        <span style="font-size: large">
+                                                            الوزن :
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <span style="font-size: large"
+                                                          class="badge badge-secondary">
+                                                        {{$row->weight}}
+                                                        &nbsp;
+                                                        كم
+                                                    </span>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <!--end::Input group-->
 
                                         </div>
                                         <!--end::Card header-->

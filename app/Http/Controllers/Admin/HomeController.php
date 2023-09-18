@@ -11,12 +11,9 @@ class HomeController extends Controller
     public function index()
     {
         app()->setLocale('ar');
-        $statuses = Status::get();
-        foreach ($statuses as $status){
-            $countOrders = Order::where('status_key',$status->key)->get();
-            $status->count_orders = sizeof($countOrders);
-        }
-        return view('admin.home',compact('statuses'));
+        $statuses= [];
+        $data= [];
+        return view('admin.pages.home',compact('statuses','data'));
     }
 
 }

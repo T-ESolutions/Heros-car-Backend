@@ -178,9 +178,7 @@ class TripRepository implements TripRepositoryInterface
             ->paginate(pagination_number());
 
         return $data;
-
     }
-
 
     public function rateTrip($request)
     {

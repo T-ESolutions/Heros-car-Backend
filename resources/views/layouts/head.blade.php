@@ -4,15 +4,15 @@
         Winch out
     </title>
     <meta charset="utf-8"/>
-    <meta name="description" content="Proten Chef"/>
-    <meta name="keywords" content="Proten Chef"/>
+    <meta name="description" content="Heroes Cars"/>
+    <meta name="keywords" content="Heroes Cars"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Proten Chef"/>
+    <meta property="og:title" content="Heroes Cars"/>
     <meta property="og:url" content="http://tesolutionspro.com/metronic"/>
-    <meta property="og:site_name" content="Proten Chef"/>
+    <meta property="og:site_name" content="Heroes Cars"/>
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8"/>
 {{--<link rel="shortcut icon" href="{{url('/').'/uploads/Settings/'.\App\Models\Setting::where('key', 'fav_icon')->first()->value}}"/>--}}
 <!--begin::Fonts-->

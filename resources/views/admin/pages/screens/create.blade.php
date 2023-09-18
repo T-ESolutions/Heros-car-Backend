@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('style')
 @endsection
@@ -62,7 +62,7 @@
                             <!--begin::Card body-->
                             <div class="card-body text-center pt-0">
                                 <!--begin::Image input-->
-                                <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="background-image: url({{url('admin/dist/assets/media/svg/files/blank-image.svg')}})">
+                                <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="background-image: url(assets/media/svg/files/blank-image.svg)">
                                     <!--begin::Preview existing avatar-->
                                     <div class="image-input-wrapper w-150px h-150px"></div>
                                     <!--end::Preview existing avatar-->
