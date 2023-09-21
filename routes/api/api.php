@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\App\SettingsController;
+use App\Http\Controllers\Api\V1\app\SettingsController;
 use App\Http\Controllers\Api\V1\User\HelperController;
 
 
