@@ -46,13 +46,6 @@ class SettingsController extends Controller
     }
 
 
-    public function links(Request $request)
-    {
-        $data = Link::all();
-        $data = LinksResources::collection($data);
-        return response()->json(msgdata(success(), trans('lang.success'), $data));
-    }
-
     public function screens()
     {
         $screens = Screen::get();

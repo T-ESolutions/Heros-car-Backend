@@ -36,8 +36,6 @@ Route::group(['prefix' => "V1", 'namespace' => 'V1'], function () {
         Route::get('/pages', [SettingsController::class, 'pages']);
         Route::get('/page/details', [SettingsController::class, 'pageDetails']);
 
-        Route::get('/links', [SettingsController::class, 'links']);
-
         Route::get('/settings', [SettingsController::class, 'settings']);
         Route::get('/settings/{key}', [SettingsController::class, 'customSettings']);
     });
