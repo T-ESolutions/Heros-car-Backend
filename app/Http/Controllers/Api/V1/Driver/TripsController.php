@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1\Driver;
 
+use App\Http\Controllers\Interfaces\V1\Provider\CarRepositoryInterface;
 use App\Http\Controllers\Interfaces\V1\Provider\TripsRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Provider\RateTripRequest;
@@ -16,17 +17,25 @@ use Illuminate\Support\Facades\Auth;
 class TripsController extends Controller
 {
     protected $tripRepo;
+    protected $carRepo;
 
-    public function __construct(TripsRepositoryInterface $tripRepo)
+    public function __construct(
+        TripsRepositoryInterface $tripRepo,
+        CarRepositoryInterface $carRepo)
     {
         $this->tripRepo = $tripRepo;
+        $this->carRepo = $carRepo;
     }
 
     public function trips()
     {
+        $cars = $this->carRepo->myCars();
         $result = $this->tripRepo->trips();
 
-        return response()->json(msgdata(success(), trans('lang.success'), $result));
+        return response()->json(msgdata(success(), trans('lang.success'), [
+            'cars' => empty($cars) ? null : $cars,
+            'trips' => empty($result) ? null : $result,
+        ]));
     }
 
     public function create(StartTripRequest $request)
