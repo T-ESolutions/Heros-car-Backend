@@ -197,6 +197,26 @@ Route::group([
                 Route::post('/change_active', 'DepartmentsController@changeActive')->name('.change_active');
             });
 
+            Route::group(['prefix' => 'brands', 'as' => '.brands'], function () {
+                Route::get('/', 'BrandsController@index');
+                Route::get('datatable', 'BrandsController@datatable')->name('.datatable');
+                Route::get('create', 'BrandsController@create')->name('.create');
+                Route::post('store', 'BrandsController@store')->name('.store');
+                Route::get('/edit/{id}', 'BrandsController@edit')->name('.edit');
+                Route::post('/update', 'BrandsController@update')->name('.update');
+                Route::post('/change_active', 'BrandsController@changeActive')->name('.change_active');
+            });
+
+            Route::group(['prefix' => 'modells', 'as' => '.modells'], function () {
+                Route::get('/show/{id}', 'ModellsController@index');
+                Route::get('datatable/{id}', 'ModellsController@datatable')->name('.datatable');
+                Route::get('create/{id}', 'ModellsController@create')->name('.create');
+                Route::post('store', 'ModellsController@store')->name('.store');
+                Route::get('/edit/{id}', 'ModellsController@edit')->name('.edit');
+                Route::post('/update', 'ModellsController@update')->name('.update');
+                Route::post('/change_active', 'ModellsController@changeActive')->name('.change_active');
+            });
+
             Route::group(['prefix' => 'packages', 'as' => '.packages'], function () {
                 Route::get('/', 'PackageController@index');
                 Route::get('getData', 'PackageController@getData')->name('.datatable');

@@ -29,16 +29,9 @@ class DepartmentsController extends Controller
             ->editColumn('image', function ($row) {
                 return '<a class="symbol symbol-50px"><span class="symbol-label" style="background-image:url(' . $row->image . ');"></span></a>';
             })
-            ->editColumn('active', function ($row) {
-                if ($row->active == 1) {
-                    return "<b class='badge badge-success'>مفعل</b>";
-                } else {
-                    return "<b class='badge badge-danger'>غير مفعل</b>";
-                }
-            })
             ->addColumn('status', $this->viewPath . '.parts.active_btn')
             ->addColumn('actions', $this->viewPath . '.parts.action_buttons')
-            ->rawColumns(['actions', 'image', 'active', 'status'])
+            ->rawColumns(['actions', 'image', 'status'])
             ->make();
 
     }

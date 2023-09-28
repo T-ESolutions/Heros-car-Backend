@@ -146,7 +146,7 @@
                         <!--end::Tab content-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Button-->
-                            <a href="{{route('admin.sliders')}}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">عودة</a>
+                            <a href="{{route('admin.'.$route)}}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">عودة</a>
                             <!--end::Button-->
                             <!--begin::Button-->
                             <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-secondary">
