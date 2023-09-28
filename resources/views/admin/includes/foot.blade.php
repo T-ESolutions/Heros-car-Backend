@@ -78,11 +78,31 @@ $errors = session()->get("errors");
 @endif
 
 <script>
+
     $(".form-select").each(function() {
         $(this).select2({
             theme: "bootstrap3",
             dropdownParent: $(this).parent()
         });
     });
+
+    function update_active(el, route) {
+        if (el.checked) {
+            var status = 1;
+        } else {
+            var status = 0;
+        }
+        $.post(route, {
+            _token: '{{ csrf_token() }}',
+            id: el.value,
+            status: status
+        }, function (data) {
+            if (data == 1) {
+                toastr.success("{{trans('lang.status_changed')}}");
+            } else {
+                toastr.error("{{trans('lang.status_changed')}}");
+            }
+        });
+    }
 </script>
 @yield('script')

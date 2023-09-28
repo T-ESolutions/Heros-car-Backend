@@ -188,28 +188,13 @@ Route::group([
                     ->name('.getNotificationData');
             });
 
-            Route::group(['prefix' => 'meal-types', 'as' => '.meal-types'], function () {
-                Route::get('/{type}', 'MealTypeController@index');
-                Route::get('getData/{type}', 'MealTypeController@getData')->name('.datatable');
-                Route::get('/create/{type}', 'MealTypeController@create')->name('.create');
-                Route::post('/store', 'MealTypeController@store')->name('.store');
-                Route::get('/edit/{id}', 'MealTypeController@edit')->name('.edit');
-                Route::post('/update', 'MealTypeController@update')->name('.update');
-                Route::get('/show/{id}', 'MealTypeController@show')->name('.show');
-                Route::post('/delete', 'MealTypeController@delete')->name('.delete');
-                Route::post('/delete-multi', 'MealTypeController@deleteMulti')->name('.deleteMulti');
-            });
-
-            Route::group(['prefix' => 'meals', 'as' => '.meals'], function () {
-                Route::get('/{meal_type_id}', 'MealController@index');
-                Route::get('getData/{meal_type_id}', 'MealController@getData')->name('.datatable');
-                Route::get('/create/{meal_type_id}', 'MealController@create')->name('.create');
-                Route::post('/store', 'MealController@store')->name('.store');
-                Route::get('/edit/{id}', 'MealController@edit')->name('.edit');
-                Route::post('/update', 'MealController@update')->name('.update');
-                Route::get('/show/{id}', 'MealController@show')->name('.show');
-                Route::post('/delete', 'MealController@delete')->name('.delete');
-                Route::post('/delete-multi', 'MealController@deleteMulti')->name('.deleteMulti');
+            Route::group(['prefix' => 'departments', 'as' => '.departments'], function () {
+                Route::get('/', 'DepartmentsController@index');
+                Route::get('datatable/{id?}', 'DepartmentsController@datatable')->name('.datatable');
+                Route::get('/edit/{id}', 'DepartmentsController@edit')->name('.edit');
+                Route::post('/update', 'DepartmentsController@update')->name('.update');
+                Route::get('/show/{id}', 'DepartmentsController@show')->name('.show');
+                Route::post('/change_active', 'DepartmentsController@changeActive')->name('.change_active');
             });
 
             Route::group(['prefix' => 'packages', 'as' => '.packages'], function () {

@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'status_changed' => 'تم تغيير الحالة بنجاح',
     'trip_cancelled_s' => 'تم إلغاء الرحلة بنجاح',
     'trip_started_s' => 'تم بدأ الرحلة بنجاح',
     'trip_finished_s' => 'تم إنهاء الرحلة بنجاح',
