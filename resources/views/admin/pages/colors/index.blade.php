@@ -1,5 +1,5 @@
 @extends('admin.index')
-@php $route = 'modells'; @endphp
+@php $route = 'colors'; @endphp
 @section('style')
 
 @endsection
@@ -16,18 +16,13 @@
                 <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                     <!--begin::Title-->
                     <h1 class="d-flex align-items-center fw-bolder fs-3 my-1" style="color: #F48120">
-                       موديلات الماركة ({{$brand->title}})
+                        الوان السيارات
                         <!--end::Description-->
                     </h1>
                     <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">
-                            <a href="{{route('admin.brands')}}" class="text-muted text-hover-primary">  مركات السيارات</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-300 w-5px h-2px"></span>
-                        </li>
+
                         <li class="breadcrumb-item text-muted">
                             <a href="{{route('home')}}" class="text-muted text-hover-primary">الرئيسية</a>
                         </li>
@@ -37,7 +32,7 @@
                 <!--end::Page title-->
                 <!--begin::Actions-->
                 <div class="d-flex align-items-center py-1">
-                    <a href="{{route('admin.'.$route.'.create',$id)}}" class="btn btn-sm btn-success">
+                    <a href="{{route('admin.'.$route.'.create')}}" class="btn btn-sm btn-success">
                         <i class="fa fa-plus"></i>
                         أضف</a>
                     <!--end::Button-->
@@ -67,9 +62,7 @@
 {{--                                    </div>--}}
 {{--                                </th>--}}
                                 <th class=" min-w-10px">#</th>
-                                <th class=" min-w-100px">الصورة</th>
-                                <th class=" min-w-100px">اسم الموديل</th>
-                                <th class=" min-w-100px">التفعيل</th>
+                                <th class=" min-w-100px">اسم اللون </th>
                                 <th class=" min-w-100px">العمليات</th>
 
                             </tr>
@@ -167,12 +160,10 @@
 
 
                 ],
-                ajax: '{{ route('admin.'.$route.'.datatable',$id) }}',
+                ajax: '{{ route('admin.'.$route.'.datatable') }}',
                 "columns": [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', "searchable": false, "orderable": false},
-                    {data: 'image', name: 'image', "searchable": true, "orderable": true},
                     {data: 'title', name: 'title', "searchable": true, "orderable": true},
-                    {data: 'status', name: 'status', "searchable": true, "orderable": true},
                     {data: 'actions', name: 'actions', "searchable": false, "orderable": false},
                 ]
             });

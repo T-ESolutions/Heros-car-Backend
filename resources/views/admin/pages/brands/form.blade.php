@@ -62,11 +62,11 @@
                     <!--begin::Card body-->
                     <div class="card-body pt-0">
                         <div class="mb-10 fv-row">
-                            <label class="required form-label">اسم القسم بالعربية</label>
+                            <label class="required form-label">الاسم بالعربية</label>
                             <input type="text" required name="title_ar" value="{{old('title_ar',$row->title_ar ?? '')}}" class="form-control mb-2" />
                         </div>
                         <div class="mb-10 fv-row">
-                            <label class="required form-label">اسم القسم بالانجليزية</label>
+                            <label class="required form-label">الاسم بالانجليزية</label>
                             <input type="text" required name="title_en" value="{{old('title_en',$row->title_en ?? '')}}" class="form-control mb-2" />
                         </div>
 

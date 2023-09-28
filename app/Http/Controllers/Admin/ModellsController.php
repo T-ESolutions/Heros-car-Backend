@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\V1\Admin\ModellRequest;
 use App\Models\Brand;
+use App\Models\Color;
+use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Modell;
+use Illuminate\Support\Facades\File;
+
 
 class ModellsController extends Controller
 {
@@ -39,7 +43,7 @@ class ModellsController extends Controller
     public function create($id)
     {
         $brand = Brand::whereId($id)->first();
-        return view($this->viewPath . '.create', compact('id','brand'));
+        return view($this->viewPath . '.create', compact('id', 'brand'));
     }
 
     public function store(ModellRequest $request)
@@ -59,12 +63,11 @@ class ModellsController extends Controller
             session()->flash('error', 'الحقل غير موجود');
             return redirect()->back();
         }
-        $id= $row->brand_id;
+        $id = $row->brand_id;
 
         $brand = Brand::whereId($id)->first();
-        return view($this->viewPath . '.edit', compact('row','id','brand'));
+        return view($this->viewPath . '.edit', compact('row', 'id', 'brand'));
     }
-
 
     public function update(ModellRequest $request)
     {
@@ -84,6 +87,28 @@ class ModellsController extends Controller
         $data['active'] = $request->status;
         Modell::where('id', $request->id)->update($data);
         return 1;
+    }
+
+    public function delete(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'row_id' => 'required|exists:modells,id',
+        ]);
+        if (!is_array($validator) && $validator->fails()) {
+            return response()->json(['message' => 'Failed']);
+        }
+
+        $row = Modell::where('id', $request->row_id)->first();
+//        if (!empty($row->getOriginal('image'))){
+//            unlink($row->getOriginal('image'), 'modells');
+//        }
+
+//        if (File::exists('uploads/modells/' . $row->image)) {
+//            unlink('uploads/modells/' . $row->image);
+//        }
+        $row->delete();
+        session()->flash('success', 'تم الحذف بنجاح');
+        return response()->json(['message' => 'Success']);
     }
 
 

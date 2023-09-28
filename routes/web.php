@@ -205,6 +205,7 @@ Route::group([
                 Route::get('/edit/{id}', 'BrandsController@edit')->name('.edit');
                 Route::post('/update', 'BrandsController@update')->name('.update');
                 Route::post('/change_active', 'BrandsController@changeActive')->name('.change_active');
+                Route::post('/delete', 'BrandsController@delete')->name('.delete');
             });
 
             Route::group(['prefix' => 'modells', 'as' => '.modells'], function () {
@@ -215,6 +216,16 @@ Route::group([
                 Route::get('/edit/{id}', 'ModellsController@edit')->name('.edit');
                 Route::post('/update', 'ModellsController@update')->name('.update');
                 Route::post('/change_active', 'ModellsController@changeActive')->name('.change_active');
+                Route::post('/delete', 'ModellsController@delete')->name('.delete');
+            });
+            Route::group(['prefix' => 'colors', 'as' => '.colors'], function () {
+                Route::get('/', 'ColorsController@index');
+                Route::get('datatable', 'ColorsController@datatable')->name('.datatable');
+                Route::get('create', 'ColorsController@create')->name('.create');
+                Route::post('store', 'ColorsController@store')->name('.store');
+                Route::get('/edit/{id}', 'ColorsController@edit')->name('.edit');
+                Route::post('/update', 'ColorsController@update')->name('.update');
+                Route::post('/delete', 'ColorsController@delete')->name('.delete');
             });
 
             Route::group(['prefix' => 'packages', 'as' => '.packages'], function () {
