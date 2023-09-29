@@ -49,6 +49,13 @@ Route::group([ 'prefix' => 'admin','namespace' => 'App\Http\Controllers'], funct
             Route::group(['prefix' => 'profile', 'as' => '.profile'], function () {
                 Route::get('/', 'ProfileController@index')->name('');
                 Route::post('/update', 'ProfileController@update')->name('.update');
+                Route::get('/change_password', 'ProfileController@changePasswordPage')->name('.change_password');
+                Route::post('/change_password', 'ProfileController@changePassword')->name('.password.update');
+
+                Route::get('/send_sms',  'ProfileController@sendSms')->name('.send_sms');
+                Route::post('/forget_password/check_code',  'ProfileController@checkCode')->name('.forget_password.check_code');
+                Route::post('/forget_password/change_password', 'ProfileController@forgetPasswordChangePassword')->name('.forget_password.change_password');
+
             });
 
             Route::group(['prefix' => 'reports', 'as' => '.reports'], function () {

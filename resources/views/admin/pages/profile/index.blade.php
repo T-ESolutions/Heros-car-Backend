@@ -92,28 +92,18 @@
                             </div>
                             <!--end::Card body-->
                         </div>
-                        <!--end::Thumbnail settings-->
-                        <!--begin::Status-->
-                        <div class="card card-flush py-4" style="display: none">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <!--begin::Card title-->
-                                <div class="card-title">
-                                    <h2>الحالة</h2>
-                                </div>
-                                <!--end::Card title-->
-                                <!--begin::Card toolbar-->
-                                <div class="card-toolbar">
-                                    <div class="rounded-circle bg-success w-15px h-15px"
-                                         id="kt_ecommerce_add_product_status"></div>
-                                </div>
-                                <!--begin::Card toolbar-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0 " style="align-self: center;">
+                                <a href="{{route('admin.profile.change_password')}}"  class="btn btn-secondary">
+                                    <span class="indicator-label">تغيير كلمة المرور</span>
+
+                                </a>
+                            <!--end::Datepicker-->
                             </div>
-                            <!--end::Card header-->
-
+                            <!--end::Card body-->
                         </div>
-
-
+                        <!--end::Status-->
                     </div>
                     <!--end::Aside column-->
                     <!--begin::Main column-->
