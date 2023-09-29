@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\ZoneController;
-use App\Http\Controllers\Admin\NotificationSettingController;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -19,9 +16,7 @@ use Illuminate\Support\Facades\Artisan;
 
 
 Route::get('/', function () {
-//    return view('welcome');
     return redirect()->route('admin.login');
-//    return redirect()->route('home');
 });
 
 
@@ -36,12 +31,9 @@ Route::get('cache', function () {
 });
 
 
-Route::group([
-    'prefix' => 'admin',
-    'namespace' => 'App\Http\Controllers'
-], function () {
+Route::group([ 'prefix' => 'admin','namespace' => 'App\Http\Controllers'], function () {
 
-    Route::group(['middleware' => 'auth:admin','namespace' => 'Admin'], function () {
+    Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function () {
         Route::get('home', 'HomeController@index')->name('home');
         Route::post('home', 'HomeController@index')->name('homeWzSearch');
         Route::get('home-meals/{date}', 'HomeController@getData')->name('homeMealsDatatables');
@@ -54,6 +46,11 @@ Route::group([
 
         Route::group(['middleware' => 'auth:admin'], function () {
 
+            Route::group(['prefix' => 'profile', 'as' => '.profile'], function () {
+                Route::get('/', 'ProfileController@index')->name('');
+                Route::post('/update', 'ProfileController@update')->name('.update');
+            });
+
             Route::group(['prefix' => 'reports', 'as' => '.reports'], function () {
                 Route::get('reports', 'ReportController@index');
                 Route::post('reports', 'ReportController@index')->name('.reportsWzSearch');
@@ -62,7 +59,6 @@ Route::group([
 
             Route::group(['prefix' => 'users', 'as' => '.users'], function () {
                 Route::get('/', 'UserController@index');
-                Route::get('/profile', 'ProfileController@profile')->name('.profile');
                 Route::get('getData', 'UserController@getData')->name('.datatable');
                 Route::get('/create', 'UserController@create')->name('.create');
                 Route::post('/store', 'UserController@store')->name('.store');

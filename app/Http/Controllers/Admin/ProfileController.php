@@ -2,22 +2,32 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Order;
-use App\Models\User;
-use Carbon\Carbon;
+use App\Http\Requests\V1\Admin\ProfileUpdateRequest;
+use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
-use Yajra\DataTables\Facades\DataTables;
 
 class ProfileController extends Controller
 {
 
-    public function profile()
+    public function index()
     {
-        return view('admin.pages.profiles.index');
+        $row = Admin::where('id', \auth('admin')->user()->id)->first();
+
+        return view('admin.pages.profile.index', compact('row'));
+    }
+
+    public function update(ProfileUpdateRequest $request)
+    {
+        $data = $request->validated();
+        if (isset($data['image'])) {
+            $img_name = upload($data['image'], 'admin');
+            $data['image'] = $img_name;
+        }
+        Admin::whereId(\auth('admin')->user()->id)->update($data);
+        session()->flash('success', 'تم التعديل بنجاح');
+        return redirect()->back();
     }
 
 }

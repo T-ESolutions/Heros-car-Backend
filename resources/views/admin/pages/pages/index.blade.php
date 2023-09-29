@@ -97,8 +97,7 @@
     <!--end::Content-->
 @endsection
 @section('script')
-    <script src="{{ asset('admin/dist/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
     <script>
         $(document).ready(function () {
             $("#slider_table").DataTable({

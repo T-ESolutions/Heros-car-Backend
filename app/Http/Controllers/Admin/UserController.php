@@ -154,7 +154,7 @@ class UserController extends Controller
                 if ($row->suspend == 1){
                     return "<b class='badge badge-success'>موقوف</b>";
                 }else{
-                    return "<b class='badge badge-danger'>غير موفوف</b>";
+                    return "<b class='badge badge-danger'>غير موقوف</b>";
                 }
             })
             ->editColumn('created_at',function ($row){

@@ -633,7 +633,7 @@
                             <!--end::Menu separator-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="{{route('admin.admins.edit', auth()->user()->id)}}" class="menu-link px-5">الملف
+                                <a href="{{route('admin.profile')}}" class="menu-link px-5">الملف
                                     الشخصي</a>
                             </div>
                             <!--end::Menu item-->

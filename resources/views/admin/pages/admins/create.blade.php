@@ -242,7 +242,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="text" required name="name" class="form-control mb-2"
-                                                       placeholder="إسم المشرف" value=""/>
+                                                        value=""/>
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                             </div>
@@ -254,7 +254,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="email" required name="email" class="form-control mb-2"
-                                                       placeholder="البريد الإلكتروني" value=""/>
+                                                        value=""/>
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                             {{--                                                <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>--}}
@@ -268,7 +268,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="tel" required name="phone" class="form-control mb-2"
-                                                       placeholder="الجوال" value=""/>
+                                                        value=""/>
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                             {{--                                                <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>--}}
@@ -282,7 +282,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="password" name="password" class="form-control mb-2"
-                                                       placeholder="كلمة المرور" />
+                                                        />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="fs-lg-3 text-danger">ملحوظة: القيمة الإفتراضية لكلمة المرور هي (123456) إذا لم يتم تعيين كلمة مرور</div>

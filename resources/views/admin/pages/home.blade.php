@@ -259,15 +259,6 @@
 @endsection
 
 @section('script')
-    <!--begin::Page Vendors Javascript(used by this page)-->
-    <script src="{{ asset('admin/dist/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-    {{--    <script src="{{ asset('admin/dist/assets/js/custom/apps/projects/list/list.js')}}"></script>--}}
-
-
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-
-
-
     <script>
 
         $("#kt_ecommerce_products_table").find('.group-checkable').change(function () {
