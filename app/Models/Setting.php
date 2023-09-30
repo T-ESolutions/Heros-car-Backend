@@ -11,7 +11,7 @@ class Setting extends Model
 
     protected $hidden = ['created_at', 'updated_at'];
 
-    protected $fillable=[
+    protected $fillable = [
         'key',
         'value',
         'image',
@@ -35,5 +35,14 @@ class Setting extends Model
             $value = $img_name;
         }
         Self::updateOrCreate(['key' => $key], ['value' => $value]);
+    }
+
+
+    public function getImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/Settings') . '/' . $image;
+        }
+        return "";
     }
 }

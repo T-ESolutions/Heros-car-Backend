@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -306,27 +307,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers'], funct
 //                Route::get('/get/meals', 'PackageMealController@getMeals')->name('.getMeals');
 //            });
 
-//            Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {
-//                Route::get('/edit', [SettingController::class, 'index']);
-//                Route::post('/update', [SettingController::class, 'update'])->name('.update');
-//                Route::group(['prefix' => 'zones', 'as' => '.zones'], function () {
-//                    Route::get('/', [ZoneController::class, 'index']);
-//                    Route::get('getData', [ZoneController::class, 'getData'])->name('.datatable');
-//                    Route::post('/store', [ZoneController::class, 'store'])->name('.store');
-//                    Route::get('get-all-zone-cordinates/{id?}', [ZoneController::class, 'get_all_zone_cordinates'])->name('.zoneCoordinates');
-//                    Route::post('search', [ZoneController::class, 'search'])->name('.search');
-//
-//                    Route::get('/edit/{id}', [ZoneController::class, 'edit'])->name('.edit');
-//                    Route::post('/update/{id}', [ZoneController::class, 'update'])->name('.update');
-//
-//                    Route::post('/delete', [ZoneController::class, 'delete'])->name('.delete');
-//
-//                });
-//            });
-//            Route::group(['prefix' => 'notification-settings', 'as' => '.notification-settings'], function () {
-//                Route::get('/edit', [NotificationSettingController::class, 'index'])->name('.edit');
-//                Route::post('/update', [NotificationSettingController::class, 'update'])->name('.update');
-//            });
+            Route::group(['prefix' => 'settings', 'as' => '.settings'], function () {
+                Route::get('/', 'SettingsController@index');
+                Route::get('datatable', 'SettingsController@datatable')->name('.datatable');
+                Route::get('/edit/{id}', 'SettingsController@edit')->name('.edit');
+                Route::post('/update', 'SettingsController@update')->name('.update');
+
+            });
         });
 
     });
