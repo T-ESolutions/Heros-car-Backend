@@ -172,20 +172,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers'], funct
 //                Route::post('/delete-multi', 'CouponController@deleteMulti')->name('.deleteMulti');
 //            });
 
-            Route::group(['prefix' => 'notifications', 'as' => '.notifications'], function () {
-                Route::get('/', 'NotificationController@index');
-                Route::get('getData', 'NotificationController@getData')->name('.datatable');
-                Route::get('/create', 'NotificationController@create')->name('.create');
-                Route::post('/store', 'NotificationController@store')->name('.store');
-                Route::get('/edit/{id}', 'NotificationController@edit')->name('.edit');
-                Route::post('/update', 'NotificationController@update')->name('.update');
-                Route::get('/show/{id}', 'NotificationController@show')->name('.show');
-                Route::post('/delete', 'NotificationController@delete')->name('.delete');
-                Route::post('/delete-multi', 'NotificationController@deleteMulti')->name('.deleteMulti');
-                //ajax
-                Route::get('/get/notification-data', 'NotificationController@getNotificationData')
-                    ->name('.getNotificationData');
-            });
+//            Route::group(['prefix' => 'notifications', 'as' => '.notifications'], function () {
+//                Route::get('/', 'NotificationController@index');
+//                Route::get('getData', 'NotificationController@getData')->name('.datatable');
+//                Route::get('/create', 'NotificationController@create')->name('.create');
+//                Route::post('/store', 'NotificationController@store')->name('.store');
+//                Route::get('/edit/{id}', 'NotificationController@edit')->name('.edit');
+//                Route::post('/update', 'NotificationController@update')->name('.update');
+//                Route::get('/show/{id}', 'NotificationController@show')->name('.show');
+//                Route::post('/delete', 'NotificationController@delete')->name('.delete');
+//                Route::post('/delete-multi', 'NotificationController@deleteMulti')->name('.deleteMulti');
+//                //ajax
+//                Route::get('/get/notification-data', 'NotificationController@getNotificationData')
+//                    ->name('.getNotificationData');
+//            });
 
             Route::group(['prefix' => 'departments', 'as' => '.departments'], function () {
                 Route::get('/', 'DepartmentsController@index');
@@ -319,7 +319,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers'], funct
                 Route::get('/', 'ContactUsController@index');
                 Route::get('datatable', 'ContactUsController@datatable')->name('.datatable');
                 Route::get('/show/{id}', 'ContactUsController@edit')->name('.show');
+            });
 
+            Route::group(['prefix' => 'notifications', 'as' => '.notifications'], function () {
+                Route::get('/create', 'NotificationController@create')->name('.create');
+                Route::post('/store', 'NotificationController@store')->name('.store');
 
             });
         });

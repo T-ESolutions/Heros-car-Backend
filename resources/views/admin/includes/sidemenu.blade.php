@@ -454,7 +454,7 @@
                 {{--                </div>--}}
                 <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'notifications') active @endif"
-                       href="{{route('admin.notifications')}}">
+                       href="{{route('admin.notifications.create')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Notifications1.svg--><svg
@@ -470,7 +470,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">الإشعارات</span>
+                        <span class="menu-title">ارسال إشعار</span>
                     </a>
                 </div>
                 <div class="menu-item">
