@@ -131,4 +131,6 @@ return [
     'order_rejected_before' => 'تم رفض الطلب من قبل',
     'order_rejected_s' => 'تم رفض الطلب بنجاح',
     'cannot_cancel_request' => 'عفوآ .. لا يمكنك الغاء الطلب',
+    'user' => 'المستخدم',
+    'driver' => 'السائق',
 ];

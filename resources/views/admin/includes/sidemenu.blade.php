@@ -232,17 +232,17 @@
                         <span class="menu-title">الطلبات الملغية</span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'cancel_requests') active @endif"
-                       href="{{route('admin.cancel_requests')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <i class="fa fa-recycle text-danger"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">طلبات الإلغاء</span>
-                    </a>
-                </div>
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if(request()->segment(2) == 'cancel_requests') active @endif"--}}
+{{--                       href="{{route('admin.cancel_requests')}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                            <i class="fa fa-recycle text-danger"></i>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                        </span>--}}
+{{--                        <span class="menu-title">طلبات الإلغاء</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
@@ -337,78 +337,78 @@
                         <span class="menu-title">الشاشات الترحيبية</span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'sliders') active @endif"
-                       href="{{route('admin.sliders')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Picture.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                        height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon points="0 0 24 0 24 24 0 24"/>
-                                    <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"/>
-                                    <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"/>
-                                    <polygon fill="#000000" points="11 20 15.5 14 20 20"/>
-                                    <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <span class="menu-title">السلايدر</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'offers') active @endif"
-                       href="{{route('admin.offers')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg
-                                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24"/>
-                                        <polygon fill="#000000" opacity="0.3"
-                                                 points="12 20.0218549 8.47346039 21.7286168 6.86905972 18.1543453 3.07048824 17.1949849 4.13894342 13.4256452 1.84573388 10.2490577 5.08710286 8.04836581 5.3722735 4.14091196 9.2698837 4.53859595 12 1.72861679 14.7301163 4.53859595 18.6277265 4.14091196 18.9128971 8.04836581 22.1542661 10.2490577 19.8610566 13.4256452 20.9295118 17.1949849 17.1309403 18.1543453 15.5265396 21.7286168"/>
-                                        <polygon fill="#000000"
-                                                 points="14.0890818 8.60255815 8.36079737 14.7014391 9.70868621 16.049328 15.4369707 9.950447"/>
-                                        <path
-                                            d="M10.8543431,9.1753866 C10.8543431,10.1252593 10.085524,10.8938719 9.13585777,10.8938719 C8.18793881,10.8938719 7.41737243,10.1252593 7.41737243,9.1753866 C7.41737243,8.22551387 8.18793881,7.45690126 9.13585777,7.45690126 C10.085524,7.45690126 10.8543431,8.22551387 10.8543431,9.1753866"
-                                            fill="#000000" opacity="0.3"/>
-                                        <path
-                                            d="M14.8641422,16.6221564 C13.9162233,16.6221564 13.1456569,15.8535438 13.1456569,14.9036711 C13.1456569,13.9520555 13.9162233,13.1851857 14.8641422,13.1851857 C15.8138085,13.1851857 16.5826276,13.9520555 16.5826276,14.9036711 C16.5826276,15.8535438 15.8138085,16.6221564 14.8641422,16.6221564 Z"
-                                            fill="#000000" opacity="0.3"/>
-                                    </g>
-                                </svg><!--end::Svg Icon-->
-                           </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">العروض</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'coupons') active @endif"
-                       href="{{route('admin.coupons')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Ticket.svg--><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24"/>
-                                        <path
-                                            d="M3,10.0500091 L3,8 C3,7.44771525 3.44771525,7 4,7 L9,7 L9,9 C9,9.55228475 9.44771525,10 10,10 C10.5522847,10 11,9.55228475 11,9 L11,7 L21,7 C21.5522847,7 22,7.44771525 22,8 L22,10.0500091 C20.8588798,10.2816442 20,11.290521 20,12.5 C20,13.709479 20.8588798,14.7183558 22,14.9499909 L22,17 C22,17.5522847 21.5522847,18 21,18 L11,18 L11,16 C11,15.4477153 10.5522847,15 10,15 C9.44771525,15 9,15.4477153 9,16 L9,18 L4,18 C3.44771525,18 3,17.5522847 3,17 L3,14.9499909 C4.14112016,14.7183558 5,13.709479 5,12.5 C5,11.290521 4.14112016,10.2816442 3,10.0500091 Z M10,11 C9.44771525,11 9,11.4477153 9,12 L9,13 C9,13.5522847 9.44771525,14 10,14 C10.5522847,14 11,13.5522847 11,13 L11,12 C11,11.4477153 10.5522847,11 10,11 Z"
-                                            fill="#000000" opacity="0.3"
-                                            transform="translate(12.500000, 12.500000) rotate(-45.000000) translate(-12.500000, -12.500000) "/>
-                                    </g>
-                                </svg><!--end::Svg Icon-->
-                                </span>
-                                <!--end::Svg Icon-->
-                            </span>
-                        <span class="menu-title">كوبونات الخصم</span>
-                    </a>
-                </div>
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if(request()->segment(2) == 'sliders') active @endif"--}}
+{{--                       href="{{route('admin.sliders')}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Picture.svg--><svg--}}
+{{--                                    xmlns="http://www.w3.org/2000/svg"--}}
+{{--                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"--}}
+{{--                                        height="24px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                    <polygon points="0 0 24 0 24 24 0 24"/>--}}
+{{--                                    <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"/>--}}
+{{--                                    <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"/>--}}
+{{--                                    <polygon fill="#000000" points="11 20 15.5 14 20 20"/>--}}
+{{--                                    <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"/>--}}
+{{--                                </g>--}}
+{{--                            </svg><!--end::Svg Icon-->--}}
+{{--                            </span>--}}
+{{--                        </span>--}}
+{{--                        <span class="menu-title">السلايدر</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if(request()->segment(2) == 'offers') active @endif"--}}
+{{--                       href="{{route('admin.offers')}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg--}}
+{{--                                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                        <rect x="0" y="0" width="24" height="24"/>--}}
+{{--                                        <polygon fill="#000000" opacity="0.3"--}}
+{{--                                                 points="12 20.0218549 8.47346039 21.7286168 6.86905972 18.1543453 3.07048824 17.1949849 4.13894342 13.4256452 1.84573388 10.2490577 5.08710286 8.04836581 5.3722735 4.14091196 9.2698837 4.53859595 12 1.72861679 14.7301163 4.53859595 18.6277265 4.14091196 18.9128971 8.04836581 22.1542661 10.2490577 19.8610566 13.4256452 20.9295118 17.1949849 17.1309403 18.1543453 15.5265396 21.7286168"/>--}}
+{{--                                        <polygon fill="#000000"--}}
+{{--                                                 points="14.0890818 8.60255815 8.36079737 14.7014391 9.70868621 16.049328 15.4369707 9.950447"/>--}}
+{{--                                        <path--}}
+{{--                                            d="M10.8543431,9.1753866 C10.8543431,10.1252593 10.085524,10.8938719 9.13585777,10.8938719 C8.18793881,10.8938719 7.41737243,10.1252593 7.41737243,9.1753866 C7.41737243,8.22551387 8.18793881,7.45690126 9.13585777,7.45690126 C10.085524,7.45690126 10.8543431,8.22551387 10.8543431,9.1753866"--}}
+{{--                                            fill="#000000" opacity="0.3"/>--}}
+{{--                                        <path--}}
+{{--                                            d="M14.8641422,16.6221564 C13.9162233,16.6221564 13.1456569,15.8535438 13.1456569,14.9036711 C13.1456569,13.9520555 13.9162233,13.1851857 14.8641422,13.1851857 C15.8138085,13.1851857 16.5826276,13.9520555 16.5826276,14.9036711 C16.5826276,15.8535438 15.8138085,16.6221564 14.8641422,16.6221564 Z"--}}
+{{--                                            fill="#000000" opacity="0.3"/>--}}
+{{--                                    </g>--}}
+{{--                                </svg><!--end::Svg Icon-->--}}
+{{--                           </span>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                        </span>--}}
+{{--                        <span class="menu-title">العروض</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if(request()->segment(2) == 'coupons') active @endif"--}}
+{{--                       href="{{route('admin.coupons')}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Ticket.svg--><svg--}}
+{{--                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                        <rect x="0" y="0" width="24" height="24"/>--}}
+{{--                                        <path--}}
+{{--                                            d="M3,10.0500091 L3,8 C3,7.44771525 3.44771525,7 4,7 L9,7 L9,9 C9,9.55228475 9.44771525,10 10,10 C10.5522847,10 11,9.55228475 11,9 L11,7 L21,7 C21.5522847,7 22,7.44771525 22,8 L22,10.0500091 C20.8588798,10.2816442 20,11.290521 20,12.5 C20,13.709479 20.8588798,14.7183558 22,14.9499909 L22,17 C22,17.5522847 21.5522847,18 21,18 L11,18 L11,16 C11,15.4477153 10.5522847,15 10,15 C9.44771525,15 9,15.4477153 9,16 L9,18 L4,18 C3.44771525,18 3,17.5522847 3,17 L3,14.9499909 C4.14112016,14.7183558 5,13.709479 5,12.5 C5,11.290521 4.14112016,10.2816442 3,10.0500091 Z M10,11 C9.44771525,11 9,11.4477153 9,12 L9,13 C9,13.5522847 9.44771525,14 10,14 C10.5522847,14 11,13.5522847 11,13 L11,12 C11,11.4477153 10.5522847,11 10,11 Z"--}}
+{{--                                            fill="#000000" opacity="0.3"--}}
+{{--                                            transform="translate(12.500000, 12.500000) rotate(-45.000000) translate(-12.500000, -12.500000) "/>--}}
+{{--                                    </g>--}}
+{{--                                </svg><!--end::Svg Icon-->--}}
+{{--                                </span>--}}
+{{--                                <!--end::Svg Icon-->--}}
+{{--                            </span>--}}
+{{--                        <span class="menu-title">كوبونات الخصم</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'notifications') active @endif"
                        href="{{route('admin.notifications')}}">
@@ -507,74 +507,74 @@
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">الإعدادات</span>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'edit' ) active @endif"
-                       href="{{route('admin.settings')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Settings-2.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"
-                                        fill="#000000"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">الإعدادات العامة</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'zones' ) active @endif"
-                       href="{{route('admin.settings.zones.edit', 1)}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"
-                                        fill="#000000" fill-rule="nonzero"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">إعدادات منطقة التوصيل</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if( request()->segment(2) == 'notification-settings' ) active @endif"
-                       href="{{route('admin.notification-settings.edit')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Alarm-clock.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M7.14319965,19.3575259 C7.67122143,19.7615175 8.25104409,20.1012165 8.87097532,20.3649307 L7.89205065,22.0604779 C7.61590828,22.5387706 7.00431787,22.7026457 6.52602525,22.4265033 C6.04773263,22.150361 5.88385747,21.5387706 6.15999985,21.0604779 L7.14319965,19.3575259 Z M15.1367085,20.3616573 C15.756345,20.0972995 16.3358198,19.7569961 16.8634386,19.3524415 L17.8320512,21.0301278 C18.1081936,21.5084204 17.9443184,22.1200108 17.4660258,22.3961532 C16.9877332,22.6722956 16.3761428,22.5084204 16.1000004,22.0301278 L15.1367085,20.3616573 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M12,21 C7.581722,21 4,17.418278 4,13 C4,8.581722 7.581722,5 12,5 C16.418278,5 20,8.581722 20,13 C20,17.418278 16.418278,21 12,21 Z M19.068812,3.25407593 L20.8181344,5.00339833 C21.4039208,5.58918477 21.4039208,6.53893224 20.8181344,7.12471868 C20.2323479,7.71050512 19.2826005,7.71050512 18.696814,7.12471868 L16.9474916,5.37539627 C16.3617052,4.78960984 16.3617052,3.83986237 16.9474916,3.25407593 C17.5332781,2.66828949 18.4830255,2.66828949 19.068812,3.25407593 Z M5.29862906,2.88207799 C5.8844155,2.29629155 6.83416297,2.29629155 7.41994941,2.88207799 C8.00573585,3.46786443 8.00573585,4.4176119 7.41994941,5.00339833 L5.29862906,7.12471868 C4.71284263,7.71050512 3.76309516,7.71050512 3.17730872,7.12471868 C2.59152228,6.53893224 2.59152228,5.58918477 3.17730872,5.00339833 L5.29862906,2.88207799 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                    <path
-                                        d="M11.9630156,7.5 L12.0475062,7.5 C12.3043819,7.5 12.5194647,7.69464724 12.5450248,7.95024814 L13,12.5 L16.2480695,14.3560397 C16.403857,14.4450611 16.5,14.6107328 16.5,14.7901613 L16.5,15 C16.5,15.2109164 16.3290185,15.3818979 16.1181021,15.3818979 C16.0841582,15.3818979 16.0503659,15.3773725 16.0176181,15.3684413 L11.3986612,14.1087258 C11.1672824,14.0456225 11.0132986,13.8271186 11.0316926,13.5879956 L11.4644883,7.96165175 C11.4845267,7.70115317 11.7017474,7.5 11.9630156,7.5 Z"
-                                        fill="#000000"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <span class="menu-title">إعدادات الإشعارات</span>
-                    </a>
-                </div>
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'edit' ) active @endif"--}}
+{{--                       href="{{route('admin.settings')}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                            <span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Settings-2.svg--><svg--}}
+{{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                    <rect x="0" y="0" width="24" height="24"/>--}}
+{{--                                    <path--}}
+{{--                                        d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"--}}
+{{--                                        fill="#000000"/>--}}
+{{--                                </g>--}}
+{{--                            </svg><!--end::Svg Icon-->--}}
+{{--                            </span>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                        </span>--}}
+{{--                        <span class="menu-title">الإعدادات العامة</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'zones' ) active @endif"--}}
+{{--                       href="{{route('admin.settings.zones.edit', 1)}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg--}}
+{{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                    <rect x="0" y="0" width="24" height="24"/>--}}
+{{--                                    <path--}}
+{{--                                        d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"--}}
+{{--                                        fill="#000000" fill-rule="nonzero"/>--}}
+{{--                                </g>--}}
+{{--                            </svg><!--end::Svg Icon-->--}}
+{{--                            </span>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                        </span>--}}
+{{--                        <span class="menu-title">إعدادات منطقة التوصيل</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="menu-item">--}}
+{{--                    <a class="menu-link @if( request()->segment(2) == 'notification-settings' ) active @endif"--}}
+{{--                       href="{{route('admin.notification-settings.edit')}}">--}}
+{{--                        <span class="menu-icon">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+{{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Alarm-clock.svg--><svg--}}
+{{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+{{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                    <rect x="0" y="0" width="24" height="24"/>--}}
+{{--                                    <path--}}
+{{--                                        d="M7.14319965,19.3575259 C7.67122143,19.7615175 8.25104409,20.1012165 8.87097532,20.3649307 L7.89205065,22.0604779 C7.61590828,22.5387706 7.00431787,22.7026457 6.52602525,22.4265033 C6.04773263,22.150361 5.88385747,21.5387706 6.15999985,21.0604779 L7.14319965,19.3575259 Z M15.1367085,20.3616573 C15.756345,20.0972995 16.3358198,19.7569961 16.8634386,19.3524415 L17.8320512,21.0301278 C18.1081936,21.5084204 17.9443184,22.1200108 17.4660258,22.3961532 C16.9877332,22.6722956 16.3761428,22.5084204 16.1000004,22.0301278 L15.1367085,20.3616573 Z"--}}
+{{--                                        fill="#000000"/>--}}
+{{--                                    <path--}}
+{{--                                        d="M12,21 C7.581722,21 4,17.418278 4,13 C4,8.581722 7.581722,5 12,5 C16.418278,5 20,8.581722 20,13 C20,17.418278 16.418278,21 12,21 Z M19.068812,3.25407593 L20.8181344,5.00339833 C21.4039208,5.58918477 21.4039208,6.53893224 20.8181344,7.12471868 C20.2323479,7.71050512 19.2826005,7.71050512 18.696814,7.12471868 L16.9474916,5.37539627 C16.3617052,4.78960984 16.3617052,3.83986237 16.9474916,3.25407593 C17.5332781,2.66828949 18.4830255,2.66828949 19.068812,3.25407593 Z M5.29862906,2.88207799 C5.8844155,2.29629155 6.83416297,2.29629155 7.41994941,2.88207799 C8.00573585,3.46786443 8.00573585,4.4176119 7.41994941,5.00339833 L5.29862906,7.12471868 C4.71284263,7.71050512 3.76309516,7.71050512 3.17730872,7.12471868 C2.59152228,6.53893224 2.59152228,5.58918477 3.17730872,5.00339833 L5.29862906,2.88207799 Z"--}}
+{{--                                        fill="#000000" opacity="0.3"/>--}}
+{{--                                    <path--}}
+{{--                                        d="M11.9630156,7.5 L12.0475062,7.5 C12.3043819,7.5 12.5194647,7.69464724 12.5450248,7.95024814 L13,12.5 L16.2480695,14.3560397 C16.403857,14.4450611 16.5,14.6107328 16.5,14.7901613 L16.5,15 C16.5,15.2109164 16.3290185,15.3818979 16.1181021,15.3818979 C16.0841582,15.3818979 16.0503659,15.3773725 16.0176181,15.3684413 L11.3986612,14.1087258 C11.1672824,14.0456225 11.0132986,13.8271186 11.0316926,13.5879956 L11.4644883,7.96165175 C11.4845267,7.70115317 11.7017474,7.5 11.9630156,7.5 Z"--}}
+{{--                                        fill="#000000"/>--}}
+{{--                                </g>--}}
+{{--                            </svg><!--end::Svg Icon-->--}}
+{{--                            </span>--}}
+{{--                        </span>--}}
+{{--                        <span class="menu-title">إعدادات الإشعارات</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 {{--                <div data-kt-menu-trigger="click"--}}
 {{--                     class="menu-item menu-accordion @if(request()->segment(2) == 'package_types_settings') hover show  @endif">--}}
 {{--                    <span class="menu-link @if(request()->segment(2) == 'package_types_settings') active @endif">--}}

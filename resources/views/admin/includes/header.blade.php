@@ -550,26 +550,26 @@
 
 
                     <!--begin::cancel requests-->
-                    <div class="d-flex align-items-center ms-1 ms-lg-3">
-                        <!--begin::Menu wrapper-->
-                        <div class="btn btn-icon btn-active-light-primary position-relative w-30px h-30px w-md-40px h-md-40px"  title="طلبات الإلغاء">
-                            <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
-                            <a class="menu-link @if(request()->segment(2) == 'cancel_requests') active @endif py-3"
-                               href="{{route('admin.cancel_requests')}}"
-                               title="طلبات الإلغاء" data-bs-toggle="tooltip"
-                               data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+{{--                    <div class="d-flex align-items-center ms-1 ms-lg-3">--}}
+{{--                        <!--begin::Menu wrapper-->--}}
+{{--                        <div class="btn btn-icon btn-active-light-primary position-relative w-30px h-30px w-md-40px h-md-40px"  title="طلبات الإلغاء">--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->--}}
+{{--                            <a class="menu-link @if(request()->segment(2) == 'cancel_requests') active @endif py-3"--}}
+{{--                               href="{{route('admin.cancel_requests')}}"--}}
+{{--                               title="طلبات الإلغاء" data-bs-toggle="tooltip"--}}
+{{--                               data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">--}}
 
-                                <i class="fa fa-recycle text-danger"></i>
-                                <span class="text-danger m-1">88</span>
+{{--                                <i class="fa fa-recycle text-danger"></i>--}}
+{{--                                <span class="text-danger m-1">88</span>--}}
 
-                            </a>
-                            <!--end::Svg Icon-->
-                            @if(1)
-                                <span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
-                            @endif
-                        </div>
-                        <!--end::Menu wrapper-->
-                    </div>
+{{--                            </a>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                            @if(1)--}}
+{{--                                <span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                        <!--end::Menu wrapper-->--}}
+{{--                    </div>--}}
                     <!--end::cancel requests-->
 
                     <!--begin::cancel requests-->

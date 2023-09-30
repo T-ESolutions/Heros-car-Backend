@@ -110,6 +110,7 @@
                                 <th class=" min-w-10px">الحالة</th>
                                 <th class=" w-200px">العنوان</th>
                                 <th class=" w-400px">المحتوي</th>
+                                <th class=" w-400px">نوع التطبيق</th>
                                 <th class=" min-w-100px">العمليات</th>
 
                             </tr>
@@ -218,8 +219,9 @@
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', "searchable": false, "orderable": false},
                     {"data": "image", "searchable": false, "orderable": false},
                     {"data": "active", "searchable": false, "orderable": false},
-                    {"data": "title_ar", "searchable": false, "orderable": false},
-                    {"data": "body_ar", "searchable": false, "orderable": false},
+                    {"data": "title_ar", "searchable": true, "orderable": true},
+                    {"data": "body_ar", "searchable": true, "orderable": true},
+                    {"data": "type", "searchable": true, "orderable": true},
                     {"data": 'actions', name: 'actions', orderable: false, searchable: false}
                 ]
             });
