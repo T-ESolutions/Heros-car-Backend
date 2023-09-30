@@ -314,6 +314,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers'], funct
                 Route::post('/update', 'SettingsController@update')->name('.update');
 
             });
+
+            Route::group(['prefix' => 'contact', 'as' => '.contact'], function () {
+                Route::get('/', 'ContactUsController@index');
+                Route::get('datatable', 'ContactUsController@datatable')->name('.datatable');
+                Route::get('/show/{id}', 'ContactUsController@edit')->name('.show');
+
+
+            });
         });
 
     });
