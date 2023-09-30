@@ -31,7 +31,7 @@ Route::get('cache', function () {
 });
 
 
-Route::group([ 'prefix' => 'admin','namespace' => 'App\Http\Controllers'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers'], function () {
 
     Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function () {
         Route::get('home', 'HomeController@index')->name('home');
@@ -52,8 +52,8 @@ Route::group([ 'prefix' => 'admin','namespace' => 'App\Http\Controllers'], funct
                 Route::get('/change_password', 'ProfileController@changePasswordPage')->name('.change_password');
                 Route::post('/change_password', 'ProfileController@changePassword')->name('.password.update');
 
-                Route::get('/send_sms',  'ProfileController@sendSms')->name('.send_sms');
-                Route::post('/forget_password/check_code',  'ProfileController@checkCode')->name('.forget_password.check_code');
+                Route::get('/send_sms', 'ProfileController@sendSms')->name('.send_sms');
+                Route::post('/forget_password/check_code', 'ProfileController@checkCode')->name('.forget_password.check_code');
                 Route::post('/forget_password/change_password', 'ProfileController@forgetPasswordChangePassword')->name('.forget_password.change_password');
 
             });
@@ -117,13 +117,8 @@ Route::group([ 'prefix' => 'admin','namespace' => 'App\Http\Controllers'], funct
 //            });
 
             Route::group(['prefix' => 'pages', 'as' => '.pages'], function () {
-                Route::get('/{type}', 'PageController@index');
-                Route::get('getData/{type}', 'PageController@getData')->name('.datatable');
-                Route::get('/create/{type}', 'PageController@create')->name('.create');
-                Route::post('/store', 'PageController@store')->name('.store');
-                Route::get('/edit/{type}', 'PageController@edit')->name('.edit');
+                Route::get('/edit/{type}/{target_type}', 'PageController@edit')->name('.edit');
                 Route::post('/update', 'PageController@update')->name('.update');
-                Route::get('/show/{id}', 'PageController@show')->name('.show');
                 Route::post('/delete', 'PageController@delete')->name('.delete');
                 Route::post('/delete-multi', 'PageController@deleteMulti')->name('.deleteMulti');
             });
