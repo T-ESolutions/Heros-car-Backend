@@ -17,7 +17,7 @@ class HomeRepository implements HomeRepositoryInterface
     public function checkMessage()
     {
         $exists_car = Driver::where('id', auth()->user()->id)->first();
-        if ($exists_car->message_ar) {
+        if ($exists_car) {
             if ($exists_car->message_is_seen != 1) {
 
                 $exists_car->message_is_seen = 1;
