@@ -22,14 +22,9 @@ class HomeController extends Controller
     {
         $data = $this->homeRepository->checkMessage();
 
-        if($data == false){
-            return response()->json(msgdata(not_acceptable(), trans('lang.no_message_found'), (object)[] ));
-
-        }else{
+        if($data)
             return response()->json(msgdata(success(), trans('lang.success'), $data));
-
-        }
-
+        return response()->json(msgdata(not_acceptable(), trans('lang.no_message_found'), (object)[] ));
     }
 
 }
