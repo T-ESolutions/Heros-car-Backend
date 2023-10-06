@@ -25,7 +25,7 @@ class HomeRepository implements HomeRepositoryInterface
 
                 $getIncomingTrip = $this->getIncomingTrip(auth()->user()->id);
 
-                $array['current_trip'] = new TripDetailsResources($getIncomingTrip);
+                $array['current_trip'] = $getIncomingTrip ?? new TripDetailsResources($getIncomingTrip) : null;
                 $array['message'] = $exists_car->message;
                 $result = (object)$array;
                 return $result;
