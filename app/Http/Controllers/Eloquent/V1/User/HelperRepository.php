@@ -77,8 +77,8 @@ class HelperRepository implements HelperRepositoryInterface
 
     public function modells($request)
     {
-        $screens = Modell::active()->where('brand_id', $request['brand_id'])->get();
-        $screens = (ModellsResources::collection($screens));
+        $screens = Modell::active()->where('brand_id', $request['brand_id'])->paginate(20);
+        $screens = ModellsResources::collection($screens)->response()->getData(true);
         return $screens ;
     }
 

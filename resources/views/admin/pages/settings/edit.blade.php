@@ -1,4 +1,5 @@
 @extends('admin.index')
+@php $route = 'settings'; @endphp
 
 @section('style')
 @endsection
@@ -17,13 +18,7 @@
                      class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                     <!--begin::Title-->
                     <h1 class="d-flex align-items-center fw-bolder fs-3 my-1" style="color: #F48120">
-                        @if($type == 'about')
-                            من نحن
-                        @elseif($type == 'terms')
-                            الشروط والاحكام
-                        @elseif($type == 'privacy')
-                            سياسة الخصوصية
-                        @endif
+                        تعديل القسم
                     </h1>
                     <!--end::Title-->
                     <!--begin::Separator-->
@@ -32,10 +27,17 @@
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
                         <!--begin::Item-->
-
                         <li class="breadcrumb-item text-muted">
                             <a href="{{route('home')}}" class="text-muted text-hover-primary">الرئيسية</a>
                         </li>
+                        <!--end::Item-->
+                        <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">
+                            <a href="{{route('admin.'.$route)}}" class="text-muted text-hover-primary">الاعدادات
+                                العامة</a>
+                        </li>
+                        <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
                 </div>
@@ -50,10 +52,10 @@
             <!--begin::Container-->
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Form-->
-                <form action="{{route('admin.pages.update')}}" method="post" enctype="multipart/form-data"
+                <form action="{{route('admin.'.$route.'.update')}}" method="post" enctype="multipart/form-data"
                       class="form d-flex flex-column flex-lg-row gap-7 gap-lg-10">
                     @csrf
-                    <input type="hidden" name="row_id" value="{{$row->id}}">
+                    <input type="hidden" name="id" value="{{$row->id}}">
                     <!--begin::Aside column-->
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px">
                         <!--begin::Thumbnail settings-->
@@ -111,14 +113,10 @@
                             </div>
                             <!--end::Card body-->
                         </div>
-                        <!--end::Thumbnail settings-->
-
                     </div>
                     <!--end::Aside column-->
                     <!--begin::Main column-->
                     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-
-                        <!--begin::Tab content-->
                         <div class="tab-content">
                             <!--begin::Tab pane-->
                             <div class="tab-pane fade show active" id="kt_ecommerce_add_product_general"
@@ -128,52 +126,23 @@
                                     <div class="card card-flush py-4">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>
-                                                    بيانات
-                                                    @if($type == 'about')
-                                                        صفحة عن التطبيق
-                                                    @elseif($type == 'terms')
-                                                        صفحة الشروط والاحكام
-                                                    @elseif($type == 'privacy')
-                                                        صفحة سياسة الخصوصيه
-                                                    @endif
-                                                </h2>
+                                                <h2>بيانات الاعداد</h2>
                                             </div>
                                         </div>
                                         <br>
                                         <br>
                                         <!--begin::Card body-->
                                         <div class="card-body pt-0">
-
                                             <div class="mb-10 fv-row">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">وصف الصفحات (بالعربي)</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <textarea id="editor1" name="body_ar"
-                                                          value=""
-                                                          placeholder="وصف الصفحة (بالعربي)">{!!  $row->body_ar !!}</textarea>
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                            {{--                                                <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>--}}
-                                            <!--end::Description-->
+                                                <label class="form-label">اسم الاعداد</label>
+                                                <label class="form-control mb-2">{{$row->key}}</label>
                                             </div>
 
                                             <div class="mb-10 fv-row">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">وصف الصفحات (بالإنجليزي)</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <textarea id="editor2" name="body_en"
-                                                          value=""
-                                                          placeholder="وصف الصفحة (بالإنجليزي)">{!!  $row->body_en !!}</textarea>
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                            {{--                                                <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>--}}
-                                            <!--end::Description-->
+                                                <label class="required form-label">القيمة </label>
+                                                <textarea required name="value"
+                                                          class="form-control mb-2">{{$row->value}}</textarea>
                                             </div>
-                                            <!--end::Input group-->
-
                                         </div>
                                         <!--end::Card header-->
                                     </div>
@@ -186,7 +155,7 @@
                         <!--end::Tab content-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Button-->
-                            <a href="{{route('home')}}" id="kt_ecommerce_add_product_cancel"
+                            <a href="{{route('admin.'.$route)}}" id="kt_ecommerce_add_product_cancel"
                                class="btn btn-light me-5">عودة</a>
                             <!--end::Button-->
                             <!--begin::Button-->
@@ -207,34 +176,6 @@
         <!--end::Post-->
     </div>
     <!--end::Content-->
-
 @endsection
-
-
-
 @section('script')
-
-    <script src="{{ URL::asset('admin/dist/assets/plugins/custom/tinymce/tinymce.bundle.js')}}"></script>
-    <script>
-        var options = {selector: "#editor1"};
-
-        if (KTApp.isDarkMode()) {
-            options["skin"] = "oxide-dark";
-            options["content_css"] = "dark";
-        }
-
-        tinymce.init(options);
-
-    </script>
-    <script>
-        var options = {selector: "#editor2"};
-
-        if (KTApp.isDarkMode()) {
-            options["skin"] = "oxide-dark";
-            options["content_css"] = "dark";
-        }
-
-        tinymce.init(options);
-
-    </script>
 @endsection

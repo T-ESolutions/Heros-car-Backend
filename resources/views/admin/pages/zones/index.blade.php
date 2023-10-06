@@ -116,12 +116,6 @@
 
 
 @section('script')
-    {{--    for view table--}}
-    <script src="{{ asset('admin/dist/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-
-
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-
     <script>
         $(document).ready(function () {
 

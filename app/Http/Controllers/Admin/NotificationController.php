@@ -19,7 +19,6 @@ class NotificationController extends Controller
     public function create()
     {
         $users = User::orderBy('id', 'desc')->select('id', 'name', 'phone')->get();
-
         return view('admin.pages.notifications.create',
             compact('users'));
     }

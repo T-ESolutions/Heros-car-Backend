@@ -121,6 +121,36 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">رسائل التواصل</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'contact' ) active @endif"
+                       href="{{route('admin.contact')}}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Chat6.svg--><svg
+                                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect x="0" y="0" width="24" height="24"/>
+        <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd"
+              d="M14.4862 18L12.7975 21.0566C12.5304 21.54 11.922 21.7153 11.4386 21.4483C11.2977 21.3704 11.1777 21.2597 11.0887 21.1255L9.01653 18H5C3.34315 18 2 16.6569 2 15V6C2 4.34315 3.34315 3 5 3H19C20.6569 3 22 4.34315 22 6V15C22 16.6569 20.6569 18 19 18H14.4862Z"
+              fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M6 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H6C5.44772 9 5 8.55228 5 8C5 7.44772 5.44772 7 6 7ZM6 11H11C11.5523 11 12 11.4477 12 12C12 12.5523 11.5523 13 11 13H6C5.44772 13 5 12.5523 5 12C5 11.4477 5.44772 11 6 11Z"
+      fill="black"/>
+    </g>
+</svg><!--end::Svg Icon--></span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">رسائل التواصل</span>
+                    </a>
+                </div>
+
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">الطلبات</span>
                     </div>
                 </div>
@@ -232,17 +262,17 @@
                         <span class="menu-title">الطلبات الملغية</span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'cancel_requests') active @endif"
-                       href="{{route('admin.cancel_requests')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <i class="fa fa-recycle text-danger"></i>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">طلبات الإلغاء</span>
-                    </a>
-                </div>
+                {{--                <div class="menu-item">--}}
+                {{--                    <a class="menu-link @if(request()->segment(2) == 'cancel_requests') active @endif"--}}
+                {{--                       href="{{route('admin.cancel_requests')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+                {{--                            <i class="fa fa-recycle text-danger"></i>--}}
+                {{--                            <!--end::Svg Icon-->--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">طلبات الإلغاء</span>--}}
+                {{--                    </a>--}}
+                {{--                </div>--}}
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
@@ -254,7 +284,9 @@
                        href="{{route('admin.departments')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Dial-numbers.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Dial-numbers.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect x="0" y="0" width="24" height="24"/>
         <rect fill="#000000" opacity="0.3" x="4" y="4" width="4" height="4" rx="2"/>
@@ -278,12 +310,19 @@
                        href="{{route('admin.brands')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Wallet3.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Wallet3.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect x="0" y="0" width="24" height="24"/>
-        <path d="M4,4 L20,4 C21.1045695,4 22,4.8954305 22,6 L22,18 C22,19.1045695 21.1045695,20 20,20 L4,20 C2.8954305,20 2,19.1045695 2,18 L2,6 C2,4.8954305 2.8954305,4 4,4 Z" fill="#000000" opacity="0.3"/>
-        <path d="M18.5,11 L5.5,11 C4.67157288,11 4,11.6715729 4,12.5 L4,13 L8.58578644,13 C8.85100293,13 9.10535684,13.1053568 9.29289322,13.2928932 L10.2928932,14.2928932 C10.7456461,14.7456461 11.3597108,15 12,15 C12.6402892,15 13.2543539,14.7456461 13.7071068,14.2928932 L14.7071068,13.2928932 C14.8946432,13.1053568 15.1489971,13 15.4142136,13 L20,13 L20,12.5 C20,11.6715729 19.3284271,11 18.5,11 Z" fill="#000000"/>
-        <path d="M5.5,6 C4.67157288,6 4,6.67157288 4,7.5 L4,8 L20,8 L20,7.5 C20,6.67157288 19.3284271,6 18.5,6 L5.5,6 Z" fill="#000000"/>
+        <path
+            d="M4,4 L20,4 C21.1045695,4 22,4.8954305 22,6 L22,18 C22,19.1045695 21.1045695,20 20,20 L4,20 C2.8954305,20 2,19.1045695 2,18 L2,6 C2,4.8954305 2.8954305,4 4,4 Z"
+            fill="#000000" opacity="0.3"/>
+        <path
+            d="M18.5,11 L5.5,11 C4.67157288,11 4,11.6715729 4,12.5 L4,13 L8.58578644,13 C8.85100293,13 9.10535684,13.1053568 9.29289322,13.2928932 L10.2928932,14.2928932 C10.7456461,14.7456461 11.3597108,15 12,15 C12.6402892,15 13.2543539,14.7456461 13.7071068,14.2928932 L14.7071068,13.2928932 C14.8946432,13.1053568 15.1489971,13 15.4142136,13 L20,13 L20,12.5 C20,11.6715729 19.3284271,11 18.5,11 Z"
+            fill="#000000"/>
+        <path d="M5.5,6 C4.67157288,6 4,6.67157288 4,7.5 L4,8 L20,8 L20,7.5 C20,6.67157288 19.3284271,6 18.5,6 L5.5,6 Z"
+              fill="#000000"/>
     </g>
 </svg><!--end::Svg Icon--></span>
                             <!--end::Svg Icon-->
@@ -296,10 +335,14 @@
                        href="{{route('admin.colors')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Color-profile.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Color-profile.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect x="0" y="0" width="24" height="24"/>
-        <path d="M12,10.9996338 C12.8356605,10.3719448 13.8743941,10 15,10 C17.7614237,10 20,12.2385763 20,15 C20,17.7614237 17.7614237,20 15,20 C13.8743941,20 12.8356605,19.6280552 12,19.0003662 C11.1643395,19.6280552 10.1256059,20 9,20 C6.23857625,20 4,17.7614237 4,15 C4,12.2385763 6.23857625,10 9,10 C10.1256059,10 11.1643395,10.3719448 12,10.9996338 Z M13.3336047,12.504354 C13.757474,13.2388026 14,14.0910788 14,15 C14,15.9088933 13.7574889,16.761145 13.3336438,17.4955783 C13.8188886,17.8206693 14.3938466,18 15,18 C16.6568542,18 18,16.6568542 18,15 C18,13.3431458 16.6568542,12 15,12 C14.3930587,12 13.8175971,12.18044 13.3336047,12.504354 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path
+            d="M12,10.9996338 C12.8356605,10.3719448 13.8743941,10 15,10 C17.7614237,10 20,12.2385763 20,15 C20,17.7614237 17.7614237,20 15,20 C13.8743941,20 12.8356605,19.6280552 12,19.0003662 C11.1643395,19.6280552 10.1256059,20 9,20 C6.23857625,20 4,17.7614237 4,15 C4,12.2385763 6.23857625,10 9,10 C10.1256059,10 11.1643395,10.3719448 12,10.9996338 Z M13.3336047,12.504354 C13.757474,13.2388026 14,14.0910788 14,15 C14,15.9088933 13.7574889,16.761145 13.3336438,17.4955783 C13.8188886,17.8206693 14.3938466,18 15,18 C16.6568542,18 18,16.6568542 18,15 C18,13.3431458 16.6568542,12 15,12 C14.3930587,12 13.8175971,12.18044 13.3336047,12.504354 Z"
+            fill="#000000" fill-rule="nonzero" opacity="0.3"/>
         <circle fill="#000000" cx="12" cy="9" r="5"/>
     </g>
 </svg><!--end::Svg Icon--></span>
@@ -337,81 +380,81 @@
                         <span class="menu-title">الشاشات الترحيبية</span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'sliders') active @endif"
-                       href="{{route('admin.sliders')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Picture.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                        height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon points="0 0 24 0 24 24 0 24"/>
-                                    <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"/>
-                                    <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"/>
-                                    <polygon fill="#000000" points="11 20 15.5 14 20 20"/>
-                                    <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <span class="menu-title">السلايدر</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'offers') active @endif"
-                       href="{{route('admin.offers')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg
-                                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24"/>
-                                        <polygon fill="#000000" opacity="0.3"
-                                                 points="12 20.0218549 8.47346039 21.7286168 6.86905972 18.1543453 3.07048824 17.1949849 4.13894342 13.4256452 1.84573388 10.2490577 5.08710286 8.04836581 5.3722735 4.14091196 9.2698837 4.53859595 12 1.72861679 14.7301163 4.53859595 18.6277265 4.14091196 18.9128971 8.04836581 22.1542661 10.2490577 19.8610566 13.4256452 20.9295118 17.1949849 17.1309403 18.1543453 15.5265396 21.7286168"/>
-                                        <polygon fill="#000000"
-                                                 points="14.0890818 8.60255815 8.36079737 14.7014391 9.70868621 16.049328 15.4369707 9.950447"/>
-                                        <path
-                                            d="M10.8543431,9.1753866 C10.8543431,10.1252593 10.085524,10.8938719 9.13585777,10.8938719 C8.18793881,10.8938719 7.41737243,10.1252593 7.41737243,9.1753866 C7.41737243,8.22551387 8.18793881,7.45690126 9.13585777,7.45690126 C10.085524,7.45690126 10.8543431,8.22551387 10.8543431,9.1753866"
-                                            fill="#000000" opacity="0.3"/>
-                                        <path
-                                            d="M14.8641422,16.6221564 C13.9162233,16.6221564 13.1456569,15.8535438 13.1456569,14.9036711 C13.1456569,13.9520555 13.9162233,13.1851857 14.8641422,13.1851857 C15.8138085,13.1851857 16.5826276,13.9520555 16.5826276,14.9036711 C16.5826276,15.8535438 15.8138085,16.6221564 14.8641422,16.6221564 Z"
-                                            fill="#000000" opacity="0.3"/>
-                                    </g>
-                                </svg><!--end::Svg Icon-->
-                           </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">العروض</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'coupons') active @endif"
-                       href="{{route('admin.coupons')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Ticket.svg--><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24"/>
-                                        <path
-                                            d="M3,10.0500091 L3,8 C3,7.44771525 3.44771525,7 4,7 L9,7 L9,9 C9,9.55228475 9.44771525,10 10,10 C10.5522847,10 11,9.55228475 11,9 L11,7 L21,7 C21.5522847,7 22,7.44771525 22,8 L22,10.0500091 C20.8588798,10.2816442 20,11.290521 20,12.5 C20,13.709479 20.8588798,14.7183558 22,14.9499909 L22,17 C22,17.5522847 21.5522847,18 21,18 L11,18 L11,16 C11,15.4477153 10.5522847,15 10,15 C9.44771525,15 9,15.4477153 9,16 L9,18 L4,18 C3.44771525,18 3,17.5522847 3,17 L3,14.9499909 C4.14112016,14.7183558 5,13.709479 5,12.5 C5,11.290521 4.14112016,10.2816442 3,10.0500091 Z M10,11 C9.44771525,11 9,11.4477153 9,12 L9,13 C9,13.5522847 9.44771525,14 10,14 C10.5522847,14 11,13.5522847 11,13 L11,12 C11,11.4477153 10.5522847,11 10,11 Z"
-                                            fill="#000000" opacity="0.3"
-                                            transform="translate(12.500000, 12.500000) rotate(-45.000000) translate(-12.500000, -12.500000) "/>
-                                    </g>
-                                </svg><!--end::Svg Icon-->
-                                </span>
-                                <!--end::Svg Icon-->
-                            </span>
-                        <span class="menu-title">كوبونات الخصم</span>
-                    </a>
-                </div>
+                {{--                <div class="menu-item">--}}
+                {{--                    <a class="menu-link @if(request()->segment(2) == 'sliders') active @endif"--}}
+                {{--                       href="{{route('admin.sliders')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+                {{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Picture.svg--><svg--}}
+                {{--                                    xmlns="http://www.w3.org/2000/svg"--}}
+                {{--                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"--}}
+                {{--                                        height="24px" viewBox="0 0 24 24" version="1.1">--}}
+                {{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+                {{--                                    <polygon points="0 0 24 0 24 24 0 24"/>--}}
+                {{--                                    <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"/>--}}
+                {{--                                    <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"/>--}}
+                {{--                                    <polygon fill="#000000" points="11 20 15.5 14 20 20"/>--}}
+                {{--                                    <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"/>--}}
+                {{--                                </g>--}}
+                {{--                            </svg><!--end::Svg Icon-->--}}
+                {{--                            </span>--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">السلايدر</span>--}}
+                {{--                    </a>--}}
+                {{--                </div>--}}
+                {{--                <div class="menu-item">--}}
+                {{--                    <a class="menu-link @if(request()->segment(2) == 'offers') active @endif"--}}
+                {{--                       href="{{route('admin.offers')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+                {{--                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg--}}
+                {{--                                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                {{--                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+                {{--                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+                {{--                                        <rect x="0" y="0" width="24" height="24"/>--}}
+                {{--                                        <polygon fill="#000000" opacity="0.3"--}}
+                {{--                                                 points="12 20.0218549 8.47346039 21.7286168 6.86905972 18.1543453 3.07048824 17.1949849 4.13894342 13.4256452 1.84573388 10.2490577 5.08710286 8.04836581 5.3722735 4.14091196 9.2698837 4.53859595 12 1.72861679 14.7301163 4.53859595 18.6277265 4.14091196 18.9128971 8.04836581 22.1542661 10.2490577 19.8610566 13.4256452 20.9295118 17.1949849 17.1309403 18.1543453 15.5265396 21.7286168"/>--}}
+                {{--                                        <polygon fill="#000000"--}}
+                {{--                                                 points="14.0890818 8.60255815 8.36079737 14.7014391 9.70868621 16.049328 15.4369707 9.950447"/>--}}
+                {{--                                        <path--}}
+                {{--                                            d="M10.8543431,9.1753866 C10.8543431,10.1252593 10.085524,10.8938719 9.13585777,10.8938719 C8.18793881,10.8938719 7.41737243,10.1252593 7.41737243,9.1753866 C7.41737243,8.22551387 8.18793881,7.45690126 9.13585777,7.45690126 C10.085524,7.45690126 10.8543431,8.22551387 10.8543431,9.1753866"--}}
+                {{--                                            fill="#000000" opacity="0.3"/>--}}
+                {{--                                        <path--}}
+                {{--                                            d="M14.8641422,16.6221564 C13.9162233,16.6221564 13.1456569,15.8535438 13.1456569,14.9036711 C13.1456569,13.9520555 13.9162233,13.1851857 14.8641422,13.1851857 C15.8138085,13.1851857 16.5826276,13.9520555 16.5826276,14.9036711 C16.5826276,15.8535438 15.8138085,16.6221564 14.8641422,16.6221564 Z"--}}
+                {{--                                            fill="#000000" opacity="0.3"/>--}}
+                {{--                                    </g>--}}
+                {{--                                </svg><!--end::Svg Icon-->--}}
+                {{--                           </span>--}}
+                {{--                            <!--end::Svg Icon-->--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">العروض</span>--}}
+                {{--                    </a>--}}
+                {{--                </div>--}}
+                {{--                <div class="menu-item">--}}
+                {{--                    <a class="menu-link @if(request()->segment(2) == 'coupons') active @endif"--}}
+                {{--                       href="{{route('admin.coupons')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+                {{--                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Ticket.svg--><svg--}}
+                {{--                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                {{--                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+                {{--                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+                {{--                                        <rect x="0" y="0" width="24" height="24"/>--}}
+                {{--                                        <path--}}
+                {{--                                            d="M3,10.0500091 L3,8 C3,7.44771525 3.44771525,7 4,7 L9,7 L9,9 C9,9.55228475 9.44771525,10 10,10 C10.5522847,10 11,9.55228475 11,9 L11,7 L21,7 C21.5522847,7 22,7.44771525 22,8 L22,10.0500091 C20.8588798,10.2816442 20,11.290521 20,12.5 C20,13.709479 20.8588798,14.7183558 22,14.9499909 L22,17 C22,17.5522847 21.5522847,18 21,18 L11,18 L11,16 C11,15.4477153 10.5522847,15 10,15 C9.44771525,15 9,15.4477153 9,16 L9,18 L4,18 C3.44771525,18 3,17.5522847 3,17 L3,14.9499909 C4.14112016,14.7183558 5,13.709479 5,12.5 C5,11.290521 4.14112016,10.2816442 3,10.0500091 Z M10,11 C9.44771525,11 9,11.4477153 9,12 L9,13 C9,13.5522847 9.44771525,14 10,14 C10.5522847,14 11,13.5522847 11,13 L11,12 C11,11.4477153 10.5522847,11 10,11 Z"--}}
+                {{--                                            fill="#000000" opacity="0.3"--}}
+                {{--                                            transform="translate(12.500000, 12.500000) rotate(-45.000000) translate(-12.500000, -12.500000) "/>--}}
+                {{--                                    </g>--}}
+                {{--                                </svg><!--end::Svg Icon-->--}}
+                {{--                                </span>--}}
+                {{--                                <!--end::Svg Icon-->--}}
+                {{--                            </span>--}}
+                {{--                        <span class="menu-title">كوبونات الخصم</span>--}}
+                {{--                    </a>--}}
+                {{--                </div>--}}
                 <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'notifications') active @endif"
-                       href="{{route('admin.notifications')}}">
+                       href="{{route('admin.notifications.create')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Notifications1.svg--><svg
@@ -427,12 +470,17 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">الإشعارات</span>
+                        <span class="menu-title">ارسال إشعار</span>
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'pages' && request()->segment(4) == 'about' ) active @endif"
-                       href="{{route('admin.pages.edit',['about'])}}">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">صفحات تطبيق المستخدم</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' && request()->segment(4) == 'about'&& request()->segment(5) == 'user' ) active @endif"
+                       href="{{route('admin.pages.edit',['about','user'])}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-check.svg--><svg
@@ -455,8 +503,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'pages' && request()->segment(4) == 'terms' ) active @endif"
-                       href="{{route('admin.pages.edit',['terms'])}}">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' && request()->segment(4) == 'terms'&& request()->segment(5) == 'user' ) active @endif"
+                       href="{{route('admin.pages.edit',['terms','user'])}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-disabled.svg--><svg
@@ -479,8 +527,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'package-types' && request()->segment(4) == 'frozen' ) active @endif"
-                       href="{{route('admin.pages.edit',['frozen'])}}">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' && request()->segment(4) == 'privacy'&& request()->segment(5) == 'user' ) active @endif"
+                       href="{{route('admin.pages.edit',['privacy','user'])}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-protected.svg--><svg
@@ -499,9 +547,92 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">سياسة التجميد</span>
+                        <span class="menu-title">سياسة الخصوصية</span>
                     </a>
                 </div>
+
+                {{--                driver pages                 --}}
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">صفحات تطبيق السائق</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' &&
+request()->segment(4) == 'about'&& request()->segment(5) == 'driver' ) active @endif"
+                       href="{{route('admin.pages.edit',['about','driver'])}}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-check.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path
+                                        d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
+                                        fill="#000000" opacity="0.3"/>
+                                    <path
+                                        d="M11.1750002,14.75 C10.9354169,14.75 10.6958335,14.6541667 10.5041669,14.4625 L8.58750019,12.5458333 C8.20416686,12.1625 8.20416686,11.5875 8.58750019,11.2041667 C8.97083352,10.8208333 9.59375019,10.8208333 9.92916686,11.2041667 L11.1750002,12.45 L14.3375002,9.2875 C14.7208335,8.90416667 15.2958335,8.90416667 15.6791669,9.2875 C16.0625002,9.67083333 16.0625002,10.2458333 15.6791669,10.6291667 L11.8458335,14.4625 C11.6541669,14.6541667 11.4145835,14.75 11.1750002,14.75 Z"
+                                        fill="#000000"/>
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">من نحن</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' &&
+request()->segment(4) == 'terms'&& request()->segment(5) == 'driver' ) active @endif"
+                       href="{{route('admin.pages.edit',['terms','driver'])}}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-disabled.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path
+                                        d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
+                                        fill="#000000" opacity="0.3"/>
+                                    <path
+                                        d="M10.5857864,12 L9.17157288,10.5857864 C8.78104858,10.1952621 8.78104858,9.56209717 9.17157288,9.17157288 C9.56209717,8.78104858 10.1952621,8.78104858 10.5857864,9.17157288 L12,10.5857864 L13.4142136,9.17157288 C13.8047379,8.78104858 14.4379028,8.78104858 14.8284271,9.17157288 C15.2189514,9.56209717 15.2189514,10.1952621 14.8284271,10.5857864 L13.4142136,12 L14.8284271,13.4142136 C15.2189514,13.8047379 15.2189514,14.4379028 14.8284271,14.8284271 C14.4379028,15.2189514 13.8047379,15.2189514 13.4142136,14.8284271 L12,13.4142136 L10.5857864,14.8284271 C10.1952621,15.2189514 9.56209717,15.2189514 9.17157288,14.8284271 C8.78104858,14.4379028 8.78104858,13.8047379 9.17157288,13.4142136 L10.5857864,12 Z"
+                                        fill="#000000"/>
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">الشروط والاحكام</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'pages' &&
+ request()->segment(4) == 'privacy'&& request()->segment(5) == 'driver' ) active @endif"
+                       href="{{route('admin.pages.edit',['privacy','driver'])}}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-protected.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path
+                                        d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
+                                        fill="#000000" opacity="0.3"/>
+                                    <path
+                                        d="M14.5,11 C15.0522847,11 15.5,11.4477153 15.5,12 L15.5,15 C15.5,15.5522847 15.0522847,16 14.5,16 L9.5,16 C8.94771525,16 8.5,15.5522847 8.5,15 L8.5,12 C8.5,11.4477153 8.94771525,11 9.5,11 L9.5,10.5 C9.5,9.11928813 10.6192881,8 12,8 C13.3807119,8 14.5,9.11928813 14.5,10.5 L14.5,11 Z M12,9 C11.1715729,9 10.5,9.67157288 10.5,10.5 L10.5,11 L13.5,11 L13.5,10.5 C13.5,9.67157288 12.8284271,9 12,9 Z"
+                                        fill="#000000"/>
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">سياسة الخصوصية</span>
+                    </a>
+                </div>
+
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">الإعدادات</span>
@@ -510,117 +641,118 @@
                 <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'edit' ) active @endif"
                        href="{{route('admin.settings')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Settings-2.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"
-                                        fill="#000000"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
+                                        <span class="menu-icon">
+                                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+                                            <span class="svg-icon svg-icon-warning svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Settings-2.svg--><svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <path
+                                                        d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z"
+                                                        fill="#000000"/>
+                                                </g>
+                                            </svg><!--end::Svg Icon-->
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </span>
                         <span class="menu-title">الإعدادات العامة</span>
                     </a>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'zones' ) active @endif"
-                       href="{{route('admin.settings.zones.edit', 1)}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"
-                                        fill="#000000" fill-rule="nonzero"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-title">إعدادات منطقة التوصيل</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link @if( request()->segment(2) == 'notification-settings' ) active @endif"
-                       href="{{route('admin.notification-settings.edit')}}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Alarm-clock.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path
-                                        d="M7.14319965,19.3575259 C7.67122143,19.7615175 8.25104409,20.1012165 8.87097532,20.3649307 L7.89205065,22.0604779 C7.61590828,22.5387706 7.00431787,22.7026457 6.52602525,22.4265033 C6.04773263,22.150361 5.88385747,21.5387706 6.15999985,21.0604779 L7.14319965,19.3575259 Z M15.1367085,20.3616573 C15.756345,20.0972995 16.3358198,19.7569961 16.8634386,19.3524415 L17.8320512,21.0301278 C18.1081936,21.5084204 17.9443184,22.1200108 17.4660258,22.3961532 C16.9877332,22.6722956 16.3761428,22.5084204 16.1000004,22.0301278 L15.1367085,20.3616573 Z"
-                                        fill="#000000"/>
-                                    <path
-                                        d="M12,21 C7.581722,21 4,17.418278 4,13 C4,8.581722 7.581722,5 12,5 C16.418278,5 20,8.581722 20,13 C20,17.418278 16.418278,21 12,21 Z M19.068812,3.25407593 L20.8181344,5.00339833 C21.4039208,5.58918477 21.4039208,6.53893224 20.8181344,7.12471868 C20.2323479,7.71050512 19.2826005,7.71050512 18.696814,7.12471868 L16.9474916,5.37539627 C16.3617052,4.78960984 16.3617052,3.83986237 16.9474916,3.25407593 C17.5332781,2.66828949 18.4830255,2.66828949 19.068812,3.25407593 Z M5.29862906,2.88207799 C5.8844155,2.29629155 6.83416297,2.29629155 7.41994941,2.88207799 C8.00573585,3.46786443 8.00573585,4.4176119 7.41994941,5.00339833 L5.29862906,7.12471868 C4.71284263,7.71050512 3.76309516,7.71050512 3.17730872,7.12471868 C2.59152228,6.53893224 2.59152228,5.58918477 3.17730872,5.00339833 L5.29862906,2.88207799 Z"
-                                        fill="#000000" opacity="0.3"/>
-                                    <path
-                                        d="M11.9630156,7.5 L12.0475062,7.5 C12.3043819,7.5 12.5194647,7.69464724 12.5450248,7.95024814 L13,12.5 L16.2480695,14.3560397 C16.403857,14.4450611 16.5,14.6107328 16.5,14.7901613 L16.5,15 C16.5,15.2109164 16.3290185,15.3818979 16.1181021,15.3818979 C16.0841582,15.3818979 16.0503659,15.3773725 16.0176181,15.3684413 L11.3986612,14.1087258 C11.1672824,14.0456225 11.0132986,13.8271186 11.0316926,13.5879956 L11.4644883,7.96165175 C11.4845267,7.70115317 11.7017474,7.5 11.9630156,7.5 Z"
-                                        fill="#000000"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <span class="menu-title">إعدادات الإشعارات</span>
-                    </a>
-                </div>
-{{--                <div data-kt-menu-trigger="click"--}}
-{{--                     class="menu-item menu-accordion @if(request()->segment(2) == 'package_types_settings') hover show  @endif">--}}
-{{--                    <span class="menu-link @if(request()->segment(2) == 'package_types_settings') active @endif">--}}
-{{--                        <span class="menu-icon">--}}
-{{--                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->--}}
-{{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Money.svg--><svg--}}
-{{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-{{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
-{{--    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
-{{--        <rect x="0" y="0" width="24" height="24"/>--}}
-{{--        <path--}}
-{{--            d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z"--}}
-{{--            fill="#000000" opacity="0.3"--}}
-{{--            transform="translate(11.500000, 12.000000) rotate(-345.000000) translate(-11.500000, -12.000000) "/>--}}
-{{--        <path--}}
-{{--            d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z M11.5,14 C12.6045695,14 13.5,13.1045695 13.5,12 C13.5,10.8954305 12.6045695,10 11.5,10 C10.3954305,10 9.5,10.8954305 9.5,12 C9.5,13.1045695 10.3954305,14 11.5,14 Z"--}}
-{{--            fill="#000000"/>--}}
-{{--    </g>--}}
-{{--</svg><!--end::Svg Icon--></span>--}}
-{{--                            <!--end::Svg Icon-->--}}
-{{--                        </span>--}}
-{{--                        <span class="menu-title">إعدادات انواع الباقات</span>--}}
-{{--                        <span class="menu-arrow"></span>--}}
-{{--                    </span>--}}
-{{--                    <div class="menu-sub menu-sub-accordion menu-active-bg">--}}
-{{--                        <div class="menu-item">--}}
-{{--                            <a class="menu-link @if(request()->segment(2) == 'package_types_settings' && request()->segment(3) == 'dynamic_types') active @endif"--}}
-{{--                               href="{{route('admin.package_types_settings.dynamic_types')}}">--}}
-{{--												<span class="menu-bullet">--}}
-{{--													<span class="bullet bullet-dot"></span>--}}
-{{--												</span>--}}
-{{--                                <span class="menu-title">انواع الايام</span>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                        <div class="menu-item">--}}
-{{--                            <a class="menu-link @if(request()->segment(2) == 'package_types_settings' && request()->segment(3) == 'dynamic_times') active @endif"--}}
-{{--                               href="{{route('admin.package_types_settings.dynamic_times')}}">--}}
-{{--												<span class="menu-bullet">--}}
-{{--													<span class="bullet bullet-dot"></span>--}}
-{{--												</span>--}}
-{{--                                <span class="menu-title">انواع التوقيت</span>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
+                {{--                <div class="menu-item">--}}
+                {{--                    <a class="menu-link @if(request()->segment(2) == 'settings' && request()->segment(3) == 'zones' ) active @endif"--}}
+                {{--                       href="{{route('admin.settings.zones.edit', 1)}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+                {{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg--}}
+                {{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                {{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+                {{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+                {{--                                    <rect x="0" y="0" width="24" height="24"/>--}}
+                {{--                                    <path--}}
+                {{--                                        d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"--}}
+                {{--                                        fill="#000000" fill-rule="nonzero"/>--}}
+                {{--                                </g>--}}
+                {{--                            </svg><!--end::Svg Icon-->--}}
+                {{--                            </span>--}}
+                {{--                            <!--end::Svg Icon-->--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">إعدادات منطقة التوصيل</span>--}}
+                {{--                    </a>--}}
+                {{--                </div>--}}
+                {{--                <div class="menu-item">--}}
+                {{--                    <a class="menu-link @if( request()->segment(2) == 'notification-settings' ) active @endif"--}}
+                {{--                       href="{{route('admin.notification-settings.edit')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->--}}
+                {{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Alarm-clock.svg--><svg--}}
+                {{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                {{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+                {{--                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+                {{--                                    <rect x="0" y="0" width="24" height="24"/>--}}
+                {{--                                    <path--}}
+                {{--                                        d="M7.14319965,19.3575259 C7.67122143,19.7615175 8.25104409,20.1012165 8.87097532,20.3649307 L7.89205065,22.0604779 C7.61590828,22.5387706 7.00431787,22.7026457 6.52602525,22.4265033 C6.04773263,22.150361 5.88385747,21.5387706 6.15999985,21.0604779 L7.14319965,19.3575259 Z M15.1367085,20.3616573 C15.756345,20.0972995 16.3358198,19.7569961 16.8634386,19.3524415 L17.8320512,21.0301278 C18.1081936,21.5084204 17.9443184,22.1200108 17.4660258,22.3961532 C16.9877332,22.6722956 16.3761428,22.5084204 16.1000004,22.0301278 L15.1367085,20.3616573 Z"--}}
+                {{--                                        fill="#000000"/>--}}
+                {{--                                    <path--}}
+                {{--                                        d="M12,21 C7.581722,21 4,17.418278 4,13 C4,8.581722 7.581722,5 12,5 C16.418278,5 20,8.581722 20,13 C20,17.418278 16.418278,21 12,21 Z M19.068812,3.25407593 L20.8181344,5.00339833 C21.4039208,5.58918477 21.4039208,6.53893224 20.8181344,7.12471868 C20.2323479,7.71050512 19.2826005,7.71050512 18.696814,7.12471868 L16.9474916,5.37539627 C16.3617052,4.78960984 16.3617052,3.83986237 16.9474916,3.25407593 C17.5332781,2.66828949 18.4830255,2.66828949 19.068812,3.25407593 Z M5.29862906,2.88207799 C5.8844155,2.29629155 6.83416297,2.29629155 7.41994941,2.88207799 C8.00573585,3.46786443 8.00573585,4.4176119 7.41994941,5.00339833 L5.29862906,7.12471868 C4.71284263,7.71050512 3.76309516,7.71050512 3.17730872,7.12471868 C2.59152228,6.53893224 2.59152228,5.58918477 3.17730872,5.00339833 L5.29862906,2.88207799 Z"--}}
+                {{--                                        fill="#000000" opacity="0.3"/>--}}
+                {{--                                    <path--}}
+                {{--                                        d="M11.9630156,7.5 L12.0475062,7.5 C12.3043819,7.5 12.5194647,7.69464724 12.5450248,7.95024814 L13,12.5 L16.2480695,14.3560397 C16.403857,14.4450611 16.5,14.6107328 16.5,14.7901613 L16.5,15 C16.5,15.2109164 16.3290185,15.3818979 16.1181021,15.3818979 C16.0841582,15.3818979 16.0503659,15.3773725 16.0176181,15.3684413 L11.3986612,14.1087258 C11.1672824,14.0456225 11.0132986,13.8271186 11.0316926,13.5879956 L11.4644883,7.96165175 C11.4845267,7.70115317 11.7017474,7.5 11.9630156,7.5 Z"--}}
+                {{--                                        fill="#000000"/>--}}
+                {{--                                </g>--}}
+                {{--                            </svg><!--end::Svg Icon-->--}}
+                {{--                            </span>--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">إعدادات الإشعارات</span>--}}
+                {{--                    </a>--}}
+                {{--                </div>--}}
+                {{--                <div data-kt-menu-trigger="click"--}}
+                {{--                     class="menu-item menu-accordion @if(request()->segment(2) == 'package_types_settings') hover show  @endif">--}}
+                {{--                    <span class="menu-link @if(request()->segment(2) == 'package_types_settings') active @endif">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->--}}
+                {{--                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Money.svg--><svg--}}
+                {{--                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                {{--                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">--}}
+                {{--    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+                {{--        <rect x="0" y="0" width="24" height="24"/>--}}
+                {{--        <path--}}
+                {{--            d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z"--}}
+                {{--            fill="#000000" opacity="0.3"--}}
+                {{--            transform="translate(11.500000, 12.000000) rotate(-345.000000) translate(-11.500000, -12.000000) "/>--}}
+                {{--        <path--}}
+                {{--            d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z M11.5,14 C12.6045695,14 13.5,13.1045695 13.5,12 C13.5,10.8954305 12.6045695,10 11.5,10 C10.3954305,10 9.5,10.8954305 9.5,12 C9.5,13.1045695 10.3954305,14 11.5,14 Z"--}}
+                {{--            fill="#000000"/>--}}
+                {{--    </g>--}}
+                {{--</svg><!--end::Svg Icon--></span>--}}
+                {{--                            <!--end::Svg Icon-->--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">إعدادات انواع الباقات</span>--}}
+                {{--                        <span class="menu-arrow"></span>--}}
+                {{--                    </span>--}}
+                {{--                    <div class="menu-sub menu-sub-accordion menu-active-bg">--}}
+                {{--                        <div class="menu-item">--}}
+                {{--                            <a class="menu-link @if(request()->segment(2) == 'package_types_settings' && request()->segment(3) == 'dynamic_types') active @endif"--}}
+                {{--                               href="{{route('admin.package_types_settings.dynamic_types')}}">--}}
+                {{--												<span class="menu-bullet">--}}
+                {{--													<span class="bullet bullet-dot"></span>--}}
+                {{--												</span>--}}
+                {{--                                <span class="menu-title">انواع الايام</span>--}}
+                {{--                            </a>--}}
+                {{--                        </div>--}}
+                {{--                        <div class="menu-item">--}}
+                {{--                            <a class="menu-link @if(request()->segment(2) == 'package_types_settings' && request()->segment(3) == 'dynamic_times') active @endif"--}}
+                {{--                               href="{{route('admin.package_types_settings.dynamic_times')}}">--}}
+                {{--												<span class="menu-bullet">--}}
+                {{--													<span class="bullet bullet-dot"></span>--}}
+                {{--												</span>--}}
+                {{--                                <span class="menu-title">انواع التوقيت</span>--}}
+                {{--                            </a>--}}
+                {{--                        </div>--}}
 
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
             <!--end::Menu-->
         </div>

@@ -2,74 +2,48 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Screen;
+use App\Models\MealType;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
-class ScreensController extends Controller
+class PageController extends Controller
 {
-    public function index()
+    public function index($type)
     {
-        return view('admin.pages.screens.index');
+        return view('admin.pages.pages.index', compact('type'));
     }
 
-    public function create()
+    public function create($type)
     {
-        return view('admin.pages.screens.create');
+        return view('admin.pages.pages.create', compact('type'));
     }
 
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'title_ar' => 'required',
-            'title_en' => 'required',
-            'body_ar' => 'required',
-            'body_en' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg',
-            'active' => 'required|in:0,1',
-            'type' => 'required|in:user,driver',
-        ]);
-        if (!is_array($validator) && $validator->fails()) {
-            return redirect()->back()->withErrors($validator);
-        }
 
-        $row = new Screen();
-        $row->image = $request->image;
-        $row->title_ar = $request->title_ar;
-        $row->title_en = $request->title_en;
-        $row->body_ar = $request->body_ar;
-        $row->body_en = $request->body_en;
-        $row->active = $request->active;
-        $row->type = $request->type;
-        $row->save();
-        session()->flash('success', 'تم الإضافة بنجاح');
-        return redirect()->route('admin.screens');
-    }
-
-    public function edit($id)
+    public function edit($type, $target_type)
     {
 
-        $row = Screen::where('id', $id)->first();
+        $row = Page::where('type', $type)
+            ->where('target_type', $target_type)
+            ->first();
         if (!$row) {
             session()->flash('error', 'الحقل غير موجود');
             return redirect()->back();
         }
-        return view('admin.pages.screens.edit', compact('row'));
+        return view('admin.pages.pages.edit', compact('row', 'type'));
     }
 
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'row_id' => 'required|exists:screens,id',
-            'title_ar' => 'required',
-            'title_en' => 'required',
+            'row_id' => 'required|exists:pages,id',
             'body_ar' => 'required',
             'body_en' => 'required',
             'image' => 'sometimes|image|mimes:png,jpg,jpeg',
-            'type' => 'required|in:user,driver',
         ]);
         if (!is_array($validator) && $validator->fails()) {
             return redirect()->back()->withErrors($validator);
@@ -80,27 +54,27 @@ class ScreensController extends Controller
 //                unlinkFile($city->getOriginal('image'), 'cities');
 //            }
 //        }
-        $row = Screen::whereId($request->row_id)->first();
-        $row->update($request->except('row_id', '_token', 'image'));
+        $row = Page::whereId($request->row_id)->first();
+        $row->update($request->except('row_id', '_token', 'image', 'type', 'target_type'));
         if ($request->has('image') && is_file($request->image)) {
             $row->update(['image' => $request->image]);
         }
         $row->save();
 
         session()->flash('success', 'تم التعديل بنجاح');
-        return redirect()->route('admin.screens');
+        return redirect()->route('admin.pages.edit', [$row->type, $row->target_type]);
     }
 
     public function delete(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'row_id' => 'required|exists:screens,id',
+            'row_id' => 'required|exists:meal_types,id',
         ]);
         if (!is_array($validator) && $validator->fails()) {
             return response()->json(['message' => 'Failed']);
         }
 
-        $row = Screen::where('id', $request->row_id)->first();
+        $row = MealType::where('id', $request->row_id)->first();
 //        if (!empty($city->getOriginal('image'))){
 //            unlinkFile($city->getOriginal('image'), 'cities');
 //        }
@@ -125,17 +99,17 @@ class ScreensController extends Controller
 
     public function destroy($id)
     {
-        $row = Screen::where('id', $id)->first();
+        $row = MealType::where('id', $id)->first();
 //        if (!empty($city->getOriginal('image'))){
 //            unlinkFile($city->getOriginal('image'), 'cities');
 //        }
         return $row->delete();
     }
 
-    public function getData()
+    public function getData($type)
     {
         $auth = Auth::guard('admin')->user();
-        $model = Screen::query();
+        $model = Page::query()->where('type', $type);
 
         return DataTables::eloquent($model)
             ->addIndexColumn()
@@ -147,19 +121,10 @@ class ScreensController extends Controller
 //                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="'.$row->id.'" />
 //                                    </div>';
 //            })
-            ->editColumn('active', function ($row) {
-                if ($row->active == 1) {
-                    return "<b class='badge badge-success'>مفعل</b>";
-                } else {
-                    return "<b class='badge badge-danger'>غير مفعل</b>";
-                }
-            })->editColumn('type', function ($row) {
-                 return trans('lang.'.$row->type);
-            })
             ->addColumn('actions', function ($row) use ($auth) {
                 $buttons = '';
 //                if ($auth->can('sliders.update')) {
-                $buttons .= '<a href="' . route('admin.screens.edit', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
+                $buttons .= '<a href="' . route('admin.meal-types.edit', [$row->id]) . '" class="btn btn-primary btn-circle btn-sm m-1" title="تعديل">
                             <i class="fa fa-edit"></i>
                         </a>';
 //                }
@@ -170,7 +135,7 @@ class ScreensController extends Controller
 //                }
                 return $buttons;
             })
-            ->rawColumns(['actions', 'image', 'active'])
+            ->rawColumns(['actions', 'image'])
             ->make();
 
     }

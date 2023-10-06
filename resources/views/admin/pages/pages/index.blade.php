@@ -32,16 +32,16 @@
                 </div>
                 <!--end::Page title-->
                 <!--begin::Actions-->
-                <div class="d-flex align-items-center py-1">
-                <!--end::Wrapper-->
-                    <!--begin::Button-->
-                    <a href="{{route('admin.meals.create')}}" class="btn btn-sm btn-success"
-                        {{--                       data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id=""--}}
-                    >
-                        <i class="fa fa-plus"></i>
-                        أضف</a>
-                    <!--end::Button-->
-                </div>
+{{--                <div class="d-flex align-items-center py-1">--}}
+{{--                <!--end::Wrapper-->--}}
+{{--                    <!--begin::Button-->--}}
+{{--                    <a href="{{route('admin.meals.create')}}" class="btn btn-sm btn-success"--}}
+{{--                        --}}{{--                       data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id=""--}}
+{{--                    >--}}
+{{--                        <i class="fa fa-plus"></i>--}}
+{{--                        أضف</a>--}}
+{{--                    <!--end::Button-->--}}
+{{--                </div>--}}
                 <!--end::Actions-->
             </div>
             <!--end::Container-->
@@ -97,8 +97,7 @@
     <!--end::Content-->
 @endsection
 @section('script')
-    <script src="{{ asset('admin/dist/assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
     <script>
         $(document).ready(function () {
             $("#slider_table").DataTable({
@@ -170,7 +169,7 @@
 
 
                 ],
-                ajax: '{{ route('admin.meals.datatable') }}',
+                ajax: '{{ route('admin.pages.datatable',$type) }}',
                 "columns": [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', "searchable": false, "orderable": false},
                     {"data": "image", "searchable": false, "orderable": false},
