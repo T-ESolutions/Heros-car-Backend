@@ -24,7 +24,7 @@ class HomeController extends Controller
 
         if($data)
             return response()->json(msgdata(success(), trans('lang.success'), $data));
-        return response()->json(msgdata(not_acceptable(), trans('lang.no_message_found'), (object)[] ));
+        return response()->json(msg(not_acceptable(), trans('lang.no_message_found')));
     }
 
 }
