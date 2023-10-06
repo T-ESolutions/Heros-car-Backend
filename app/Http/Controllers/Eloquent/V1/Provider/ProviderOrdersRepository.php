@@ -26,7 +26,7 @@ class ProviderOrdersRepository implements ProviderOrdersRepositoryInterface
 
     public function economicCurrentRequests()
     {
-        $order = TripRequest::driver()->current()->get();
+        $order = TripRequest::driver()->current()->paginate(pagination_number());
         return $order;
     }
 
