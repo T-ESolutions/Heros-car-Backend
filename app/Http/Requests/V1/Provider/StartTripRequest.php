@@ -39,6 +39,8 @@ class StartTripRequest extends FormRequest
             'to_lng' => 'required',
             'to_address_ar' => 'required',
             'to_address_en' => 'required',
+            'air_cond' => 'required|in:0,1',
+            'bags' => 'required|in:0,1',
         ];
     }
 }
