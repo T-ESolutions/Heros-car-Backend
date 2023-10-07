@@ -119,4 +119,13 @@ class Driver extends Authenticatable implements JWTSubject
         // Implement getJWTCustomClaims() method.
         return [];
     }
+
+    public function driverCar(){
+        return $this->hasOne(DriverCar::class,'driver_id');
+    }
+
+    public function approvedDriverCar(){
+        return $this->hasOne(DriverCar::class,'driver_id')
+            ->where('approved',1);
+    }
 }
