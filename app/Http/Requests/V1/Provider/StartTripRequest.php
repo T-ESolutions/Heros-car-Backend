@@ -24,10 +24,11 @@ class StartTripRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'trip_date' => 'required|date|after:' . Carbon::now(),
+            'trip_date' => 'required|date|after_or_equal:' . Carbon::now()->format('Y-m-d'),
             'trip_time_from' => 'required',
-            'trip_time_to' => 'required|after:'.$this->trip_time_from,
+//            'trip_time_to' => 'required|after:'.$this->trip_time_from,
             'department_id' => 'required|in:1,3', //1=Economic Trip | 3=Bink Car
             'chairs' => 'required|numeric|min:1',
             'from_lat' => 'required',
@@ -38,6 +39,8 @@ class StartTripRequest extends FormRequest
             'to_lng' => 'required',
             'to_address_ar' => 'required',
             'to_address_en' => 'required',
+            'air_cond' => 'nullable|in:0,1',
+            'bags' => 'nullable|in:0,1',
         ];
     }
 }
