@@ -265,6 +265,10 @@ return [
         'air_cond'=>'السيارة مكيفة',
         'bags'=>'الحقائب',
         'driver_licence_image'=>'صورة رخصة القيادة',
+        'trip_date'=>'تاريخ الرحلة',
+        'trip_time_from'=>'وقت بداية الرحلة',
+        'department_id'=>'القسم',
+        'from_lat'=>'من مكان',
 
     ],
 ];
