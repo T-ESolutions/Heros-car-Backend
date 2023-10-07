@@ -27,7 +27,7 @@ class StartTripRequest extends FormRequest
         return [
             'trip_date' => 'required|date|after:' . Carbon::now(),
             'trip_time_from' => 'required',
-            'trip_time_to' => 'required|after:'.$this->trip_time_from,
+//            'trip_time_to' => 'required|after:'.$this->trip_time_from,
             'department_id' => 'required|in:1,3', //1=Economic Trip | 3=Bink Car
             'chairs' => 'required|numeric|min:1',
             'from_lat' => 'required',
