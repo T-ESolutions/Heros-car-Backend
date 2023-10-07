@@ -21,7 +21,7 @@ class HomeRepository implements HomeRepositoryInterface
             ->with('approvedDriverCar')
             ->first();
         if ($exists_car) {
-            if ($exists_car->message_is_seen != 1) {
+//            if ($exists_car->message_is_seen != 1) {
 
                 $exists_car->message_is_seen = 1;
                 $exists_car->save();
@@ -35,7 +35,7 @@ class HomeRepository implements HomeRepositoryInterface
                 $array['driver_car'] = $exists_car->driverCar;
                 $result = (object)$array;
                 return $result;
-            }
+//            }
         }
         return false;
     }
