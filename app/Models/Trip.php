@@ -43,7 +43,24 @@ class Trip extends Model
         'cancel_reason',
     ];
 
-    protected $appends = ['brand_name', 'modell_name', 'car_image', 'color_name', 'booked_chairs', 'available_chairs', 'from_address', 'to_address','status'];
+    protected $appends = [
+        'brand_name',
+        'modell_name',
+        'car_image',
+        'color_name',
+        'booked_chairs',
+        'available_chairs',
+        'from_address',
+        'to_address',
+        'status'
+    ];
+
+    public function getDepartmentNameAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->department()->first()->title_en;
+        return $this->department()->first()->title_ar;
+    }
 
     public function getBookedChairsAttribute()
     {

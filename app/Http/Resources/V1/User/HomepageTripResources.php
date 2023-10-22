@@ -19,6 +19,7 @@ class HomepageTripResources extends JsonResource
             'id'                => $this->id,
             'driver_id'         => $this->driver_id,
             'department_id'     => $this->department_id,
+            'department_name'   => $this->department_name,
             'driver_car_id'     => $this->driver_car_id,
             'car_image'         => $this->car_image,
             'brand_name'        => $this->brand_name,

@@ -17,6 +17,13 @@ class DriverCarDepartment extends Model
         'car_category_id',
     ];
 
+    public function getDepartmentNameAttribute()
+    {
+        if (request()->header('lang') == 'en')
+            return $this->department()->first()->title_en;
+        return $this->department()->first()->title_ar;
+    }
+
     public function driver()
     {
         return $this->belongsTo(Driver::class, 'driver_id');
