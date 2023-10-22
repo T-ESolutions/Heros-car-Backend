@@ -31,7 +31,7 @@ class SearchTripRequest extends FormRequest
         return [
             'department_id'     => 'required|exists:departments,id',
             'chairs'            => 'sometimes|numeric|min:1',
-            'bags'              => 'sometimes|numeric|min:1',
+            'bags'              => 'sometimes|numeric|min:0',
 
             'trip_date'         => 'required|date_format:Y-m-d',
             'trip_time'         => 'required|date_format:H:i',
