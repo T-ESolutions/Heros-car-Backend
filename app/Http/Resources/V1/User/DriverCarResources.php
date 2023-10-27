@@ -27,7 +27,7 @@ class DriverCarResources extends JsonResource
             'chairs' => $this->chairs,
             'description' => $this->description,
             'price' => 150,
-            'color' => $this->color,
+            'color' => $this->color->title,
             'driver' => new DriverResources($this->driver),
         ];
     }
