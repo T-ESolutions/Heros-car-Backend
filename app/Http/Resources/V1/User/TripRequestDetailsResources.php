@@ -48,6 +48,7 @@ class TripRequestDetailsResources extends JsonResource
             'end_lat'                   => $this->end_lat,
             'end_lng'                   => $this->end_lng,
             'end_address'               => $this->end_address,
+            'driver_car'                => new TripDriverCarResources($this->driver_car),
         ];
     }
 }

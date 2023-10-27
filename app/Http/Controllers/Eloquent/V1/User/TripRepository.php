@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Eloquent\V1\User;
 
 
 use App\Http\Controllers\Interfaces\V1\User\TripRepositoryInterface;
+use App\Http\Resources\V1\User\TripRequestDetailsResources;
 use App\Models\Answer;
 use App\Models\Brand;
 use App\Models\CancelReason;
@@ -95,9 +96,7 @@ class TripRepository implements TripRepositoryInterface
             'end_address_ar'        => $request->end_address_ar,
             'end_address_en'        => $request->end_address_en,
         ]);
-        $result = TripRequest::whereId($tripRequest->id)->with(['driver','driverCar'])->first();
-        $result->driver_car->departments = null;
-        return $result;
+        return new TripRequestDetailsResources($tripRequest);
     }
 
     public function searchTrip($request)
