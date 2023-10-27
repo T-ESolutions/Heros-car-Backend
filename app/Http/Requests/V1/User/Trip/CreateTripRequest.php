@@ -33,7 +33,7 @@ class CreateTripRequest extends FormRequest
             'driver_car_id'     => 'required|exists:driver_cars,id',
             'trip_id'           => 'required|numeric',
             'chairs'            => 'required|numeric|min:1',
-            'bags'              => 'required|numeric',
+            'bags'              => 'required_if:department_id,1|required_if:department_id,3|numeric',
 
             'trip_date'         => 'required|date_format:Y-m-d',
             'trip_time'         => 'required|date_format:H:i',
