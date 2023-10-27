@@ -97,7 +97,7 @@ class TripRepository implements TripRepositoryInterface
         ]);
         $tripRequest->driver = Driver::whereId($request->driver_id)->first();
         $tripRequest->driver_car = DriverCar::whereId($request->driver_car_id)->first();
-
+        unset($tripRequest->driver_car->departments);
         return $tripRequest;
     }
 
