@@ -59,7 +59,7 @@ class TripRepository implements TripRepositoryInterface
         $bags = isset($request->bags) && $request->bags > 0 ? $request->bags : 0;
 
 
-        return TripRequest::create([
+        $tripRequest = TripRequest::create([
             'user_id'               => Auth::id(),
             'driver_id'             => $request->driver_id,
             'department_id'         => $request->department_id,
@@ -95,8 +95,10 @@ class TripRepository implements TripRepositoryInterface
             'end_address_ar'        => $request->end_address_ar,
             'end_address_en'        => $request->end_address_en,
         ]);
+        $tripRequest->driver = Driver::whereId($request->driver_id)->first();
+        $tripRequest->driver_car = DriverCar::whereId($request->driver_car_id)->first();
 
-
+        return $tripRequest;
     }
 
     public function searchTrip($request)
