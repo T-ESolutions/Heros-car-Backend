@@ -95,10 +95,8 @@ class TripRepository implements TripRepositoryInterface
             'end_address_ar'        => $request->end_address_ar,
             'end_address_en'        => $request->end_address_en,
         ]);
-        $tripRequest->driver = Driver::whereId($request->driver_id)->first();
-        $driverCar = DriverCar::whereId($request->driver_car_id)->first();
-        unset($driverCar->departments);
-        $tripRequest->driver_car = $driverCar;
+        $tripRequest->with(['driver','driverCar']);
+
         return $tripRequest;
     }
 
