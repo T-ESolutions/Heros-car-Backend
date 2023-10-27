@@ -96,7 +96,7 @@ class TripRepository implements TripRepositoryInterface
             'end_address_en'        => $request->end_address_en,
         ]);
         $result = TripRequest::whereId($tripRequest->id)->with(['driver','driverCar'])->first();
-        unset($result->driver_car->departments);
+        $result->driver_car->departments = null;
         return $result;
     }
 
