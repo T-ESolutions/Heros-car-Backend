@@ -26,7 +26,6 @@ class DriverCarResources extends JsonResource
             'modell' => $this->modell ? $this->modell->title : '',
             'chairs' => $this->chairs,
             'description' => $this->description,
-            'price' => 150,
             'color' => $this->color->title,
             'driver' => new DriverResources($this->driver),
         ];
