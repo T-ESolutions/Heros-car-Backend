@@ -47,7 +47,7 @@ class HomeRepository implements HomeRepositoryInterface
             foreach ($driverCars as $driverCar){
                 $carCategoryId = DriverCarDepartment::whereDepartmentId($activeMainDepartmentId)
                     ->whereDriverCarId($driverCar->id)->first()->car_category_id;
-                $pricePerPerson = CarCategory::whereId($carCategoryId)->first()->km_price;
+                $pricsuggestedTripsePerPerson = CarCategory::whereId($carCategoryId)->first()->km_price;
 
                 $driverCar->department_id       = $activeMainDepartmentId;
                 $driverCar->driver_car_id       = $driverCar->id;
