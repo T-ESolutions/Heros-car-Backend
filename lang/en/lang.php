@@ -12,6 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    "trip_date_invalid" => "The date of the request is at a time that conflicts with the trip time",
+
     'trip_cancelled' => 'trip cancelled',
     'trip_finished' => 'trip finished',
     'trip_started' => 'trip started',

@@ -12,6 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    "trip_date_invalid" => "تاريخ الطلب في ميعاد يخالف ميعاد الرحلة",
+    "invalid_date" => "بيانات غير صحيحة",
     "reset_password" => "إعادة تعيين كلمة المرور",
     'password_changed_s' => 'تم تغيير كلمة المرور بنجاح',
     'password_info' => 'يجب ان تحتوي  على الاقل 6 احرف',

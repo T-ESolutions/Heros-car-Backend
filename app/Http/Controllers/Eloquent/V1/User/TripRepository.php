@@ -49,7 +49,8 @@ class TripRepository implements TripRepositoryInterface
             $trip_id = $request->trip_id;
             $trip = Trip::whereId($trip_id)->first();
             if ($trip->trip_date != $request->trip_date)
-                return false;
+
+                return "trip_date_invalid";
 
             $price = $trip->price_per_person;
             $numOfHours = 0;
@@ -96,6 +97,7 @@ class TripRepository implements TripRepositoryInterface
             'end_address_ar'        => $request->end_address_ar,
             'end_address_en'        => $request->end_address_en,
         ]);
+
         return new TripRequestDetailsResources($tripRequest);
     }
 
