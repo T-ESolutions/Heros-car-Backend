@@ -73,7 +73,7 @@ class TripsRepository implements TripsRepositoryInterface
 
     public function requestsEconomic()
     {
-        $requests = TripRequest::driver()->current()->get();
+        $requests = TripRequest::where('driver_id', driver_id())->current()->get();
         $data = PassengersResources::collection($requests)->response()->getData(true);
         return $data;
     }

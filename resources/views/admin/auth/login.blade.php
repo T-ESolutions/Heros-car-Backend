@@ -129,16 +129,17 @@
                     <!--end::Actions-->
                 </form>
                 <div class="download-buttons text-center row">
+                    <div class="play-store col-md-3 mb-3"></div>
                     <div class="play-store col-md-6 mb-3">
                         <a href="https://play.google.com">
                             <img src="{{url('/')}}/uploads/play_store.png">
                         </a>
                     </div>
-                    <div class="apple-store col-md-6 mb-3">
-                        <a href="https://www.apple.com/app-store">
-                            <img src="{{url('/')}}/uploads/apple_store.png">
-                        </a>
-                    </div>
+{{--                    <div class="apple-store col-md-6 mb-3">--}}
+{{--                        <a href="https://www.apple.com/app-store">--}}
+{{--                            <img src="{{url('/')}}/uploads/apple_store.png">--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
                 </div>
                 <!--end::Form-->
 
