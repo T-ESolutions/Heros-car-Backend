@@ -147,7 +147,7 @@ class TripRepository implements TripRepositoryInterface
     {
         return TripRequest::whereTripId($request->trip_id)->whereUserId(Auth::id())->first();
     }
-
+  
     public function tripDetails($request){
         return Trip::whereId($request->trip_id)
             ->with(['userTripRequest','department','driver','driverCar'])

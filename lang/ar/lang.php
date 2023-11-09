@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    "this_trip_not_for_you" => 'هذه الرحلة ليست لك , يرجى اختيار رحلة صحيحه',
     "trip_date_invalid" => "تاريخ الطلب في ميعاد يخالف ميعاد الرحلة",
     "invalid_date" => "بيانات غير صحيحة",
     "reset_password" => "إعادة تعيين كلمة المرور",
