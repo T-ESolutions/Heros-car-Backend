@@ -35,6 +35,10 @@ class TripController extends Controller
         $request->validated();
 
         $data = $this->tripRepo->createTripRequest($request);
+        if($data == 'trip_date_invalid'){
+            return response()->json(msg(failed(), trans('lang.trip_date_invalid')));
+
+        }
         if (!$data)
             return response()->json(msg(failed(), trans('lang.invalid_date')));
 
@@ -55,9 +59,8 @@ class TripController extends Controller
     public function tripDetails(TripDetailsRequest $request)
     {
         $request->validated();
-
         if (!$this->tripRepo->checkUserOfTrip($request))
-            return response()->json(msg(not_authoize(), trans('lang.not_authorize')));
+            return response()->json(msg(failed(), trans('lang.this_trip_not_for_you')));
 
         $data = new TripDetailsResources($this->tripRepo->tripDetails($request));
 
