@@ -21,8 +21,8 @@ class DriverCarDataResources extends JsonResource
             'id' => (int)$this->id,
             'car_image' => $this->car_image,
             'car_licence_image' => $this->car_licence_image,
-            'brand' => $this->brand ? $this->brand : '',
-            'modell' => $this->modell ? $this->modell : '',
+            'brand' => $this->brand ? $this->brand : null,
+            'modell' => $this->modell ? $this->modell : null,
             'document_image' => $this->document_image,
 
             'factory_year' => $this->factory_year,

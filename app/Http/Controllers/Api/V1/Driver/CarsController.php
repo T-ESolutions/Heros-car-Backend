@@ -47,7 +47,7 @@ class CarsController extends Controller
         return response()->json(msgdata(success(), trans('lang.success'), $result));
     }
 
- public function details(CarDetailsRequest $request)
+    public function details(CarDetailsRequest $request)
     {
         $request = $request->validated();
 

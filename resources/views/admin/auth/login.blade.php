@@ -4,14 +4,14 @@
 <!--begin::Head-->
 <head>
     <base href="../../../">
-    <title>Proten Chef</title>
+    <title>Heroes Cars</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="Proten Chef"/>
-    <meta name="keywords" content="Proten Chef"/>
+    <meta name="description" content="Heroes Cars"/>
+    <meta name="keywords" content="Heroes Cars"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Proten Chef"/>
+    <meta property="og:title" content="Heroes Cars"/>
     <meta property="og:url" content="http://tesolutionspro.com/metronic"/>
     <meta property="og:site_name" content="Keenthemes | Metronic"/>
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8"/>
@@ -60,7 +60,7 @@
                     <div class="text-center mb-10">
                         <!--begin::Link-->
                     {{--                        <div class="text-gray-400 fw-bold fs-4">--}}
-                    {{--                            <a href="" class=" fw-bolder" style="color: #F48120">Proten Chef</a>--}}
+                    {{--                            <a href="" class=" fw-bolder" style="color: #F48120">Heroes Cars</a>--}}
                     {{--                        </div>--}}
                     {{--                        <br>--}}
                     <!--end::Link-->

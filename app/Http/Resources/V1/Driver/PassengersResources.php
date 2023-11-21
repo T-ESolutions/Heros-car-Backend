@@ -30,6 +30,10 @@ class PassengersResources extends JsonResource
             'to_address_en' => $this->to_address_en,
             'price' => $this->price,
             'chairs' => $this->chairs,
+            'started_at' => $this->started_at,
+            'finished_at' => $this->finished_at,
+            'accept_at' => $this->accept_at,
+            'reject_at' => $this->reject_at,
 
         ];
     }
