@@ -27,8 +27,8 @@ class CarStoreRequest extends FormRequest
     {
         return [
             'id' => ['nullable','exists:driver_cars,id',Rule::requiredIf($this->routeIs('car.update'))],
-            'car_image' => 'required|image|mimes:png,jpg,jpeg,webp,svg,jfif',
-            'car_licence_image' => 'required|image|mimes:png,svg,jfif,jpeg,jpg',
+            'car_image' => 'sometimes|image|mimes:png,jpg,jpeg,webp,svg,jfif',
+            'car_licence_image' => 'sometimes|image|mimes:png,svg,jfif,jpeg,jpg',
             'brand_id' => 'required|exists:brands,id',
             'modell_id' => 'required|exists:modells,id,brand_id,'. $this->brand_id,
             'document_image' => 'nullable|image|mimes:png,svg,jfif,jpeg,jpg',
@@ -51,8 +51,8 @@ class CarStoreRequest extends FormRequest
             'password' => ['nullable','min:6',Rule::requiredIf($this->use_my_data == 0 && $this->routeIs('car.store'))],
             'id_number' => 'nullable|required_if:use_my_data,0|unique:drivers,id_number,'.$this->driver_id,
             'gender' => 'nullable|in:male,female|required_if:use_my_data,0',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg,jfif|required_if:use_my_data,0',
-            'driver_licence_image' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg,jfif|required_if:use_my_data,0',
+            'image' => 'sometimes|image|mimes:png,jpg,jpeg,webp,svg,jfif|required_if:use_my_data,0',
+            'driver_licence_image' => 'sometimes|image|mimes:png,jpg,jpeg,webp,svg,jfif|required_if:use_my_data,0',
 
             'departments' => 'required|array',
             'departments.*' => 'required|exists:departments,id',
