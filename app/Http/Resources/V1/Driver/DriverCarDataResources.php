@@ -23,6 +23,7 @@ class DriverCarDataResources extends JsonResource
             'car_licence_image' => $this->car_licence_image,
             'brand' => $this->brand ? $this->brand : null,
             'modell' => $this->modell ? $this->modell : null,
+            'color' => $this->color ? $this->color : null,
             'document_image' => $this->document_image,
 
             'factory_year' => $this->factory_year,
