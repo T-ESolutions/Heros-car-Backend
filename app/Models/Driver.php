@@ -82,12 +82,12 @@ class Driver extends Authenticatable implements JWTSubject
 
     public function setImageAttribute($image)
     {
-//        $img_name = 'category_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
-//        $image->move(public_path('/uploads/gift/'), $img_name);
-//        $this->attributes['image'] = $img_name;
+        $img_name = 'img_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('/uploads/drivers/'), $img_name);
+        $this->attributes['image'] = $img_name;
 //        if (is_file($image)) {
-            $img_name = upload($image, 'drivers');
-            $this->attributes['image'] = $img_name;
+//            $img_name = upload($image, 'drivers');
+//            $this->attributes['image'] = $img_name;
 //        } else {
 //            $this->attributes['image'] = $image;
 //        }
