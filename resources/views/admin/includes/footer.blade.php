@@ -5,8 +5,8 @@
     style="max-height: 20px;!important;">
         <!--begin::Copyright-->
         <div class=" order-2 order-md-1">
-            <span class=" fw-bold me-1" style="color:#F48120">2023 ©</span>
-            <a href="http://tesolutionspro.com" target="_blank" class="text-grey-800 text-hover-primary" style="color:#F48120">
+            <span class=" fw-bold me-1" style="color:#ad1500">2023 ©</span>
+            <a href="http://tesolutionspro.com" target="_blank" class="text-grey-800 text-hover-primary" style="color:#ad1500">
                 جميع الحقوق محفوظة</a>
         </div>
         <!--end::Copyright-->

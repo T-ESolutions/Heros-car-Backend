@@ -82,6 +82,23 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers'], funct
                     ->name('.CancelRequestsDatatable');
             });
 
+            Route::group(['prefix' => 'drivers', 'as' => '.drivers'], function () {
+                Route::get('/', 'DriverController@index');
+                Route::get('getData', 'DriverController@getData')->name('.datatable');
+                Route::get('/create', 'DriverController@create')->name('.create');
+                Route::post('/store', 'DriverController@store')->name('.store');
+                Route::get('/edit/{id}', 'DriverController@edit')->name('.edit');
+                Route::post('/update', 'DriverController@update')->name('.update');
+                Route::get('/show/{id}', 'DriverController@show')->name('.show');
+                Route::post('/delete', 'DriverController@delete')->name('.delete');
+                Route::post('/delete-multi', 'DriverController@deleteMulti')->name('.deleteMulti');
+                Route::get('/orders/{id}', 'DriverController@userOrders')->name('.orders');
+                Route::get('/getUserOrdersData/{id}', 'DriverController@getUserOrdersData')->name('.ordersDatatable');
+                Route::get('/cancel-requests/{id}', 'DriverController@userCancelRequests')->name('.cancelRequests');
+                Route::get('/getUserCancelRequestsData/{id}', 'DriverController@getUserCancelRequestsData')
+                    ->name('.CancelRequestsDatatable');
+            });
+
             Route::group(['prefix' => 'admins', 'as' => '.admins'], function () {
                 Route::get('/', 'AdminController@index');
                 Route::get('getData', 'AdminController@getData')->name('.datatable');

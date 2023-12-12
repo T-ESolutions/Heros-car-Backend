@@ -32,7 +32,8 @@
     }
 
     .btn-secondary {
-        background-color: rgba(255, 136, 33, 0.71) !important;
+        background-color: #ad1500 !important;
+        color: white !important;
     }
     .nav-line-tabs .nav-item .nav-link.active, .nav-line-tabs .nav-item.show .nav-link, .nav-line-tabs .nav-item .nav-link:hover:not(.disabled) {
         border-bottom: 2px solid #ad1500!important;
@@ -61,7 +62,15 @@
     }
     .page-link{
         background-color: #ad1500 !important;
-        color: #3F4254!important;
+        color: white!important;
+    }
+
+    .btn.btn-secondary i{
+        color: white!important;
+    }
+
+    .btn.btn-secondary.dropdown-toggle:after{
+        color: white!important;
     }
 
 </style>

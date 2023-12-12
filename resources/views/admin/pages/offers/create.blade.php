@@ -14,7 +14,7 @@
                 <!--begin::Page title-->
                 <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                     <!--begin::Title-->
-                    <h1 class="d-flex align-items-center fw-bolder fs-3 my-1" style="color: #F48120">
+                    <h1 class="d-flex align-items-center fw-bolder fs-3 my-1" style="color: #ad1500">
                         إضافة عرض
                         <!--end::Description-->
                     </h1>

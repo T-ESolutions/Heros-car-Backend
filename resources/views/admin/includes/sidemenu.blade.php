@@ -94,6 +94,17 @@
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a class="menu-link @if(request()->segment(2) == 'drivers' ) active @endif"
+                       href="{{route('admin.drivers')}}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+                           <i class="fa fa-car fa-2x"></i>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">السائقين</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a class="menu-link @if(request()->segment(2) == 'admins' ) active @endif"
                        href="{{route('admin.admins')}}">
                         <span class="menu-icon">
@@ -151,7 +162,7 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">الطلبات</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">الرحلات</span>
                     </div>
                 </div>
                 <div class="menu-item">
@@ -178,7 +189,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">الطلبات قيد الموافقة</span>
+                        <span class="menu-title">الرحلات قيد الموافقة</span>
                     </a>
                 </div>
                 <div class="menu-item">
@@ -205,7 +216,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">الطلبات الحالية</span>
+                        <span class="menu-title">الرحلات الحالية</span>
                     </a>
                 </div>
                 <div class="menu-item">
@@ -232,7 +243,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">الطلبات المنتهية</span>
+                        <span class="menu-title">الرحلات المنتهية</span>
                     </a>
                 </div>
                 <div class="menu-item">
@@ -259,7 +270,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">الطلبات الملغية</span>
+                        <span class="menu-title">الرحلات الملغية</span>
                     </a>
                 </div>
                 {{--                <div class="menu-item">--}}
@@ -270,7 +281,7 @@
                 {{--                            <i class="fa fa-recycle text-danger"></i>--}}
                 {{--                            <!--end::Svg Icon-->--}}
                 {{--                        </span>--}}
-                {{--                        <span class="menu-title">طلبات الإلغاء</span>--}}
+                {{--                        <span class="menu-title">رحلات الإلغاء</span>--}}
                 {{--                    </a>--}}
                 {{--                </div>--}}
 
