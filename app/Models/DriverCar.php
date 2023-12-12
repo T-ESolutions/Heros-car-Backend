@@ -97,12 +97,15 @@ class DriverCar extends Model
 
     public function setCarImageAttribute($image)
     {
-        if (is_file($image)) {
-            $img_name = upload($image, 'car_images');
-            $this->attributes['car_image'] = $img_name;
-        } else {
-            $this->attributes['car_image'] = $image;
-        }
+        $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('/uploads/car_images/'), $img_name);
+        $this->attributes['image'] = $img_name;
+//        if (is_file($image)) {
+//            $img_name = upload($image, 'car_images');
+//            $this->attributes['car_image'] = $img_name;
+//        } else {
+//            $this->attributes['car_image'] = $image;
+//        }
     }
 
     public function getCarLicenceImageAttribute($image)
@@ -115,12 +118,15 @@ class DriverCar extends Model
 
     public function setCarLicenceImageAttribute($image)
     {
-        if (is_file($image)) {
-            $img_name = upload($image, 'car_licence_images');
-            $this->attributes['car_licence_image'] = $img_name;
-        } else {
-            $this->attributes['car_licence_image'] = $image;
-        }
+        $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('/uploads/car_licence_images/'), $img_name);
+        $this->attributes['image'] = $img_name;
+//        if (is_file($image)) {
+//            $img_name = upload($image, 'car_licence_images');
+//            $this->attributes['car_licence_image'] = $img_name;
+//        } else {
+//            $this->attributes['car_licence_image'] = $image;
+//        }
     }
 
     public function getDocumentImageAttribute($image)
@@ -133,12 +139,15 @@ class DriverCar extends Model
 
     public function setDocumentImageAttribute($image)
     {
-        if (is_file($image)) {
-            $img_name = upload($image, 'document_images');
-            $this->attributes['document_image'] = $img_name;
-        } else {
-            $this->attributes['document_image'] = $image;
-        }
+        $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('/uploads/document_images/'), $img_name);
+        $this->attributes['image'] = $img_name;
+//        if (is_file($image)) {
+//            $img_name = upload($image, 'document_images');
+//            $this->attributes['document_image'] = $img_name;
+//        } else {
+//            $this->attributes['document_image'] = $image;
+//        }
     }
 
     public function getDescriptionAttribute()
