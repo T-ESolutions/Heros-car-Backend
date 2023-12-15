@@ -72,12 +72,15 @@ class User extends Authenticatable implements JWTSubject
 
     public function setImageAttribute($image)
     {
-        if (is_file($image)) {
-            $img_name = upload($image, 'users');
-            $this->attributes['image'] = $img_name;
-        } else {
-            $this->attributes['image'] = $image;
-        }
+        $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('/uploads/users/'), $img_name);
+        $this->attributes['image'] = $img_name;
+//        if (is_file($image)) {
+//            $img_name = upload($image, 'users');
+//            $this->attributes['image'] = $img_name;
+//        } else {
+//            $this->attributes['image'] = $image;
+//        }
     }
 
     public function getJWTIdentifier()
