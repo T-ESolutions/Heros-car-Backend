@@ -6,8 +6,10 @@ use App\Http\Controllers\Interfaces\V1\Provider\TripsRepositoryInterface;
 use App\Http\Resources\V1\Driver\PassengersResources;
 use App\Http\Resources\V1\Driver\TripDetailsResources;
 use App\Http\Resources\V1\Driver\TripsResources;
+use App\Models\CarCategory;
 use App\Models\Driver;
 use App\Models\DriverCar;
+use App\Models\DriverCarDepartment;
 use App\Models\Trip;
 use App\Models\TripRequest;
 use App\Models\User;
@@ -30,7 +32,7 @@ class TripsRepository implements TripsRepositoryInterface
     {
         $request['driver_id'] = driver_id();
         $request['trip_number'] = rand(100000000, 999999999);
-        $driver_car = DriverCar::where('driver_id', driver_id())->first();
+        $driver_car = DriverCar::where('driver_id', $request['driver_id'])->first();
         if (!$driver_car) {
             return "driver_not_have_car";
         }
@@ -38,7 +40,9 @@ class TripsRepository implements TripsRepositoryInterface
         $request['brand_id'] = $driver_car->brand->id;
         $request['modell_id'] = $driver_car->modell->id;
         $request['color_id'] = $driver_car->color->id;
-        $request['price_per_person'] = 0;
+
+        $price_per_person = $this->calculatePricePerPersonCost($request['driver_id'],$request['driver_car_id'],$request['department_id']);
+        $request['price_per_person'] = $price_per_person;
         $trip = Trip::create($request);
         return $trip;
     }
@@ -119,6 +123,27 @@ class TripsRepository implements TripsRepositoryInterface
         })->paginate(pagination_number());
 
         return $data;
+    }
+
+    public function calculatePricePerPersonCost($driver_id,$driver_car_id,$department_id){
+        $driverCarDepartment = DriverCarDepartment::where('department_id',$department_id)
+            ->where('driver_id',$driver_id)
+            ->where('driver_car_id',$driver_car_id)
+            ->first();
+        //car_category_id
+        $carCategory = CarCategory::whereId($driverCarDepartment->car_category_id)->first();
+//        [
+//            'department_id',
+//            'title',
+//            'start_price',
+//            'min_price',
+//            'km_price',
+//            'wait_price',
+//        ];
+        $wait_time = 10;
+        $distance = 50;
+        $cost = $carCategory->start_price + ($wait_time * $carCategory->wait_price) + ($distance * $carCategory->km_price);
+        return $cost;
     }
 
 
