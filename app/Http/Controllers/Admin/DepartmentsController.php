@@ -59,9 +59,10 @@ class DepartmentsController extends Controller
         $data = $request->validated();
 
         if (isset($data['image'])) {
+            $image = $data['image'];
             $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('/uploads/department/'), $img_name);
-            $this->attributes['image'] = $img_name;
+            $data['image'] =   $img_name;
         }
         Department::whereId($data['id'])->update($data);
         session()->flash('success', 'تم التعديل بنجاح');
