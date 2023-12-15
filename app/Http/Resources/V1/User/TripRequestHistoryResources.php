@@ -17,6 +17,7 @@ class TripRequestHistoryResources extends JsonResource
     {
         return [
             'id' => $this->id,
+            'trip_id' => $this->trip_id,
             'from_address' => $this->from_address,
             'to_address' => $this->to_address,
             'department' => isset($this->trip->department) ? $this->trip->department : "",
