@@ -58,7 +58,7 @@ class DepartmentsController extends Controller
 
         $data = $request->validated();
 
-        Department::whereId($data['id'])->update($data);
+        Department::whereId($data['id'])->except('image')->update($data);
         if (isset($data['image'])) {
             Department::whereId($data['id'])->update([
                 'image' => $data['image']
