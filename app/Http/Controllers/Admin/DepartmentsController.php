@@ -58,11 +58,12 @@ class DepartmentsController extends Controller
 
         $data = $request->validated();
 
-//        if (isset($data['image'])) {
-//            $img_name = upload($data['image'], 'department');
-//            $data['image'] = $img_name;
-//        }
         Department::whereId($data['id'])->update($data);
+        if (isset($data['image'])) {
+            Department::whereId($data['id'])->update([
+                'image' => $data['image']
+            ]);
+        }
         session()->flash('success', 'تم التعديل بنجاح');
         return redirect()->route($this->route);
     }
