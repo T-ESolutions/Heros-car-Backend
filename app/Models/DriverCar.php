@@ -99,7 +99,7 @@ class DriverCar extends Model
     {
         $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('/uploads/car_images/'), $img_name);
-        $this->attributes['image'] = $img_name;
+        $this->attributes['car_image'] = $img_name;
 //        if (is_file($image)) {
 //            $img_name = upload($image, 'car_images');
 //            $this->attributes['car_image'] = $img_name;
@@ -120,7 +120,7 @@ class DriverCar extends Model
     {
         $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('/uploads/car_licence_images/'), $img_name);
-        $this->attributes['image'] = $img_name;
+        $this->attributes['car_licence_image'] = $img_name;
 //        if (is_file($image)) {
 //            $img_name = upload($image, 'car_licence_images');
 //            $this->attributes['car_licence_image'] = $img_name;
@@ -141,7 +141,7 @@ class DriverCar extends Model
     {
         $img_name =  uniqid() . '_' . time() . random_int(0000, 9999) . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('/uploads/document_images/'), $img_name);
-        $this->attributes['image'] = $img_name;
+        $this->attributes['document_image'] = $img_name;
 //        if (is_file($image)) {
 //            $img_name = upload($image, 'document_images');
 //            $this->attributes['document_image'] = $img_name;
