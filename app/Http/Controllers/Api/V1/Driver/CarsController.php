@@ -6,6 +6,7 @@ use App\Http\Controllers\Interfaces\V1\Provider\CarRepositoryInterface;
 use App\Http\Requests\V1\Provider\CarDetailsRequest;
 use App\Http\Requests\V1\Provider\CarStoreRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\V1\Provider\CarUpdateRequest;
 
 
 class CarsController extends Controller
@@ -29,7 +30,7 @@ class CarsController extends Controller
         }
     }
 
-    public function update(CarStoreRequest $request)
+    public function update(CarUpdateRequest $request)
     {
         $request = $request->validated();
         $result = $this->carRepo->update($request);

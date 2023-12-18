@@ -80,10 +80,18 @@ class CarRepository implements CarRepositoryInterface
             if (isset($request['password'])) {
                 $driver_data['password'] = $request['password'];
             }
-            $driver_data['id_number'] = $request['id_number'];
-            $driver_data['gender'] = $request['gender'];
-            $driver_data['image'] = $request['image'];
-            $driver_data['driver_licence_image'] = $request['driver_licence_image'];
+            if(isset($request['id_number']))
+                $driver_data['id_number'] = $request['id_number'];
+
+            if(isset($request['gender']))
+                $driver_data['gender'] = $request['gender'];
+
+            if(isset($request['image']))
+                $driver_data['image'] = $request['image'];
+
+            if(isset($request['driver_licence_image']))
+                $driver_data['driver_licence_image'] = $request['driver_licence_image'];
+
             if ($driver_car->driver_id == auth()->user()->id) {
                 $driver = Driver::create($driver_data);
                 $request['driver_id'] = $driver->id;
