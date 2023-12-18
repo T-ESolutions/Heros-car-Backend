@@ -35,6 +35,7 @@ class CarRepository implements CarRepositoryInterface
             $driver_data['id_number'] = $request['id_number'];
             $driver_data['gender'] = $request['gender'];
             $driver_data['image'] = $request['image'];
+            $driver_data['car_image'] = $request['car_image'];
             $driver_data['driver_licence_image'] = $request['driver_licence_image'];
             $driver_data['parent_id'] = auth()->user()->id;
             $driver = Driver::create($driver_data);
