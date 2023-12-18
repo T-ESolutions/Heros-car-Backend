@@ -40,8 +40,8 @@ class CarStoreRequest extends FormRequest
             'chairs' => 'required|numeric|min:1',
             'air_cond' => 'required|in:0,1',
             'bags' => 'required|in:0,1',
-            'lat' => 'required|string',
-            'lng' => 'required|string',
+            'lat' => 'required|',
+            'lng' => 'required|',
             'address_ar' => 'required|string',
             'address_en' => 'required|string',
 
