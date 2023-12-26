@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\TripRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 if (!function_exists('driver_id')) {
@@ -287,5 +289,32 @@ if (!function_exists('HttpPost')) {
         return json_decode($output);
     }
 
+    if (!function_exists('deleteHangedOrders')) {
+
+        function deleteHangedOrders()
+        {
+            $now = Carbon::now();
+            $hangedOrders = TripRequest::orderBy('id', 'desc')
+                ->whereNull('accept_at')
+                ->whereNull('started_at')
+                ->whereNull('finished_at')
+                ->whereNull('reject_at')
+                ->whereNull('user_cancel_at')
+                ->whereNull('user_cancel_reason')
+                ->get();
+            foreach ($hangedOrders as $hangedOrder) {
+                $hangedOrderCreated_at = Carbon::parse($hangedOrder->created_at);
+                if ($hangedOrderCreated_at->diff($now)->h > 24 ||
+                    $hangedOrderCreated_at->diff($now)->d > 0
+                ) {
+                    TripRequest::whereId($hangedOrder->id)
+                        ->update([
+                            'reject_at' => Carbon::now(),
+                            'user_cancel_at' => 'order waits too long & no response - الطلب انتظر طويلا بدون استجابة',
+                        ]);
+                }
+            }
+        }
+    }
 
 }

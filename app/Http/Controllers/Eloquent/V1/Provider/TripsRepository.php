@@ -41,7 +41,7 @@ class TripsRepository implements TripsRepositoryInterface
         $request['modell_id'] = $driver_car->modell->id;
         $request['color_id'] = $driver_car->color->id;
 
-        $price_per_person = $this->calculatePricePerPersonCost($request['driver_id'],$request['driver_car_id'],$request['department_id']);
+        $price_per_person = $this->calculatePricePerPersonCost($request['driver_id'], $request['driver_car_id'], $request['department_id']);
         $request['price_per_person'] = $price_per_person;
         $trip = Trip::create($request);
         return $trip;
@@ -116,19 +116,19 @@ class TripsRepository implements TripsRepositoryInterface
 
     public function getTripRequestHistory()
     {
-
-
-        $data = Trip::whereHas('tripRequests', function ($q) {
-            $q->whereNotNull('accept_at');
-        })->paginate(pagination_number());
+        $data = Trip::orderBy('id', 'desc')
+            ->whereHas('tripRequests', function ($q) {
+                $q->whereNotNull('accept_at');
+            })->paginate(pagination_number());
 
         return $data;
     }
 
-    public function calculatePricePerPersonCost($driver_id,$driver_car_id,$department_id){
-        $driverCarDepartment = DriverCarDepartment::where('department_id',$department_id)
-            ->where('driver_id',$driver_id)
-            ->where('driver_car_id',$driver_car_id)
+    public function calculatePricePerPersonCost($driver_id, $driver_car_id, $department_id)
+    {
+        $driverCarDepartment = DriverCarDepartment::where('department_id', $department_id)
+            ->where('driver_id', $driver_id)
+            ->where('driver_car_id', $driver_car_id)
             ->first();
         //car_category_id
         $carCategory = CarCategory::whereId($driverCarDepartment->car_category_id)->first();

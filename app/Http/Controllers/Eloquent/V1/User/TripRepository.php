@@ -147,7 +147,7 @@ class TripRepository implements TripRepositoryInterface
     {
         return TripRequest::whereTripId($request->trip_id)->whereUserId(Auth::id())->first();
     }
-  
+
     public function tripDetails($request){
         return Trip::whereId($request->trip_id)
             ->with(['userTripRequest','department','driver','driverCar'])
@@ -175,7 +175,8 @@ class TripRepository implements TripRepositoryInterface
 
     public function getTripRequestHistory()
     {
-        $data = TripRequest::where('user_id', Auth::id())
+        $data = TripRequest::orderBy('id','desc')
+            ->where('user_id', Auth::id())
             ->with('trip')
             ->paginate(pagination_number());
 
