@@ -309,7 +309,7 @@ if (!function_exists('HttpPost')) {
                 ) {
                     TripRequest::whereId($hangedOrder->id)
                         ->update([
-                            'reject_at' => Carbon::now(),
+                            'reject_at' => Carbon::now()->format('Y-m-d H:i:s'),
                             'user_cancel_at' => 'order waits too long & no response - الطلب انتظر طويلا بدون استجابة',
                         ]);
                 }
