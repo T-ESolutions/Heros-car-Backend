@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\V1\User;
 
+use App\Http\Resources\V1\DepartmentResources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -24,7 +25,7 @@ class TripRequestHistoryResources extends JsonResource
             'to_lat' => $this->to_lat,
             'to_lng' => $this->to_lng,
             'to_address' => $this->to_address,
-            'department' => isset($this->trip->department) ? $this->trip->department : "",
+            'department' => isset($this->trip->department) ? new DepartmentResources($this->trip->department) : "",
             'trip_number' => isset($this->trip) ? $this->trip->trip_number : "",
             'trip_date' => Carbon::parse($this->trip_date)->translatedFormat("dd\mm\yyyy"),
             'trip_time_from' => Carbon::parse($this->trip_time)->translatedFormat("h:i a"),
