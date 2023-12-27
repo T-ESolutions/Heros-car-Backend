@@ -109,4 +109,9 @@ class TripRequest extends Model
     {
         return $this->belongsTo(DriverCar::class, 'driver_car_id');
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
 }
