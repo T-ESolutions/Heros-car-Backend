@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -113,5 +114,10 @@ class TripRequest extends Model
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format("Y-m-d H:i:s");
     }
 }

@@ -34,6 +34,7 @@ class TripRequestHistoryResources extends JsonResource
             'num_of_hours' => $this->num_of_hours,
             'bags' => $this->bags,
             'chairs' => $this->chairs,
+            'created_at' => $this->created_at,
             'accept_at' => $this->accept_at,
             'reject_at' => $this->reject_at,
             'started_at' => $this->started_at,

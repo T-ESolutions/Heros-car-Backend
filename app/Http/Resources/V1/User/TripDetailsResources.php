@@ -46,6 +46,7 @@ class TripDetailsResources extends JsonResource
             'end_lng'           => (string)$this->end_lng,
             'end_address_ar'    => (string)$this->end_address_ar,
             'end_address_en'    => (string)$this->end_address_en,
+            'created_at'        => (string)$this->created_at,
             'trip_request'      => new TripRequestDetailsResources($this->userTripRequest),
             'trip_department'   => new DepartmentResources($this->department),
             'trip_driver'       => new TripDriverResources($this->driver),
