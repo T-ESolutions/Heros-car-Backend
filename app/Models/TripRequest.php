@@ -92,7 +92,7 @@ class TripRequest extends Model
 
     public function scopeCurrent($q)
     {
-        return $q->where('accept_at', null)->where('reject_at', null);
+        return $q->where('accept_at', null)->where('reject_at', null)->where('finished_at', null);
     }
 
     public function scopeDriver($q)
