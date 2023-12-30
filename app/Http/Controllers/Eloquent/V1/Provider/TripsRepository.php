@@ -7,6 +7,7 @@ use App\Http\Resources\V1\Driver\PassengersResources;
 use App\Http\Resources\V1\Driver\TripDetailsResources;
 use App\Http\Resources\V1\Driver\TripsResources;
 use App\Models\CarCategory;
+use App\Models\Department;
 use App\Models\Driver;
 use App\Models\DriverCar;
 use App\Models\DriverCarDepartment;
@@ -85,12 +86,23 @@ class TripsRepository implements TripsRepositoryInterface
     public function replyRequestsEconomic($request)
     {
         $target = TripRequest::whereId($request['id'])->first();
+        $department = Department::whereId($target->department_id)->first();
         if ($request['action'] == 'accept') {
-            if ($target->trip->chairs > count($target->trip->passengers)) {
-                $target->accept_at = Carbon::now();
-            } else {
-                return "trip_is_complete_now";
+            if($department->id == 2 || $department->parent_id == 2){ //for rent cars departments
+                $driverCar = DriverCar::whereId($target->driver_car_id)->first();
+                if ($driverCar->chairs >= ($target->chairs)) {
+                    $target->accept_at = Carbon::now();
+                } else {
+                    return "trip_is_complete_now";
+                }
+            }else{ //for other cars departments
+                if (isset($target->trip->chairs) && $target->trip->chairs >= count($target->trip->passengers)) {
+                    $target->accept_at = Carbon::now();
+                } else {
+                    return "trip_is_complete_now";
+                }
             }
+
         } elseif ($request['action'] == 'reject') {
             $target->reject_at = Carbon::now();
         }
