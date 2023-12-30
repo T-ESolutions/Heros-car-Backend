@@ -14,7 +14,7 @@ return [
     */
     "this_trip_not_for_you" => 'هذه الرحلة ليست لك , يرجى اختيار رحلة صحيحه',
     "trip_date_invalid" => "تاريخ الطلب في ميعاد يخالف ميعاد الرحلة",
-    "cant_duplicate_trip_request" => "عذرا, تم إرسال نفس الطلب منقبل",
+    "cant_duplicate_trip_request" => "عذرا, تم إرسال نفس الطلب من قبل",
     "invalid_date" => "بيانات غير صحيحة",
     "reset_password" => "إعادة تعيين كلمة المرور",
     'password_changed_s' => 'تم تغيير كلمة المرور بنجاح',
