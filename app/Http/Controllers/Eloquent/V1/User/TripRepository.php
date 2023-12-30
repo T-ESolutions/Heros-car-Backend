@@ -33,6 +33,14 @@ class TripRepository implements TripRepositoryInterface
 {
     public function createTripRequest($request)
     {
+        $checkIfTripRequestExists = TripRequest::where('user_id',Auth::id())
+            ->where('driver_id',$request->driver_id)
+            ->where('department_id',$request->department_id)
+            ->where('driver_car_id',$request->driver_car_id)
+            ->where('trip_date',$request->trip_date)
+            ->first();
+        if($checkIfTripRequestExists)
+            return "cant_duplicate_trip_request";
 
         $department = Department::whereId($request->department_id)->first();
 

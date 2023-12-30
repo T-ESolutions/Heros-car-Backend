@@ -14,7 +14,7 @@ return [
     */
     "this_trip_not_for_you" => 'This trip is not for you, please choose a valid trip',
     "trip_date_invalid" => "The date of the request is at a time that conflicts with the trip time",
-
+    "cant_duplicate_trip_request" => "Sorry, Trip request sent before",
     'trip_cancelled' => 'trip cancelled',
     'trip_finished' => 'trip finished',
     'trip_started' => 'trip started',

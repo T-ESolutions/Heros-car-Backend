@@ -35,10 +35,13 @@ class TripController extends Controller
         $request->validated();
 
         $data = $this->tripRepo->createTripRequest($request);
+        if($data == 'cant_duplicate_trip_request'){
+            return response()->json(msg(failed(), trans('lang.cant_duplicate_trip_request')));
+        }
         if($data == 'trip_date_invalid'){
             return response()->json(msg(failed(), trans('lang.trip_date_invalid')));
-
         }
+
         if (!$data)
             return response()->json(msg(failed(), trans('lang.invalid_date')));
 
