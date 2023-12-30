@@ -26,6 +26,7 @@ class TripRequestHistoryResources extends JsonResource
             'trip_date' => Carbon::parse($this->trip_date)->translatedFormat("dd\mm\yyyy"),
             'trip_time_from' => Carbon::parse($this->trip_time_from)->translatedFormat("h:i a"),
             'price' => $price,
+            'created_at' => $this->created_at,
             'started_at' => $this->started_at,
             'finished_at' => $this->finished_at,
             'cancelled_at' => $this->user_cancel_at,

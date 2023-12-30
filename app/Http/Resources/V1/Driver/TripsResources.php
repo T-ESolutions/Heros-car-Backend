@@ -36,6 +36,7 @@ class TripsResources extends JsonResource
             'to_address_ar' => $this->to_address_ar,
             'to_address_en' => $this->to_address_en,
             'status' => $this->status ,
+            'created_at' => $this->created_at,
             'started_at' => $this->started_at,
             'finished_at' => $this->finished_at,
             'cancelled_at' => $this->cancelled_at,
