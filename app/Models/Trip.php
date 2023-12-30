@@ -202,4 +202,9 @@ class Trip extends Model
     {
         return Carbon::parse($value)->format("Y-m-d h:i:s A");
     }
+
+    public function getTripDateAttribute($value)
+    {
+        return Carbon::parse($value)->format("Y-m-d");
+    }
 }
